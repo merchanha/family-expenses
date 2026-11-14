@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-background":"#0b1c30","outline":"#76777d","surface-container":"#e5eeff","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","tertiary-container":"#00201d","primary-fixed-dim":"#bec6e0","on-primary-container":"#7c839b","on-tertiary-container":"#0c9488","secondary-fixed-dim":"#c3c0ff","tertiary":"#000000","error":"#ba1a1a","surface-container-highest":"#d3e4fe","on-surface":"#0b1c30","surface-tint":"#565e74","error-container":"#ffdad6","surface-container-high":"#dce9ff","tertiary-fixed":"#89f5e7","on-secondary-fixed-variant":"#3323cc","surface-container-low":"#eff4ff","background":"#f8f9ff","on-primary":"#ffffff","inverse-on-surface":"#eaf1ff","on-tertiary-fixed-variant":"#005049","primary-fixed":"#dae2fd","on-primary-fixed-variant":"#3f465c","on-secondary-container":"#fffbff","surface-bright":"#f8f9ff","secondary-container":"#645efb","secondary-fixed":"#e2dfff","primary":"#000000","primary-container":"#131b2e","surface-variant":"#d3e4fe","surface":"#f8f9ff","on-tertiary-fixed":"#00201d","on-error-container":"#93000a","outline-variant":"#c6c6cd","inverse-surface":"#213145","surface-dim":"#cbdbf5","on-secondary-fixed":"#0f0069","on-primary-fixed":"#131b2e","on-error":"#ffffff","on-surface-variant":"#45464d","tertiary-fixed-dim":"#6bd8cb","secondary":"#4b41e1","on-tertiary":"#ffffff","inverse-primary":"#bec6e0"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1rem","space-md":"1rem","margin-md":"2rem","gutter-lg":"2rem","margin-lg":"3rem","gutter-md":"1.5rem","margin":"1rem","space-sm":"0.5rem","space-xl":"2rem"},"fontFamily":{"stat-lg":["Hanken Grotesk"],"headline-lg-mobile":["Hanken Grotesk"],"headline-lg":["Hanken Grotesk"],"label-md":["Inter"],"stat-md":["Hanken Grotesk"],"stat-lg-mobile":["Hanken Grotesk"],"body-lg":["Inter"],"body-md":["Inter"],"headline-md":["Hanken Grotesk"],"label-sm":["Inter"],"display-lg":["Hanken Grotesk"],"headline-sm":["Hanken Grotesk"],"display-lg-mobile":["Hanken Grotesk"],"body-sm":["Inter"]},"fontSize":{"stat-lg":["36px",{"lineHeight":"40px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"stat-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"stat-lg-mobile":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"26px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["32px",{"lineHeight":"38px","letterSpacing":"-0.025em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="px-space-lg pt-space-lg pb-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><img alt="Tandem Finance Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrABER5GM6UqsahkWIZnobdwupafxDhK4u5fk-aBYkQhXrewYGPtU7URAWg7tTzXTIFSoMPooBRjmeJprLfkVe2bBwjTsy4_UL0mcNgECbIgtnzQzYggbjBF6cZrscXBCknlG8AZJ5tMDFGtO51Yvc3xG9VLBIOmofRXm4YISwmtBd97Je2ESjuuWTLC1x48o37aC9qM-FxXzUQ0KwjnSHqYiVCA-fgZw_8tPj9-cCuy"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight tracking-tight font-semibold">Tandem</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Shared Space (Alex &amp; Maya)</span></div></div><div class="flex items-center justify-center w-6 h-6 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span></div></div><div class="px-space-md py-space-xs"><button class="w-full flex items-center justify-between px-space-md py-space-sm bg-primary text-on-primary rounded-lg shadow-sm hover:bg-primary-container transition-all text-left" type="button"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="font-label-md text-label-md font-medium">New Expense</span></div><kbd class="px-1.5 py-0.5 text-[10px] font-semibold bg-surface-container/20 rounded text-on-primary/90 uppercase tracking-wider">⌘K</kbd></button></div><nav class="flex-1 px-space-md py-space-sm overflow-y-auto flex flex-col gap-1" data-active-classes="bg-surface-container text-on-surface font-semibold rounded-lg"><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="dashboard" href="#dashboard"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></div></a><a aria-current="page" class="flex items-center justify-between px-space-md py-2.5 transition-all bg-surface-container text-on-surface font-semibold rounded-lg" data-path="transactions" href="#transactions"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-label-md text-label-md">Transactions</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="categories-and-budgets" href="#categories"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">pie_chart</span><span class="font-label-md text-label-md">Categories &amp; Budgets</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="financial-progress" href="#progress"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">trending_up</span><span class="font-label-md text-label-md">Financial Progress</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="savings-goals" href="#goals"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">savings</span><span class="font-label-md text-label-md">Savings Goals</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="ai-financial-insights" href="#insights"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px] text-secondary">auto_awesome</span><span class="font-label-md text-label-md">AI Insights</span></div><span class="px-1.5 py-0.5 text-[10px] font-semibold bg-secondary-fixed text-on-secondary-fixed rounded-full">AI</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="notifications" href="#notifications"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="font-label-md text-label-md">Notifications</span></div><span class="px-1.5 py-0.5 text-[11px] font-semibold bg-error-container text-on-error-container rounded-full leading-none">3</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="settings-and-household" href="#settings"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-md text-label-md">Settings &amp; Household</span></div></a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-surface-container-low/60 rounded-t-xl"><div class="flex flex-col gap-1 px-1"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Household Members</span><div class="flex items-center justify-between pt-1"><div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-body-sm text-body-sm text-on-surface font-medium">Alex</span></div><div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span><span class="font-body-sm text-body-sm text-on-surface font-medium">Maya</span></div><div class="flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm font-semibold"><span class="material-symbols-outlined text-[14px]">balance</span>50/50</div></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByx7W8U3oxfcRhew20t8Y2VjErt94t6GuBUomjkd7TSLBWOoRgHXVxiJGU1xWU9jP_2xcGsSgHGJ2gvuvwIRbKlX4p5Frl69OM3C0QMEQFJ3Ko7L3WZ_96zSBX4BoUD2wIgBcrpwqWN3DhZWPxKP3wgob-C6WaWo9ZZ0nBU0ZcGc0G7D-urve1fDBxGJJT1JXEPlWmR9ZNM0KrBJcgf5wSXhkQ6w3MPgIgoH3JtZaq"/><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface truncate font-medium">Alex &amp; Maya</span><span class="font-label-sm text-label-sm text-on-surface-variant">Personal Vault</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></aside><div class="pl-72 min-h-screen flex flex-col"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-2"><button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button><div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors cursor-pointer shadow-sm"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">calendar_today</span><span class="font-label-md text-label-md text-on-surface font-semibold">October 2024</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span></div><button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button></div><div class="flex items-center p-0.5 bg-surface-container rounded-lg"><button class="px-space-md py-1 rounded-md bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold shadow-sm" type="button">All Shared</button><button class="flex items-center gap-1.5 px-space-md py-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Alex</button><button class="flex items-center gap-1.5 px-space-md py-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button"><span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>Maya</button></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer shadow-sm"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-body-sm text-body-sm hidden sm:inline">Search transactions, categories...</span><kbd class="hidden sm:inline px-1 py-0.5 text-[10px] bg-surface-container rounded font-medium text-on-surface-variant">⌘F</kbd></div><button class="relative w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary"></span></button><button class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button></div></header><main class="relative pt-16 bg-surface min-h-screen w-full px-8 pb-12"><div class="flex flex-col w-full relative">
+<!-- Top Stats & Title Bar -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg mb-space-lg">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span>Shared Ledger</span>
+<span>•</span>
+<span class="text-secondary font-semibold">Live Synchronized</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Transactions</h1>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="text-on-surface font-semibold">$5,120.00</span> in expenses (48 items)
+        <span class="inline-block w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="text-on-tertiary-container font-semibold">$9,450.00</span> in income (4 items)
+      </p>
+</div>
+<!-- Action Toolbar -->
+<div class="flex items-center flex-wrap gap-space-sm">
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container shadow-sm font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">file_upload</span>
+<span>Import CSV / Bank</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container shadow-sm font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">ios_share</span>
+<span>Export Statement</span>
+</button>
+<button class="flex items-center gap-2 px-space-lg py-2.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container shadow-md font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="font-semibold">Add Transaction</span>
+</button>
+</div>
+</div>
+<!-- Filter & Search Panel -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md mb-space-lg flex flex-col gap-space-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-11 pl-11 pr-24 rounded-lg bg-surface-container-low text-on-surface placeholder:text-on-surface-variant/70 font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary/20 outline-none transition-all" placeholder="Search by description, merchant, tags, or notes..." type="text" value=""/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
+<kbd class="px-1.5 py-0.5 text-[10px] font-semibold bg-surface-container rounded text-on-surface-variant uppercase">⌘K</kbd>
+</div>
+</div>
+<!-- Filter chips row -->
+<div class="flex items-center justify-between flex-wrap gap-space-sm pt-1">
+<div class="flex items-center flex-wrap gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">swap_horiz</span>
+<span>All Types</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">expand_more</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">category</span>
+<span>Category: All</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">expand_more</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">group</span>
+<span>Person: Alex &amp; Maya</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">expand_more</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">calendar_month</span>
+<span>Oct 1 - Oct 31, 2024</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">attach_money</span>
+<span>Amount Range</span>
+</button>
+</div>
+<!-- Active tag pills -->
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span>October 2024</span>
+<button class="hover:text-error flex items-center" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span>Shared (All)</span>
+<button class="hover:text-error flex items-center" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<button class="font-label-sm text-label-sm text-secondary hover:underline ml-1" type="button">Reset</button>
+</div>
+</div>
+</div>
+<!-- Background Data Table (Under Modal) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden mb-8">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-space-md font-semibold">Date</th>
+<th class="py-3 px-space-md font-semibold">Merchant / Details</th>
+<th class="py-3 px-space-md font-semibold">Category</th>
+<th class="py-3 px-space-md font-semibold">Paid By</th>
+<th class="py-3 px-space-md font-semibold">Account</th>
+<th class="py-3 px-space-md font-semibold text-right">Amount</th>
+<th class="py-3 px-space-md font-semibold text-center">Status</th>
+<th class="py-3 px-space-md font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface font-body-md text-body-md">
+<!-- Row 1: Rent -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-3.5 px-space-md text-on-surface-variant font-label-md text-label-md">Oct 24</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[18px]">apartment</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface">Avalon Communities</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Monthly Rent &amp; Utilities</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="px-2.5 py-1 rounded-md bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">Housing</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-low w-fit">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex (50/50)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-on-surface-variant font-body-sm text-body-sm">Chase Joint ····4821</td>
+<td class="py-3.5 px-space-md text-right font-semibold text-on-surface font-stat-md text-stat-md">
+              -$2,850.00
+              <span class="block font-body-sm text-body-sm text-on-surface-variant font-normal">Alex owes Maya $0</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-on-tertiary-container bg-surface-container px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span> Cleared
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Trader Joe's -->
+<tr class="hover:bg-surface-container-low/70 transition-colors bg-surface-container-low/30">
+<td class="py-3.5 px-space-md text-on-surface-variant font-label-md text-label-md">Oct 22</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface">Trader Joe's</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Weekly restock &amp; organic produce</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="px-2.5 py-1 rounded-md bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">Groceries</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-low w-fit">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya (50/50)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-on-surface-variant font-body-sm text-body-sm">Apple Card ····1092</td>
+<td class="py-3.5 px-space-md text-right font-semibold text-on-surface font-stat-md text-stat-md">
+              -$128.50
+              <span class="block font-body-sm text-body-sm text-on-surface-variant font-normal">Alex owes $64.25</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-on-tertiary-container bg-surface-container px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span> Cleared
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Salary Maya -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-3.5 px-space-md text-on-surface-variant font-label-md text-label-md">Oct 20</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface">Stripe Payroll Inc</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Maya's Monthly Direct Deposit</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-on-tertiary-container font-label-sm text-label-sm font-semibold">Income</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-low w-fit">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-on-surface-variant font-body-sm text-body-sm">Chase Joint ····4821</td>
+<td class="py-3.5 px-space-md text-right font-semibold text-on-tertiary-container font-stat-md text-stat-md">
+              +$4,800.00
+              <span class="block font-body-sm text-body-sm text-on-surface-variant font-normal">Joint pool credit</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-on-tertiary-container bg-surface-container px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span> Cleared
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Pet Care / Vet -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-3.5 px-space-md text-on-surface-variant font-label-md text-label-md">Oct 18</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[18px]">pets</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface">VCA Westwood Animal Hospital</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Milo annual shots &amp; medication</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="px-2.5 py-1 rounded-md bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">Pet Care</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-low w-fit">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex (50/50)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-on-surface-variant font-body-sm text-body-sm">Chase Sapphire ····9932</td>
+<td class="py-3.5 px-space-md text-right font-semibold text-on-surface font-stat-md text-stat-md">
+              -$245.80
+              <span class="block font-body-sm text-body-sm text-on-surface-variant font-normal">Maya owes $122.90</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-on-tertiary-container bg-surface-container px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span> Cleared
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Uber -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-3.5 px-space-md text-on-surface-variant font-label-md text-label-md">Oct 17</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[18px]">local_taxi</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface">Uber Trip</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Airport Ride back home (SFO)</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="px-2.5 py-1 rounded-md bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">Transit</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-low w-fit">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex (50/50)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-on-surface-variant font-body-sm text-body-sm">Apple Card ····1092</td>
+<td class="py-3.5 px-space-md text-right font-semibold text-on-surface font-stat-md text-stat-md">
+              -$44.20
+              <span class="block font-body-sm text-body-sm text-on-surface-variant font-normal">Maya owes $22.10</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-on-tertiary-container bg-surface-container px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span> Cleared
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Spotify -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-3.5 px-space-md text-on-surface-variant font-label-md text-label-md">Oct 15</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[18px]">subscriptions</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-semibold text-on-surface">Spotify Duo Premium</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Recurring subscription</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md">
+<span class="px-2.5 py-1 rounded-md bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">Entertainment</span>
+</td>
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-low w-fit">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya (50/50)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-md text-on-surface-variant font-body-sm text-body-sm">Apple Card ····1092</td>
+<td class="py-3.5 px-space-md text-right font-semibold text-on-surface font-stat-md text-stat-md">
+              -$14.99
+              <span class="block font-body-sm text-body-sm text-on-surface-variant font-normal">Alex owes $7.50</span>
+</td>
+<td class="py-3.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-on-tertiary-container bg-surface-container px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span> Cleared
+              </span>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="flex items-center justify-end gap-1 text-on-surface-variant">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">edit</span></button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[16px]">more_vert</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- MODAL OVERLAY: Linear-like 'Add Transaction' Dialog -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-on-surface/40 backdrop-blur-md" id="add-transaction-modal">
+<!-- Click backdrop listener simulated -->
+<div class="relative w-full max-w-[540px] bg-surface-container-lowest rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[942px]">
+<!-- Modal Top Bar -->
+<div class="px-6 pt-5 pb-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">add_circle</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Add Transaction</h2>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Segmented Type Selector -->
+<div class="px-6 py-2">
+<div class="grid grid-cols-3 gap-1 p-1 bg-surface-container rounded-xl">
+<button class="py-1.5 rounded-lg bg-surface-container-lowest text-error font-label-md text-label-md font-semibold shadow-sm flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+<span>Expense</span>
+</button>
+<button class="py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+<span>Income</span>
+</button>
+<button class="py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">sync_alt</span>
+<span>Transfer</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Form Body -->
+<div class="px-6 py-4 overflow-y-auto flex flex-col gap-space-lg">
+<!-- Large Currency Input -->
+<div class="flex flex-col items-center justify-center py-4 bg-surface rounded-xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Transaction Amount</span>
+<div class="flex items-baseline justify-center text-on-surface">
+<span class="text-headline-lg font-headline-lg text-on-surface-variant mr-1">$</span>
+<input class="w-48 text-center font-stat-lg text-stat-lg font-bold bg-transparent outline-none text-on-surface tracking-tight focus:text-primary" type="text" value="128.50"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Split evenly: $64.25 each</span>
+</div>
+<!-- Who Paid Attribution -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Who paid for this?</label>
+<div class="grid grid-cols-3 gap-2">
+<!-- Alex Option -->
+<button class="flex flex-col items-center justify-center gap-1 p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all text-on-surface group" type="button">
+<div class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-sm text-label-sm font-semibold">A</div>
+<span class="font-label-md text-label-md font-medium">Alex</span>
+</button>
+<!-- Maya Option (Active) -->
+<button class="flex flex-col items-center justify-center gap-1 p-2.5 rounded-xl bg-surface-container-lowest shadow-md text-on-tertiary-container ring-2 ring-on-tertiary-container/30 transition-all" type="button">
+<div class="w-7 h-7 rounded-full bg-on-tertiary-container text-on-secondary flex items-center justify-center font-label-sm text-label-sm font-semibold">M</div>
+<span class="font-label-md text-label-md font-semibold">Maya (Paid)</span>
+</button>
+<!-- Split 50/50 -->
+<button class="flex flex-col items-center justify-center gap-1 p-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all text-on-surface" type="button">
+<div class="flex items-center -space-x-1.5">
+<span class="w-5 h-5 rounded-full bg-secondary text-[9px] text-white flex items-center justify-center font-bold">A</span>
+<span class="w-5 h-5 rounded-full bg-on-tertiary-container text-[9px] text-white flex items-center justify-center font-bold">M</span>
+</div>
+<span class="font-label-md text-label-md font-medium">Split 50/50</span>
+</button>
+</div>
+</div>
+<!-- Description & Merchant Autofill -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Merchant / Description</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">storefront</span>
+<input class="w-full h-11 pl-10 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary/30 outline-none transition-all" placeholder="e.g. Whole Foods, Spotify, Rent..." type="text" value="Trader Joe's"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-tertiary-container text-[18px]">check_circle</span>
+</div>
+<!-- Quick suggestions pill row -->
+<div class="flex items-center gap-1.5 pt-1 overflow-x-auto">
+<span class="text-[11px] text-on-surface-variant">Frequent:</span>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors" type="button">Trader Joe's</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors" type="button">Target</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors" type="button">Amazon Fresh</button>
+</div>
+</div>
+<!-- Dual Column: Category & Account -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Category Select -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Category</label>
+<div class="relative">
+<button class="w-full h-11 px-3 rounded-lg bg-surface-container-low flex items-center justify-between text-left hover:bg-surface-container transition-colors" type="button">
+<div class="flex items-center gap-2 min-w-0">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-body-md text-body-md text-on-surface truncate">Groceries &amp; Food</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">unfold_more</span>
+</button>
+</div>
+</div>
+<!-- Payment Account -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Payment Method</label>
+<div class="relative">
+<button class="w-full h-11 px-3 rounded-lg bg-surface-container-low flex items-center justify-between text-left hover:bg-surface-container transition-colors" type="button">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">credit_card</span>
+<span class="font-body-md text-body-md text-on-surface truncate">Joint Checking ····4821</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">unfold_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Date & Quick Shortcuts -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Date</label>
+<div class="flex items-center gap-1">
+<button class="text-[11px] px-2 py-0.5 rounded bg-surface-container text-on-surface font-medium hover:bg-surface-container-high" type="button">Today</button>
+<button class="text-[11px] px-2 py-0.5 rounded bg-surface-container text-on-surface font-medium hover:bg-surface-container-high" type="button">Yesterday</button>
+</div>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">calendar_today</span>
+<input class="w-full h-11 pl-10 pr-4 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest outline-none transition-all" type="text" value="Tuesday, October 22, 2024"/>
+</div>
+</div>
+<!-- Notes & Receipt Drag Box -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Notes &amp; Receipt</label>
+<input class="w-full h-10 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-lowest transition-all" placeholder="Add optional memo..." type="text" value="Weekly family restock + dinner supplies"/>
+<!-- Receipt attachment miniature -->
+<div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary">receipt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface">trader_joes_rec_1022.pdf</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1.4 MB · Auto-scanned &amp; matched</span>
+</div>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-6 py-4 bg-surface-container-low/60 flex items-center justify-between gap-space-md">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded bg-surface text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Add another afterwards</span>
+</label>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-medium transition-colors" type="button">
+            Cancel
+          </button>
+<button class="flex items-center gap-1.5 px-5 py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container shadow-md font-label-md text-label-md font-semibold transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Save Transaction</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

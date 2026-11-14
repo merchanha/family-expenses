@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-background":"#0b1c30","outline":"#76777d","surface-container":"#e5eeff","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","tertiary-container":"#00201d","primary-fixed-dim":"#bec6e0","on-primary-container":"#7c839b","on-tertiary-container":"#0c9488","secondary-fixed-dim":"#c3c0ff","tertiary":"#000000","error":"#ba1a1a","surface-container-highest":"#d3e4fe","on-surface":"#0b1c30","surface-tint":"#565e74","error-container":"#ffdad6","surface-container-high":"#dce9ff","tertiary-fixed":"#89f5e7","on-secondary-fixed-variant":"#3323cc","surface-container-low":"#eff4ff","background":"#f8f9ff","on-primary":"#ffffff","inverse-on-surface":"#eaf1ff","on-tertiary-fixed-variant":"#005049","primary-fixed":"#dae2fd","on-primary-fixed-variant":"#3f465c","on-secondary-container":"#fffbff","surface-bright":"#f8f9ff","secondary-container":"#645efb","secondary-fixed":"#e2dfff","primary":"#000000","primary-container":"#131b2e","surface-variant":"#d3e4fe","surface":"#f8f9ff","on-tertiary-fixed":"#00201d","on-error-container":"#93000a","outline-variant":"#c6c6cd","inverse-surface":"#213145","surface-dim":"#cbdbf5","on-secondary-fixed":"#0f0069","on-primary-fixed":"#131b2e","on-error":"#ffffff","on-surface-variant":"#45464d","tertiary-fixed-dim":"#6bd8cb","secondary":"#4b41e1","on-tertiary":"#ffffff","inverse-primary":"#bec6e0"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1rem","space-md":"1rem","margin-md":"2rem","gutter-lg":"2rem","margin-lg":"3rem","gutter-md":"1.5rem","margin":"1rem","space-sm":"0.5rem","space-xl":"2rem"},"fontFamily":{"stat-lg":["Hanken Grotesk"],"headline-lg-mobile":["Hanken Grotesk"],"headline-lg":["Hanken Grotesk"],"label-md":["Inter"],"stat-md":["Hanken Grotesk"],"stat-lg-mobile":["Hanken Grotesk"],"body-lg":["Inter"],"body-md":["Inter"],"headline-md":["Hanken Grotesk"],"label-sm":["Inter"],"display-lg":["Hanken Grotesk"],"headline-sm":["Hanken Grotesk"],"display-lg-mobile":["Hanken Grotesk"],"body-sm":["Inter"]},"fontSize":{"stat-lg":["36px",{"lineHeight":"40px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"stat-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"stat-lg-mobile":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"26px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["32px",{"lineHeight":"38px","letterSpacing":"-0.025em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="px-space-lg pt-space-lg pb-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><img alt="Tandem Finance Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrABER5GM6UqsahkWIZnobdwupafxDhK4u5fk-aBYkQhXrewYGPtU7URAWg7tTzXTIFSoMPooBRjmeJprLfkVe2bBwjTsy4_UL0mcNgECbIgtnzQzYggbjBF6cZrscXBCknlG8AZJ5tMDFGtO51Yvc3xG9VLBIOmofRXm4YISwmtBd97Je2ESjuuWTLC1x48o37aC9qM-FxXzUQ0KwjnSHqYiVCA-fgZw_8tPj9-cCuy"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight tracking-tight font-semibold">Tandem</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Shared Space (Alex &amp; Maya)</span></div></div><div class="flex items-center justify-center w-6 h-6 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span></div></div><div class="px-space-md py-space-xs"><button class="w-full flex items-center justify-between px-space-md py-space-sm bg-primary text-on-primary rounded-lg shadow-sm hover:bg-primary-container transition-all text-left" type="button"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="font-label-md text-label-md font-medium">New Expense</span></div><kbd class="px-1.5 py-0.5 text-[10px] font-semibold bg-surface-container/20 rounded text-on-primary/90 uppercase tracking-wider">⌘K</kbd></button></div><nav class="flex-1 px-space-md py-space-sm overflow-y-auto flex flex-col gap-1" data-active-classes="bg-surface-container text-on-surface font-semibold rounded-lg"><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="dashboard" href="#dashboard"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="transactions" href="#transactions"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-label-md text-label-md">Transactions</span></div></a><a aria-current="page" class="flex items-center justify-between px-space-md py-2.5 transition-all bg-surface-container text-on-surface font-semibold rounded-lg" data-path="categories-and-budgets" href="#categories"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">pie_chart</span><span class="font-label-md text-label-md">Categories &amp; Budgets</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="financial-progress" href="#progress"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">trending_up</span><span class="font-label-md text-label-md">Financial Progress</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="savings-goals" href="#goals"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">savings</span><span class="font-label-md text-label-md">Savings Goals</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="ai-financial-insights" href="#insights"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px] text-secondary">auto_awesome</span><span class="font-label-md text-label-md">AI Insights</span></div><span class="px-1.5 py-0.5 text-[10px] font-semibold bg-secondary-fixed text-on-secondary-fixed rounded-full">AI</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="notifications" href="#notifications"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="font-label-md text-label-md">Notifications</span></div><span class="px-1.5 py-0.5 text-[11px] font-semibold bg-error-container text-on-error-container rounded-full leading-none">3</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="settings-and-household" href="#settings"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-md text-label-md">Settings &amp; Household</span></div></a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-surface-container-low/60 rounded-t-xl"><div class="flex flex-col gap-1 px-1"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Household Members</span><div class="flex items-center justify-between pt-1"><div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-body-sm text-body-sm text-on-surface font-medium">Alex</span></div><div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span><span class="font-body-sm text-body-sm text-on-surface font-medium">Maya</span></div><div class="flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm font-semibold"><span class="material-symbols-outlined text-[14px]">balance</span>50/50</div></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByx7W8U3oxfcRhew20t8Y2VjErt94t6GuBUomjkd7TSLBWOoRgHXVxiJGU1xWU9jP_2xcGsSgHGJ2gvuvwIRbKlX4p5Frl69OM3C0QMEQFJ3Ko7L3WZ_96zSBX4BoUD2wIgBcrpwqWN3DhZWPxKP3wgob-C6WaWo9ZZ0nBU0ZcGc0G7D-urve1fDBxGJJT1JXEPlWmR9ZNM0KrBJcgf5wSXhkQ6w3MPgIgoH3JtZaq"/><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface truncate font-medium">Alex &amp; Maya</span><span class="font-label-sm text-label-sm text-on-surface-variant">Personal Vault</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></aside><div class="pl-72 min-h-screen flex flex-col"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-2"><button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button><div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors cursor-pointer shadow-sm"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">calendar_today</span><span class="font-label-md text-label-md text-on-surface font-semibold">October 2024</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span></div><button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button></div><div class="flex items-center p-0.5 bg-surface-container rounded-lg"><button class="px-space-md py-1 rounded-md bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold shadow-sm" type="button">All Shared</button><button class="flex items-center gap-1.5 px-space-md py-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Alex</button><button class="flex items-center gap-1.5 px-space-md py-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button"><span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>Maya</button></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer shadow-sm"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-body-sm text-body-sm hidden sm:inline">Search transactions, categories...</span><kbd class="hidden sm:inline px-1 py-0.5 text-[10px] bg-surface-container rounded font-medium text-on-surface-variant">⌘F</kbd></div><button class="relative w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary"></span></button><button class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button></div></header><main class="relative pt-16 bg-surface min-h-screen w-full px-8 pb-12"><div class="flex flex-col w-full">
+<!-- Subtle decorative ambient blurs -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 -left-20 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -top-20 right-10 w-80 h-80 bg-on-tertiary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Header Section -->
+<div class="relative flex flex-col gap-6 pt-6 pb-8">
+<!-- Title Bar & Actions -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+<div class="flex flex-col gap-2 max-w-2xl">
+<div class="flex items-center gap-3">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm uppercase tracking-wider">Joint Envelopes</span>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span>9 days left in budget period</span>
+</div>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Categories &amp; Budgets</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Manage monthly thresholds, partner contribution ratios, and proactive shared spending envelopes.
+          </p>
+</div>
+<!-- Controls: Action Buttons -->
+<div class="flex flex-wrap items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container transition-all" id="open-auto-adjust-modal" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">auto_fix_high</span>
+<span>Auto-Adjust from Past Month</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container transition-all" id="trigger-create-category-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Create New Category</span>
+</button>
+</div>
+</div>
+<!-- Top Summary Bento Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-2">
+<!-- Card 1: Total Allocated -->
+<div class="flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Monthly Allocation</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+</div>
+</div>
+<div class="mt-4 flex flex-col">
+<span class="font-stat-lg text-stat-lg text-on-surface tracking-tight">$6,800.00</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Across 9 active household envelopes</span>
+</div>
+</div>
+<div class="mt-4 pt-4 flex items-center justify-between bg-surface-container-low/60 rounded-lg px-3 py-2">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Alex: $3,580</span>
+</div>
+<span class="text-on-surface-variant font-label-sm text-label-sm">/</span>
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span>Maya: $3,220</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Spent So Far -->
+<div class="flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Consumed to Date</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">75.3%</span>
+</div>
+<div class="mt-4 flex flex-col">
+<div class="flex items-baseline gap-2">
+<span class="font-stat-lg text-stat-lg text-on-surface tracking-tight">$5,120.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">of $6,800</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mt-3 overflow-hidden">
+<div class="bg-secondary h-2 rounded-full transition-all duration-700" style="width: 75.3%"></div>
+</div>
+</div>
+<div class="mt-4 pt-4 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Pacing: Normal (Day 22 of 31)</span>
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-container">trending_down</span>
+              -3.2% vs Sept
+            </span>
+</div>
+</div>
+<!-- Card 3: Safe to Spend -->
+<div class="flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Remaining Safe Pool</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+</div>
+<div class="mt-4 flex flex-col">
+<span class="font-stat-lg text-stat-lg text-on-surface tracking-tight">$1,680.00</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
+                $186.66 / day
+              </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">available till Oct 31</span>
+</div>
+</div>
+<div class="mt-4 pt-4 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Discretionary surplus</span>
+<span class="text-on-surface font-semibold">+$220 buffer</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Custom Category Creation & Household Sync Callout -->
+<div class="mb-8 p-4 rounded-xl bg-surface-container-low shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center shadow-sm flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Unlimited Partner Envelopes</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Customize individual split percentages, roll-over funds, and notification triggers per category.</span>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-shrink-0">
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors shadow-sm font-label-sm text-label-sm font-semibold flex items-center gap-1.5" id="batch-rebalance-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">sync_alt</span>
+<span>Quick Rebalance</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-colors shadow-sm font-label-sm text-label-sm font-semibold flex items-center gap-1.5" id="filter-overbudget-btn" type="button">
+<span class="material-symbols-outlined text-[16px] text-error">warning</span>
+<span>Alerts (1)</span>
+</button>
+</div>
+</div>
+<!-- Category Grid Header & Filtering -->
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight">Active Categories</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant font-medium">9 Envelopes</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded-lg bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-colors" title="Grid View" type="button">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant shadow-sm hover:bg-surface-container transition-colors" title="Compact List" type="button">
+<span class="material-symbols-outlined text-[18px]">view_agenda</span>
+</button>
+</div>
+</div>
+<!-- Main Categories Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+<!-- Card 1: Groceries & Food -->
+<div class="category-card flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all group">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">local_grocery_store</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Groceries &amp; Food</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Shared essentials &amp; dining</span>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="toggleCardMenu('menu-1')" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-36 rounded-lg bg-surface-container-lowest shadow-xl py-1 z-20" id="menu-1">
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" onclick="openDrawer('Groceries &amp; Food', 800, 620)" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>Edit
+                </button>
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[14px]">history</span>History
+                </button>
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[14px]">tune</span>Adjust Cap
+                </button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface tracking-tight">$620.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">spent</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-tertiary-container">$180.00 left</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">cap $800.00</span>
+</div>
+</div>
+<!-- Progress Bar & Indicator -->
+<div class="flex flex-col gap-1.5">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-secondary h-2 rounded-l-full" style="width: 38.75%"></div>
+<div class="bg-on-tertiary-container h-2 rounded-r-full" style="width: 38.75%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>77.5% utilized</span>
+<span class="font-medium text-on-surface">Pacing good</span>
+</div>
+</div>
+</div>
+<!-- Footer / Partner Breakdown -->
+<div class="mt-5 pt-4 flex items-center justify-between bg-surface-container-low/50 rounded-lg px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex: $310</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya: $310</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">50/50</span>
+</div>
+</div>
+<!-- Card 2: Rent & Housing -->
+<div class="category-card flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all group">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">apartment</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Rent &amp; Housing</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fixed monthly lease</span>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="toggleCardMenu('menu-2')" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-36 rounded-lg bg-surface-container-lowest shadow-xl py-1 z-20" id="menu-2">
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" onclick="openDrawer('Rent &amp; Housing', 2100, 2100)" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>Edit
+                </button>
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[14px]">history</span>History
+                </button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface tracking-tight">$2,100.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">settled</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-surface-variant">$0.00 left</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">cap $2,100.00</span>
+</div>
+</div>
+<!-- Progress Bar & Indicator -->
+<div class="flex flex-col gap-1.5">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-outline h-2 rounded-full" style="width: 100%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>100% paid</span>
+<span class="font-semibold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-container">check_circle</span>
+                Complete
+              </span>
+</div>
+</div>
+</div>
+<!-- Footer / Partner Breakdown -->
+<div class="mt-5 pt-4 flex items-center justify-between bg-surface-container-low/50 rounded-lg px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex: $1,150</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya: $950</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">Income-Ratio</span>
+</div>
+</div>
+<!-- Card 3: Utilities & Services -->
+<div class="category-card flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all group">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Utilities &amp; Services</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Power, water, &amp; internet</span>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="toggleCardMenu('menu-3')" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-36 rounded-lg bg-surface-container-lowest shadow-xl py-1 z-20" id="menu-3">
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" onclick="openDrawer('Utilities &amp; Services', 400, 340)" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>Edit
+                </button>
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[14px]">history</span>History
+                </button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface tracking-tight">$340.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">spent</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-tertiary-container">$60.00 left</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">cap $400.00</span>
+</div>
+</div>
+<!-- Progress Bar & Indicator -->
+<div class="flex flex-col gap-1.5">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-secondary h-2" style="width: 42.5%"></div>
+<div class="bg-on-tertiary-container h-2 rounded-r-full" style="width: 42.5%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>85.0% utilized</span>
+<span class="font-medium text-on-surface">Auto-pay ready</span>
+</div>
+</div>
+</div>
+<!-- Footer / Partner Breakdown -->
+<div class="mt-5 pt-4 flex items-center justify-between bg-surface-container-low/50 rounded-lg px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex: $170</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya: $170</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">50/50</span>
+</div>
+</div>
+<!-- Card 4: Recreation & Entertainment (OVER-BUDGET ALERT) -->
+<div class="category-card flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all group relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-error"></div>
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">movie</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Recreation &amp; Entertainment</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Shows, weekend outings</span>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="toggleCardMenu('menu-4')" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-36 rounded-lg bg-surface-container-lowest shadow-xl py-1 z-20" id="menu-4">
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" onclick="openDrawer('Recreation &amp; Entertainment', 400, 450)" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>Edit
+                </button>
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[14px]">sync</span>Rebalance
+                </button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-stat-md text-stat-md text-error tracking-tight">$450.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">spent</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-error">-$50.00 over</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">cap $400.00</span>
+</div>
+</div>
+<!-- Progress Bar & Indicator -->
+<div class="flex flex-col gap-1.5">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-error h-2 rounded-full" style="width: 100%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-error font-medium">112.5% consumed</span>
+<span class="px-2 py-0.2 bg-error-container text-on-error-container rounded-full font-label-sm text-label-sm font-semibold">
+                Exceeded by $50.00
+              </span>
+</div>
+</div>
+</div>
+<!-- Footer / Partner Breakdown -->
+<div class="mt-5 pt-4 flex items-center justify-between bg-error-container/20 rounded-lg px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex: $290</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya: $160</span>
+</div>
+<button class="text-error font-label-sm text-label-sm font-semibold hover:underline" onclick="rebalanceEnvelope()" type="button">Cover Surplus</button>
+</div>
+</div>
+<!-- Card 5: Subscriptions & Tech -->
+<div class="category-card flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all group">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">subscriptions</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Subscriptions &amp; Tech</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cloud, streaming, apps</span>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="toggleCardMenu('menu-5')" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-36 rounded-lg bg-surface-container-lowest shadow-xl py-1 z-20" id="menu-5">
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" onclick="openDrawer('Subscriptions &amp; Tech', 220, 190)" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>Edit
+                </button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface tracking-tight">$190.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">spent</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-tertiary-container">$30.00 left</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">cap $220.00</span>
+</div>
+</div>
+<!-- Progress Bar & Indicator -->
+<div class="flex flex-col gap-1.5">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-secondary h-2" style="width: 50%"></div>
+<div class="bg-on-tertiary-container h-2 rounded-r-full" style="width: 36.3%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>86.3% utilized</span>
+<span class="font-medium text-on-surface">5 recurring</span>
+</div>
+</div>
+</div>
+<!-- Footer / Partner Breakdown -->
+<div class="mt-5 pt-4 flex items-center justify-between bg-surface-container-low/50 rounded-lg px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex: $110</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya: $80</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">Individual Split</span>
+</div>
+</div>
+<!-- Card 6: Transportation & EV -->
+<div class="category-card flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all group">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">directions_car</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Transportation &amp; EV</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Charging, transit, tolls</span>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="toggleCardMenu('menu-6')" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-36 rounded-lg bg-surface-container-lowest shadow-xl py-1 z-20" id="menu-6">
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" onclick="openDrawer('Transportation &amp; EV', 450, 310)" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>Edit
+                </button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface tracking-tight">$310.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">spent</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-tertiary-container">$140.00 left</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">cap $450.00</span>
+</div>
+</div>
+<!-- Progress Bar & Indicator -->
+<div class="flex flex-col gap-1.5">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-secondary h-2" style="width: 34.4%"></div>
+<div class="bg-on-tertiary-container h-2 rounded-r-full" style="width: 34.4%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>68.8% utilized</span>
+<span class="font-medium text-on-surface">Under target</span>
+</div>
+</div>
+</div>
+<!-- Footer / Partner Breakdown -->
+<div class="mt-5 pt-4 flex items-center justify-between bg-surface-container-low/50 rounded-lg px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex: $155</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya: $155</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">50/50</span>
+</div>
+</div>
+<!-- Card 7: Health & Wellness -->
+<div class="category-card flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all group">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">fitness_center</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Health &amp; Wellness</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Gym, pharmacy, dental</span>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="toggleCardMenu('menu-7')" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-36 rounded-lg bg-surface-container-lowest shadow-xl py-1 z-20" id="menu-7">
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" onclick="openDrawer('Health &amp; Wellness', 300, 220)" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>Edit
+                </button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface tracking-tight">$220.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">spent</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-tertiary-container">$80.00 left</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">cap $300.00</span>
+</div>
+</div>
+<!-- Progress Bar & Indicator -->
+<div class="flex flex-col gap-1.5">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-secondary h-2" style="width: 40%"></div>
+<div class="bg-on-tertiary-container h-2 rounded-r-full" style="width: 33.3%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>73.3% utilized</span>
+<span class="font-medium text-on-surface">Normal</span>
+</div>
+</div>
+</div>
+<!-- Footer / Partner Breakdown -->
+<div class="mt-5 pt-4 flex items-center justify-between bg-surface-container-low/50 rounded-lg px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex: $120</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya: $100</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">Shared</span>
+</div>
+</div>
+<!-- Card 8: Shopping & Personal -->
+<div class="category-card flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all group">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Shopping &amp; Personal</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Home goods &amp; clothing</span>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="toggleCardMenu('menu-8')" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-36 rounded-lg bg-surface-container-lowest shadow-xl py-1 z-20" id="menu-8">
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" onclick="openDrawer('Shopping &amp; Personal', 600, 410)" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>Edit
+                </button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface tracking-tight">$410.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">spent</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-tertiary-container">$190.00 left</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">cap $600.00</span>
+</div>
+</div>
+<!-- Progress Bar & Indicator -->
+<div class="flex flex-col gap-1.5">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-secondary h-2" style="width: 32%"></div>
+<div class="bg-on-tertiary-container h-2 rounded-r-full" style="width: 36.3%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>68.3% utilized</span>
+<span class="font-medium text-on-surface">Pacing well</span>
+</div>
+</div>
+</div>
+<!-- Footer / Partner Breakdown -->
+<div class="mt-5 pt-4 flex items-center justify-between bg-surface-container-low/50 rounded-lg px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex: $190</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya: $220</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">Individual Split</span>
+</div>
+</div>
+<!-- Card 9: Savings & Emergency Deposit -->
+<div class="category-card flex flex-col justify-between p-6 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all group">
+<div class="flex flex-col gap-4">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">savings</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Savings &amp; Emergency</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Auto-transferred to Vault</span>
+</div>
+</div>
+<div class="relative">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="toggleCardMenu('menu-9')" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-36 rounded-lg bg-surface-container-lowest shadow-xl py-1 z-20" id="menu-9">
+<button class="w-full text-left px-3 py-1.5 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low flex items-center gap-2" onclick="openDrawer('Savings &amp; Emergency', 1500, 1500)" type="button">
+<span class="material-symbols-outlined text-[14px]">edit</span>Edit
+                </button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between pt-2">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface tracking-tight">$1,500.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">transferred</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-tertiary-container">$0.00 left</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">cap $1,500.00</span>
+</div>
+</div>
+<!-- Progress Bar & Indicator -->
+<div class="flex flex-col gap-1.5">
+<div class="w-full bg-surface-container rounded-full h-2 overflow-hidden flex">
+<div class="bg-on-tertiary-container h-2 rounded-full" style="width: 100%"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>100% completed</span>
+<span class="font-semibold text-on-tertiary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+                Goal Reached
+              </span>
+</div>
+</div>
+</div>
+<!-- Footer / Partner Breakdown -->
+<div class="mt-5 pt-4 flex items-center justify-between bg-surface-container-low/50 rounded-lg px-3 py-2">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex: $750</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya: $750</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">50/50</span>
+</div>
+</div>
+<!-- Card 10: + Add Custom Category Placeholder -->
+<div class="flex flex-col items-center justify-center p-8 rounded-xl bg-surface-container-low/40 hover:bg-surface-container-low transition-all cursor-pointer min-h-[260px] group shadow-sm" id="trigger-create-card">
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-on-surface-variant group-hover:scale-110 group-hover:text-primary transition-all shadow-sm">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-4">Create New Envelope</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center mt-1.5 max-w-xs">
+          Set up custom rules, auto-fill quotas, or assign designated spending cards.
+        </p>
+<span class="mt-4 px-3 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">
+          ⌘ + N
+        </span>
+</div>
+</div>
+<!-- AI Pacing Recommendation & Insights Module -->
+<div class="p-6 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">auto_awesome</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Tandem Smart Allocation Suggestion</span>
+<span class="px-2 py-0.2 rounded-full bg-surface-container font-label-sm text-label-sm text-secondary font-semibold">Live Analysis</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            "Recreation &amp; Entertainment is $50.00 over budget, but Groceries has a projected surplus of $115.00 at month-end. Recommend shifting $50.00 from Groceries into Recreation to keep safe spending intact."
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<button class="w-full md:w-auto px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md" type="button">
+          Dismiss
+        </button>
+<button class="w-full md:w-auto px-4 py-2 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md shadow-sm hover:opacity-95 transition-all whitespace-nowrap" onclick="autoRebalanceAI()" type="button">
+          Apply Rebalance
+        </button>
+</div>
+</div>
+</div>
+<!-- Category Edit / Settings Slide-out Drawer Overlay -->
+<div class="fixed inset-0 bg-primary/20 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none" id="category-drawer-backdrop">
+<div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-surface-container-lowest shadow-2xl p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out" id="category-drawer">
+<div class="flex flex-col gap-6 overflow-y-auto">
+<!-- Drawer Header -->
+<div class="flex items-center justify-between pb-4">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Envelope Preferences</span>
+<h2 class="font-headline-md text-headline-md text-on-surface" id="drawer-title">Edit Category</h2>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" onclick="closeDrawer()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Form fields -->
+<div class="flex flex-col gap-5">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface uppercase tracking-wider">Category Name</label>
+<input class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary/20" id="drawer-input-name" type="text" value="Groceries &amp; Food"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface uppercase tracking-wider">Monthly Threshold ($)</label>
+<div class="relative">
+<span class="absolute left-3.5 top-2.5 text-on-surface-variant font-body-md text-body-md">$</span>
+<input class="w-full pl-8 pr-3.5 py-2.5 rounded-lg bg-surface-container-low text-on-surface font-stat-md text-stat-md focus:outline-none focus:ring-2 focus:ring-secondary/20" id="drawer-input-budget" type="number" value="800.00"/>
+</div>
+</div>
+<!-- Partner Split Control -->
+<div class="flex flex-col gap-3 pt-2">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface uppercase tracking-wider">Contribution Split</label>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface" id="split-ratio-label">50% Alex / 50% Maya</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Alex</span>
+</div>
+<input class="flex-1 accent-secondary cursor-pointer" id="split-range-input" max="100" min="0" oninput="updateSplitLabel(this.value)" type="range" value="50"/>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Maya</span>
+</div>
+</div>
+</div>
+<!-- Rollover Toggle -->
+<div class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low mt-2">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface text-[14px]">Unused Balance Rollover</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Carry leftover balance to next month</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<!-- Icon & Color Tag Selection -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm font-semibold text-on-surface uppercase tracking-wider">Category Icon</label>
+<div class="flex items-center gap-2 overflow-x-auto py-1">
+<button class="w-10 h-10 rounded-lg bg-surface-container text-on-surface flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">local_grocery_store</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">restaurant</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">local_cafe</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">flight</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface-variant flex items-center justify-center hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">pets</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Footer Action -->
+<div class="pt-6 flex items-center gap-3">
+<button class="w-1/2 py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="closeDrawer()" type="button">
+          Cancel
+        </button>
+<button class="w-1/2 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container transition-colors" onclick="saveCategoryChanges()" type="button">
+          Save Changes
+        </button>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 z-50 pointer-events-none flex flex-col gap-2" id="toast-container"></div>
+</div>
+<script>
+  // Drawer opening & handling
+  function openDrawer(categoryTitle = 'New Custom Envelope', budget = 500, spent = 0) {
+    const backdrop = document.getElementById('category-drawer-backdrop');
+    const drawer = document.getElementById('category-drawer');
+    const title = document.getElementById('drawer-title');
+    const nameInput = document.getElementById('drawer-input-name');
+    const budgetInput = document.getElementById('drawer-input-budget');
+
+    title.innerText = categoryTitle ? 'Edit ' + categoryTitle : 'Create New Envelope';
+    nameInput.value = categoryTitle || 'New Envelope';
+    budgetInput.value = budget;
+
+    backdrop.classList.remove('pointer-events-none');
+    backdrop.classList.remove('opacity-0');
+    backdrop.classList.add('opacity-100');
+    drawer.classList.remove('translate-x-full');
+  }
+
+  function closeDrawer() {
+    const backdrop = document.getElementById('category-drawer-backdrop');
+    const drawer = document.getElementById('category-drawer');
+
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0');
+    backdrop.classList.add('pointer-events-none');
+    drawer.classList.add('translate-x-full');
+  }
+
+  function toggleCardMenu(menuId) {
+    const menu = document.getElementById(menuId);
+    if (!menu) return;
+    const isHidden = menu.classList.contains('hidden');
+    // Hide all open menus first
+    document.querySelectorAll('[id^="menu-"]').forEach(m => m.classList.add('hidden'));
+    if (isHidden) {
+      menu.classList.remove('hidden');
+    }
+  }
+
+  // Close menus when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.category-card')) {
+      document.querySelectorAll('[id^="menu-"]').forEach(m => m.classList.add('hidden'));
+    }
+  });
+
+  function updateSplitLabel(val) {
+    const maya = 100 - val;
+    document.getElementById('split-ratio-label').innerText = `${val}% Alex / ${maya}% Maya`;
+  }
+
+  function saveCategoryChanges() {
+    closeDrawer();
+    showToast('Changes saved successfully', 'check_circle', 'text-on-tertiary-container');
+  }
+
+  function rebalanceEnvelope() {
+    showToast('Rebalanced -$50.00 from Household Surplus', 'sync_alt', 'text-secondary');
+  }
+
+  function autoRebalanceAI() {
+    showToast('AI Recommendation applied: $50 moved to Recreation', 'auto_awesome', 'text-secondary');
+  }
+
+  function showToast(message, icon = 'info', iconColor = 'text-primary') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = 'pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-lg bg-surface-container-lowest shadow-xl text-on-surface text-body-md transition-all duration-300 transform translate-y-4 opacity-0';
+    toast.innerHTML = `
+      <span class="material-symbols-outlined text-[18px] ${iconColor}">${icon}</span>
+      <span class="font-label-md text-label-md">${message}</span>
+    `;
+    container.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.remove('translate-y-4', 'opacity-0');
+    }, 10);
+
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'translate-y-4');
+      setTimeout(() => toast.remove(), 300);
+    }, 3200);
+  }
+
+  // Attach event triggers
+  document.getElementById('trigger-create-category-btn').addEventListener('click', () => openDrawer('', 500, 0));
+  document.getElementById('trigger-create-card').addEventListener('click', () => openDrawer('', 500, 0));
+  document.getElementById('open-auto-adjust-modal').addEventListener('click', () => {
+    showToast('Budget caps updated based on 3-month rolling average', 'history', 'text-secondary');
+  });
+  document.getElementById('batch-rebalance-btn').addEventListener('click', () => {
+    showToast('All 9 envelopes aligned to active income proportions', 'balance', 'text-on-tertiary-container');
+  });
+  document.getElementById('filter-overbudget-btn').addEventListener('click', () => {
+    showToast('Filtered: Showing 1 envelope exceeding budget cap', 'filter_alt', 'text-error');
+  });
+
+  // Drawer backdrop click dismiss
+  document.getElementById('category-drawer-backdrop').addEventListener('click', (e) => {
+    if (e.target.id === 'category-drawer-backdrop') {
+      closeDrawer();
+    }
+  });
+</script></main></div></body></html>

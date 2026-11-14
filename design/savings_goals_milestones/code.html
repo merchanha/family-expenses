@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-background":"#0b1c30","outline":"#76777d","surface-container":"#e5eeff","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","tertiary-container":"#00201d","primary-fixed-dim":"#bec6e0","on-primary-container":"#7c839b","on-tertiary-container":"#0c9488","secondary-fixed-dim":"#c3c0ff","tertiary":"#000000","error":"#ba1a1a","surface-container-highest":"#d3e4fe","on-surface":"#0b1c30","surface-tint":"#565e74","error-container":"#ffdad6","surface-container-high":"#dce9ff","tertiary-fixed":"#89f5e7","on-secondary-fixed-variant":"#3323cc","surface-container-low":"#eff4ff","background":"#f8f9ff","on-primary":"#ffffff","inverse-on-surface":"#eaf1ff","on-tertiary-fixed-variant":"#005049","primary-fixed":"#dae2fd","on-primary-fixed-variant":"#3f465c","on-secondary-container":"#fffbff","surface-bright":"#f8f9ff","secondary-container":"#645efb","secondary-fixed":"#e2dfff","primary":"#000000","primary-container":"#131b2e","surface-variant":"#d3e4fe","surface":"#f8f9ff","on-tertiary-fixed":"#00201d","on-error-container":"#93000a","outline-variant":"#c6c6cd","inverse-surface":"#213145","surface-dim":"#cbdbf5","on-secondary-fixed":"#0f0069","on-primary-fixed":"#131b2e","on-error":"#ffffff","on-surface-variant":"#45464d","tertiary-fixed-dim":"#6bd8cb","secondary":"#4b41e1","on-tertiary":"#ffffff","inverse-primary":"#bec6e0"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1rem","space-md":"1rem","margin-md":"2rem","gutter-lg":"2rem","margin-lg":"3rem","gutter-md":"1.5rem","margin":"1rem","space-sm":"0.5rem","space-xl":"2rem"},"fontFamily":{"stat-lg":["Hanken Grotesk"],"headline-lg-mobile":["Hanken Grotesk"],"headline-lg":["Hanken Grotesk"],"label-md":["Inter"],"stat-md":["Hanken Grotesk"],"stat-lg-mobile":["Hanken Grotesk"],"body-lg":["Inter"],"body-md":["Inter"],"headline-md":["Hanken Grotesk"],"label-sm":["Inter"],"display-lg":["Hanken Grotesk"],"headline-sm":["Hanken Grotesk"],"display-lg-mobile":["Hanken Grotesk"],"body-sm":["Inter"]},"fontSize":{"stat-lg":["36px",{"lineHeight":"40px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"stat-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"stat-lg-mobile":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"26px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["32px",{"lineHeight":"38px","letterSpacing":"-0.025em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="px-space-lg pt-space-lg pb-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><img alt="Tandem Finance Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrABER5GM6UqsahkWIZnobdwupafxDhK4u5fk-aBYkQhXrewYGPtU7URAWg7tTzXTIFSoMPooBRjmeJprLfkVe2bBwjTsy4_UL0mcNgECbIgtnzQzYggbjBF6cZrscXBCknlG8AZJ5tMDFGtO51Yvc3xG9VLBIOmofRXm4YISwmtBd97Je2ESjuuWTLC1x48o37aC9qM-FxXzUQ0KwjnSHqYiVCA-fgZw_8tPj9-cCuy"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight tracking-tight font-semibold">Tandem</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Shared Space (Alex &amp; Maya)</span></div></div><div class="flex items-center justify-center w-6 h-6 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span></div></div><div class="px-space-md py-space-xs"><button class="w-full flex items-center justify-between px-space-md py-space-sm bg-primary text-on-primary rounded-lg shadow-sm hover:bg-primary-container transition-all text-left" type="button"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="font-label-md text-label-md font-medium">New Expense</span></div><kbd class="px-1.5 py-0.5 text-[10px] font-semibold bg-surface-container/20 rounded text-on-primary/90 uppercase tracking-wider">⌘K</kbd></button></div><nav class="flex-1 px-space-md py-space-sm overflow-y-auto flex flex-col gap-1" data-active-classes="bg-surface-container text-on-surface font-semibold rounded-lg"><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="dashboard" href="#dashboard"><span class="font-label-md text-label-md">Dashboard</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="transactions" href="#transactions"><span class="font-label-md text-label-md">Transactions</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="categories-and-budgets" href="#categories"><span class="font-label-md text-label-md">Categories &amp; Budgets</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="financial-progress" href="#progress"><span class="font-label-md text-label-md">Financial Progress</span></a><a aria-current="page" class="flex items-center justify-between px-space-md py-2.5 transition-all bg-surface-container text-on-surface font-semibold rounded-lg" data-path="savings-goals" href="#savings-goals"><span class="font-label-md text-label-md">Savings Goals</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="ai-financial-insights" href="#insights"><span class="font-label-md text-label-md">AI Insights</span><span class="px-1.5 py-0.5 text-[10px] font-semibold bg-secondary-fixed text-on-secondary-fixed rounded-full">AI</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="notifications" href="#notifications"><span class="font-label-md text-label-md">Notifications</span><span class="px-1.5 py-0.5 text-[11px] font-semibold bg-error-container text-on-error-container rounded-full leading-none">3</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="settings-and-household" href="#settings"><span class="font-label-md text-label-md">Settings &amp; Household</span></a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-surface-container-low/60 rounded-t-xl"><div class="flex flex-col gap-1 px-1"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Household Members</span><div class="flex items-center justify-between pt-1"><div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-body-sm text-body-sm text-on-surface font-medium">Alex</span></div><div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span><span class="font-body-sm text-body-sm text-on-surface font-medium">Maya</span></div><div class="flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm font-semibold"><span class="material-symbols-outlined text-[14px]">balance</span>50/50</div></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByx7W8U3oxfcRhew20t8Y2VjErt94t6GuBUomjkd7TSLBWOoRgHXVxiJGU1xWU9jP_2xcGsSgHGJ2gvuvwIRbKlX4p5Frl69OM3C0QMEQFJ3Ko7L3WZ_96zSBX4BoUD2wIgBcrpwqWN3DhZWPxKP3wgob-C6WaWo9ZZ0nBU0ZcGc0G7D-urve1fDBxGJJT1JXEPlWmR9ZNM0KrBJcgf5wSXhkQ6w3MPgIgoH3JtZaq"/><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface truncate font-medium">Alex &amp; Maya</span><span class="font-label-sm text-label-sm text-on-surface-variant">Personal Vault</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></aside><div class="pl-72 min-h-screen flex flex-col"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-2"><button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button><div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors cursor-pointer shadow-sm"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">calendar_today</span><span class="font-label-md text-label-md text-on-surface font-semibold">October 2024</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span></div><button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button></div><div class="flex items-center p-0.5 bg-surface-container rounded-lg"><button class="px-space-md py-1 rounded-md bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold shadow-sm" type="button">All Shared</button><button class="flex items-center gap-1.5 px-space-md py-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Alex</button><button class="flex items-center gap-1.5 px-space-md py-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button"><span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>Maya</button></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer shadow-sm"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-body-sm text-body-sm hidden sm:inline">Search transactions, categories...</span><kbd class="hidden sm:inline px-1 py-0.5 text-[10px] bg-surface-container rounded font-medium text-on-surface-variant">⌘F</kbd></div><button class="relative w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary"></span></button><button class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button></div></header><main class="relative pt-16 bg-surface min-h-screen w-full px-8 pb-12"><div class="flex flex-col w-full">
+<!-- Header & Page Actions -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col gap-1 max-w-2xl">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm uppercase tracking-wider font-semibold">Shared Vaults &amp; Targets</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-container">sync</span> Active Sync
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Savings Goals &amp; Milestones</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Collaborative wealth building for Alex &amp; Maya. Automated transfers, round-up multipliers, and milestone forecasting.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm flex-shrink-0">
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-all font-label-md text-label-md font-medium" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Auto-Save Rules</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2 rounded-lg bg-primary text-on-primary shadow-sm hover:bg-primary-container transition-all font-label-md text-label-md font-medium" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Create New Goal</span>
+</button>
+</div>
+</div>
+<!-- Top Summary KPI Stats (Grid of 4 cards) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-lg">
+<!-- Stat 1: Total Saved in Goals -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-medium">Total Saved in Goals</span>
+<div class="flex items-baseline gap-1.5 mt-1">
+<span class="font-stat-lg text-stat-lg text-on-surface tabular-nums">$48,650<span class="text-stat-md text-on-surface-variant font-normal">.00</span></span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Target $85,000.00</span>
+<span class="font-semibold text-secondary tabular-nums">57.2%</span>
+</div>
+<div class="h-2 w-full rounded-full bg-surface-container-high overflow-hidden flex">
+<div class="h-full bg-secondary rounded-l-full transition-all duration-500" style="width: 32%;"></div>
+<div class="h-full bg-on-tertiary-container rounded-r-full transition-all duration-500" style="width: 25.2%;"></div>
+</div>
+<div class="flex items-center justify-between text-body-sm text-body-sm mt-0.5">
+<span class="text-on-tertiary-container font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +$2,100 this mo
+          </span>
+<span class="text-on-surface-variant">$36,350 to target</span>
+</div>
+</div>
+</div>
+<!-- Stat 2: Monthly Commitment -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-medium">Monthly Commitment</span>
+<div class="flex items-baseline gap-1.5 mt-1">
+<span class="font-stat-lg text-stat-lg text-on-surface tabular-nums">$1,850<span class="text-stat-md text-on-surface-variant font-normal">/mo</span></span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[20px]">event_repeat</span>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1.5 pt-2 bg-surface-container-low/60 p-2.5 rounded-lg">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Alex
+          </span>
+<span class="font-semibold text-on-surface tabular-nums">$1,050.00</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span> Maya
+          </span>
+<span class="font-semibold text-on-surface tabular-nums">$800.00</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1 pt-1">
+<span class="material-symbols-outlined text-[12px]">calendar_month</span> Autosplits on 1st &amp; 15th
+        </div>
+</div>
+</div>
+<!-- Stat 3: Fastest Projected -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-medium">Fastest Projected</span>
+<div class="mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Japan Spring 2025</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[20px]">flight_takeoff</span>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-2">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container font-label-sm text-label-sm text-on-surface font-semibold w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span> 100% On Track
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Paced to complete in <span class="font-semibold text-on-surface">January 2025</span> — 3 months ahead of cherry blossom season.
+        </p>
+</div>
+</div>
+<!-- Stat 4: Round-ups & Boosts -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-medium">Round-ups &amp; Sweeps</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-stat-lg text-stat-lg text-on-surface tabular-nums">+$184<span class="text-stat-md text-on-surface-variant font-normal">.20</span></span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[20px]">electric_bolt</span>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm font-semibold text-secondary">2x Multiplier</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Active on joint card</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          67 micro-deposits collected this cycle with automated weekend cash sweep.
+        </p>
+</div>
+</div>
+</div>
+<!-- Filter & Controls Toolbar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md p-2 rounded-xl bg-surface-container-lowest shadow-sm">
+<!-- Filter Pills -->
+<div class="flex items-center gap-1 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+<button class="px-3 py-1.5 rounded-lg bg-on-surface text-on-primary font-label-sm text-label-sm font-semibold whitespace-nowrap shadow-sm" type="button">All Goals (5)</button>
+<button class="px-3 py-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium whitespace-nowrap transition-colors" type="button">High Priority (2)</button>
+<button class="px-3 py-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium whitespace-nowrap transition-colors" type="button">Short Term (&lt; 1 yr)</button>
+<button class="px-3 py-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium whitespace-nowrap transition-colors" type="button">Long Term</button>
+<button class="px-3 py-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium whitespace-nowrap transition-colors" type="button">Completed (3)</button>
+</div>
+<!-- View & Sort -->
+<div class="flex items-center gap-space-sm self-end sm:self-auto flex-shrink-0">
+<div class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-label-sm text-label-sm cursor-pointer hover:bg-surface-container transition-colors">
+<span class="text-on-surface-variant">Sort:</span>
+<span class="font-semibold">Target Date (Ascending)</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</div>
+<div class="flex items-center p-0.5 bg-surface-container-low rounded-lg">
+<button class="p-1 rounded-md bg-surface-container-lowest text-on-surface shadow-sm" title="Grid View" type="button">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button class="p-1 rounded-md text-on-surface-variant hover:text-on-surface" title="List View" type="button">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Interactive Goal Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg mb-space-xl">
+<!-- Goal 1: 6-Month Emergency Runway -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex flex-col gap-space-md">
+<!-- Top Badges & Actions -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> High Priority
+            </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">Automated</span>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<!-- Title & Icon -->
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-on-surface flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">shield_with_heart</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">6-Month Emergency Runway</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Joint safety net for unpredictable life expenses</span>
+</div>
+</div>
+<!-- Progress Metrics -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface font-semibold tabular-nums">$24,500</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"> / $30,000</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-semibold text-secondary tabular-nums">81.6%</span>
+</div>
+<!-- Dual-color stacked contribution bar -->
+<div class="h-2.5 w-full rounded-full bg-surface-container overflow-hidden flex">
+<div class="h-full bg-secondary transition-all" style="width: 45%;" title="Alex: $13,500 (55% of saved)"></div>
+<div class="h-full bg-on-tertiary-container transition-all" style="width: 36.6%;" title="Maya: $11,000 (45% of saved)"></div>
+</div>
+<!-- Partner Contribution Legend -->
+<div class="flex items-center justify-between text-label-sm font-label-sm pt-1">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Alex: <span class="font-semibold tabular-nums">$13.5k</span> <span class="text-on-surface-variant font-normal">(55%)</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span>Maya: <span class="font-semibold tabular-nums">$11.0k</span> <span class="text-on-surface-variant font-normal">(45%)</span></span>
+</div>
+</div>
+</div>
+<!-- Info strip -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Remaining to save:</span>
+<span class="font-semibold text-on-surface tabular-nums">$5,500.00</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Projected completion:</span>
+<span class="font-semibold text-on-surface">Jan 2025 (~3 mos left)</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-label-sm text-on-tertiary-container pt-1">
+<span class="material-symbols-outlined text-[14px]">percent</span>
+<span>High-Yield Vault @ 4.85% APY (Earned +$98.20 last mo)</span>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="flex items-center gap-2 pt-4 mt-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-on-surface text-on-primary font-label-md text-label-md font-medium text-center hover:bg-surface-container-highest hover:text-on-surface transition-all flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add_circle</span> Deposit
+        </button>
+<button class="py-2 px-3 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-high transition-colors" type="button">
+          Adjust Split
+        </button>
+</div>
+</div>
+<!-- Goal 2: Japan Spring Trip 2025 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex flex-col gap-space-md">
+<!-- Top Badges & Actions -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Vacation
+            </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-tertiary-container font-label-sm text-label-sm font-semibold">On Track</span>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<!-- Title & Icon -->
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">travel_explore</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Japan Spring Trip 2025</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tokyo, Kyoto &amp; Osaka 14-day itinerary</span>
+</div>
+</div>
+<!-- Progress Metrics -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface font-semibold tabular-nums">$6,200</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"> / $8,000</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-semibold text-secondary tabular-nums">77.5%</span>
+</div>
+<!-- Dual-color stacked contribution bar (50/50 balance) -->
+<div class="h-2.5 w-full rounded-full bg-surface-container overflow-hidden flex">
+<div class="h-full bg-secondary transition-all" style="width: 38.75%;" title="Alex: $3,100 (50%)"></div>
+<div class="h-full bg-on-tertiary-container transition-all" style="width: 38.75%;" title="Maya: $3,100 (50%)"></div>
+</div>
+<!-- Partner Contribution Legend -->
+<div class="flex items-center justify-between text-label-sm font-label-sm pt-1">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Alex: <span class="font-semibold tabular-nums">$3,100</span> <span class="text-on-surface-variant font-normal">(50%)</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span>Maya: <span class="font-semibold tabular-nums">$3,100</span> <span class="text-on-surface-variant font-normal">(50%)</span></span>
+</div>
+</div>
+</div>
+<!-- Info strip -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Remaining to save:</span>
+<span class="font-semibold text-on-surface tabular-nums">$1,800.00</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Target Departure:</span>
+<span class="font-semibold text-on-surface">April 2025 (4 mos ahead)</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-label-sm text-secondary pt-1">
+<span class="material-symbols-outlined text-[14px]">flight</span>
+<span>Tokyo &amp; Kyoto Flight alert watched active</span>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="flex items-center gap-2 pt-4 mt-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-on-surface text-on-primary font-label-md text-label-md font-medium text-center hover:bg-surface-container-highest hover:text-on-surface transition-all flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add_circle</span> Deposit
+        </button>
+<button class="py-2 px-3 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-high transition-colors" type="button">
+          View Details
+        </button>
+</div>
+</div>
+<!-- Goal 3: Down Payment on Home -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex flex-col gap-space-md">
+<!-- Top Badges & Actions -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Long Term</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">Shared Milestone</span>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<!-- Title & Icon -->
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-on-surface flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">holiday_village</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Down Payment on Home</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">20% target for first townhome mortgage</span>
+</div>
+</div>
+<!-- Progress Metrics -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface font-semibold tabular-nums">$14,800</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"> / $40,000</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-semibold text-secondary tabular-nums">37.0%</span>
+</div>
+<!-- Dual-color stacked contribution bar -->
+<div class="h-2.5 w-full rounded-full bg-surface-container overflow-hidden flex">
+<div class="h-full bg-secondary transition-all" style="width: 22%;" title="Alex: $8,800 (59%)"></div>
+<div class="h-full bg-on-tertiary-container transition-all" style="width: 15%;" title="Maya: $6,000 (41%)"></div>
+</div>
+<!-- Partner Contribution Legend -->
+<div class="flex items-center justify-between text-label-sm font-label-sm pt-1">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Alex: <span class="font-semibold tabular-nums">$8,800</span> <span class="text-on-surface-variant font-normal">(59%)</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span>Maya: <span class="font-semibold tabular-nums">$6,000</span> <span class="text-on-surface-variant font-normal">(41%)</span></span>
+</div>
+</div>
+</div>
+<!-- Info strip -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Remaining to save:</span>
+<span class="font-semibold text-on-surface tabular-nums">$25,200.00</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Target Date:</span>
+<span class="font-semibold text-on-surface">Oct 2026 (Paced at $950/mo)</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-label-sm text-on-surface-variant pt-1">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-container">info</span>
+<span>Paced to finish 2 mos early if annual bonus applied</span>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="flex items-center gap-2 pt-4 mt-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-on-surface text-on-primary font-label-md text-label-md font-medium text-center hover:bg-surface-container-highest hover:text-on-surface transition-all flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add_circle</span> Deposit
+        </button>
+<button class="py-2 px-3 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-high transition-colors" type="button">
+          Accelerate
+        </button>
+</div>
+</div>
+<!-- Goal 4: EV / New Car Fund -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex flex-col gap-space-md">
+<!-- Top Badges & Actions -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">Vehicle</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">Flexible</span>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<!-- Title & Icon -->
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-on-surface flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">electric_car</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">EV / New Car Fund</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Trade-in upgrade &amp; level 2 home charger</span>
+</div>
+</div>
+<!-- Progress Metrics -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-stat-md text-stat-md text-on-surface font-semibold tabular-nums">$3,150</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant"> / $6,000</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-semibold text-secondary tabular-nums">52.5%</span>
+</div>
+<!-- Dual-color stacked contribution bar -->
+<div class="h-2.5 w-full rounded-full bg-surface-container overflow-hidden flex">
+<div class="h-full bg-secondary transition-all" style="width: 26.25%;" title="Alex: $1,575"></div>
+<div class="h-full bg-on-tertiary-container transition-all" style="width: 26.25%;" title="Maya: $1,575"></div>
+</div>
+<!-- Partner Contribution Legend -->
+<div class="flex items-center justify-between text-label-sm font-label-sm pt-1">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Alex: <span class="font-semibold tabular-nums">$1,575</span></span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<span>Maya: <span class="font-semibold tabular-nums">$1,575</span></span>
+</div>
+</div>
+</div>
+<!-- Info strip -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Remaining to save:</span>
+<span class="font-semibold text-on-surface tabular-nums">$2,850.00</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Target Date:</span>
+<span class="font-semibold text-on-surface">Dec 2025</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-label-sm text-on-tertiary-container pt-1">
+<span class="material-symbols-outlined text-[14px]">eco</span>
+<span>Qualifies for additional state clean tax rebate</span>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="flex items-center gap-2 pt-4 mt-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-on-surface text-on-primary font-label-md text-label-md font-medium text-center hover:bg-surface-container-highest hover:text-on-surface transition-all flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add_circle</span> Deposit
+        </button>
+<button class="py-2 px-3 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-high transition-colors" type="button">
+          Edit
+        </button>
+</div>
+</div>
+<!-- Goal 5: Create New Goal Action Tile -->
+<div class="p-space-lg rounded-xl bg-surface-container-low/50 hover:bg-surface-container-low transition-all cursor-pointer flex flex-col items-center justify-center text-center group min-h-[360px]">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-lowest shadow-sm flex items-center justify-center text-on-surface group-hover:scale-110 transition-transform mb-space-md">
+<span class="material-symbols-outlined text-[28px] text-secondary">add_circle_outline</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-1">Start a New Savings Target</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs mb-space-md leading-relaxed">
+        Set a target for home renovations, weddings, investment seeds, or special celebrations with customized partner splits.
+      </p>
+<div class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md font-semibold shadow-sm group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span>Configure Vault</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Visual Polish: Inspiration Banner / Completed Goals Summary Micro-card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">Trophy Case</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 Finished</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-1">Recent Achievements</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Goals completed together in 2024</p>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Kitchen Remodel</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface tabular-nums">$12,000</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Wedding Ring Tier</span>
+</div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface tabular-nums">$7,500</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-label-sm font-label-sm text-secondary font-semibold cursor-pointer hover:underline">
+<span>View completed archives (3)</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Lower Section - Shared Automation & Strategy (Two side-by-side modules) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left Module: Automated Couple Boosting Rules (7 cols) -->
+<div class="lg:col-span-7 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">smart_toy</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Automated Couple Boosting Rules</h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant font-medium">3 Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-lg">
+          Micro-habits engineered to accelerate targets in the background without lifestyle drag.
+        </p>
+<!-- Rules List -->
+<div class="flex flex-col gap-3">
+<!-- Rule 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low/60 hover:bg-surface-container-low transition-colors flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-sm flex items-center justify-center text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">currency_exchange</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Round-up Multiplier (2x)</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  All joint card purchases are rounded up to the nearest dollar with 2x match swept directly into <span class="font-medium text-on-surface">Emergency Runway</span>.
+                </p>
+<div class="flex items-center gap-3 font-label-sm text-label-sm text-on-surface-variant mt-2">
+<span class="text-on-surface font-semibold tabular-nums">$112.40 swept this cycle</span>
+<span>•</span>
+<span>Last sweep 4 hours ago</span>
+</div>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer flex-shrink-0 pt-1">
+<input checked="" class="sr-only peer" id="rule-1" type="checkbox"/>
+<label class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[6px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary cursor-pointer" for="rule-1"></label>
+</div>
+</div>
+<!-- Rule 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low/60 hover:bg-surface-container-low transition-colors flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-sm flex items-center justify-center text-on-tertiary-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">savings</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Safe Margin Sweep</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  At month-end, 60% of leftover safe-to-spend pool is automatically deposited to <span class="font-medium text-on-surface">Down Payment on Home</span>.
+                </p>
+<div class="flex items-center gap-3 font-label-sm text-label-sm text-on-surface-variant mt-2">
+<span class="text-on-surface font-semibold tabular-nums">Est. ~$320 next sweep</span>
+<span>•</span>
+<span>Scheduled for Oct 31st</span>
+</div>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer flex-shrink-0 pt-1">
+<input checked="" class="sr-only peer" id="rule-2" type="checkbox"/>
+<label class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[6px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary cursor-pointer" for="rule-2"></label>
+</div>
+</div>
+<!-- Rule 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low/60 hover:bg-surface-container-low transition-colors flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest shadow-sm flex items-center justify-center text-on-surface flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">handshake</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">50/50 Match Challenge</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Partner Nudge</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  When Alex deposits $100+ extra into vacation funds, Maya receives an instant one-tap prompt to match within 48h.
+                </p>
+<div class="flex items-center gap-3 font-label-sm text-label-sm text-on-surface-variant mt-2">
+<span class="text-on-surface font-semibold tabular-nums">4 successful matches</span>
+<span>•</span>
+<span>High cooperation rating</span>
+</div>
+</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer flex-shrink-0 pt-1">
+<input checked="" class="sr-only peer" id="rule-3" type="checkbox"/>
+<label class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[6px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary cursor-pointer" for="rule-3"></label>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-2 flex items-center justify-between">
+<button class="text-secondary font-label-md text-label-md font-semibold hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Add custom automated rule
+        </button>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Rules executed safely via ACH Vault API</span>
+</div>
+</div>
+<!-- Right Module: Predictive Goal Simulator (5 cols) -->
+<div class="lg:col-span-5 p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container text-[22px]">auto_graph</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Predictive Goal Simulator</h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">Tandem AI</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          Boost your monthly household savings by <span class="text-on-surface font-semibold">$250</span> to achieve all active targets <span class="text-on-tertiary-container font-semibold">5 months earlier</span>.
+        </p>
+<!-- Dynamic Visualization Card -->
+<div class="p-space-md rounded-xl bg-surface-container-low mb-space-md flex flex-col gap-space-md">
+<!-- Trajectory Comparison -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Current Pace ($1,850/mo)</span>
+<span class="font-semibold text-on-surface">Target: Nov 2026</span>
+</div>
+<div class="h-2 w-full rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-outline-variant rounded-full" style="width: 58%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Optimized Pace ($2,100/mo)
+              </span>
+<span class="font-semibold text-on-tertiary-container">Target: June 2026</span>
+</div>
+<div class="h-2.5 w-full rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-on-tertiary-container rounded-full" style="width: 76%;"></div>
+</div>
+</div>
+<!-- Impact breakdown chips -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="p-2 rounded-lg bg-surface-container-lowest">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Alex Share (+ $125)</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">$1,175/mo</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Maya Share (+ $125)</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">$925/mo</span>
+</div>
+</div>
+</div>
+<!-- Slider UI (Interactive feel) -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold uppercase tracking-wider" for="boost-slider">Simulate Extra Household Contribution</label>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold tabular-nums" id="boost-display">+$250/mo</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-secondary" id="boost-slider" max="1000" min="50" oninput="document.getElementById('boost-display').innerText = '+$' + this.value + '/mo';" step="50" type="range" value="250"/>
+<div class="flex justify-between text-[11px] font-label-sm text-on-surface-variant">
+<span>+$50</span>
+<span>+$250 (Recommended)</span>
+<span>+$500</span>
+<span>+$1,000</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-4">
+<button class="w-full py-2.5 px-4 rounded-lg bg-on-surface text-on-primary font-label-md text-label-md font-semibold hover:bg-surface-container-highest hover:text-on-surface shadow-sm transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Apply Recommended Boost to Auto-Transfer</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

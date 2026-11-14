@@ -1,0 +1,23 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": "..",
+  "roots": [
+    "<rootDir>/test"
+  ],
+  "testRegex": ".*\\.e2e-spec\\.ts$",
+  "transform": {
+    "^.+\\.ts$": "ts-jest"
+  },
+  "testEnvironment": "node",
+  "moduleNameMapper": {
+    "^@prisma/client$": "<rootDir>/node_modules/@prisma/client/default.js"
+  },
+  "setupFiles": [
+    "<rootDir>/test/e2e-env.js",
+    "<rootDir>/test/load-env.js"
+  ]
+}

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-background":"#0b1c30","outline":"#76777d","surface-container":"#e5eeff","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","tertiary-container":"#00201d","primary-fixed-dim":"#bec6e0","on-primary-container":"#7c839b","on-tertiary-container":"#0c9488","secondary-fixed-dim":"#c3c0ff","tertiary":"#000000","error":"#ba1a1a","surface-container-highest":"#d3e4fe","on-surface":"#0b1c30","surface-tint":"#565e74","error-container":"#ffdad6","surface-container-high":"#dce9ff","tertiary-fixed":"#89f5e7","on-secondary-fixed-variant":"#3323cc","surface-container-low":"#eff4ff","background":"#f8f9ff","on-primary":"#ffffff","inverse-on-surface":"#eaf1ff","on-tertiary-fixed-variant":"#005049","primary-fixed":"#dae2fd","on-primary-fixed-variant":"#3f465c","on-secondary-container":"#fffbff","surface-bright":"#f8f9ff","secondary-container":"#645efb","secondary-fixed":"#e2dfff","primary":"#000000","primary-container":"#131b2e","surface-variant":"#d3e4fe","surface":"#f8f9ff","on-tertiary-fixed":"#00201d","on-error-container":"#93000a","outline-variant":"#c6c6cd","inverse-surface":"#213145","surface-dim":"#cbdbf5","on-secondary-fixed":"#0f0069","on-primary-fixed":"#131b2e","on-error":"#ffffff","on-surface-variant":"#45464d","tertiary-fixed-dim":"#6bd8cb","secondary":"#4b41e1","on-tertiary":"#ffffff","inverse-primary":"#bec6e0"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1rem","space-md":"1rem","margin-md":"2rem","gutter-lg":"2rem","margin-lg":"3rem","gutter-md":"1.5rem","margin":"1rem","space-sm":"0.5rem","space-xl":"2rem"},"fontFamily":{"stat-lg":["Hanken Grotesk"],"headline-lg-mobile":["Hanken Grotesk"],"headline-lg":["Hanken Grotesk"],"label-md":["Inter"],"stat-md":["Hanken Grotesk"],"stat-lg-mobile":["Hanken Grotesk"],"body-lg":["Inter"],"body-md":["Inter"],"headline-md":["Hanken Grotesk"],"label-sm":["Inter"],"display-lg":["Hanken Grotesk"],"headline-sm":["Hanken Grotesk"],"display-lg-mobile":["Hanken Grotesk"],"body-sm":["Inter"]},"fontSize":{"stat-lg":["36px",{"lineHeight":"40px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"stat-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"stat-lg-mobile":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"26px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["32px",{"lineHeight":"38px","letterSpacing":"-0.025em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="px-space-lg pt-space-lg pb-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><img alt="Tandem Finance Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrABER5GM6UqsahkWIZnobdwupafxDhK4u5fk-aBYkQhXrewYGPtU7URAWg7tTzXTIFSoMPooBRjmeJprLfkVe2bBwjTsy4_UL0mcNgECbIgtnzQzYggbjBF6cZrscXBCknlG8AZJ5tMDFGtO51Yvc3xG9VLBIOmofRXm4YISwmtBd97Je2ESjuuWTLC1x48o37aC9qM-FxXzUQ0KwjnSHqYiVCA-fgZw_8tPj9-cCuy"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight tracking-tight font-semibold">Tandem</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Shared Space (Alex &amp; Maya)</span></div></div><div class="flex items-center justify-center w-6 h-6 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span></div></div><div class="px-space-md py-space-xs"><button class="w-full flex items-center justify-between px-space-md py-space-sm bg-primary text-on-primary rounded-lg shadow-sm hover:bg-primary-container transition-all text-left" type="button"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="font-label-md text-label-md font-medium">New Expense</span></div><kbd class="px-1.5 py-0.5 text-[10px] font-semibold bg-surface-container/20 rounded text-on-primary/90 uppercase tracking-wider">⌘K</kbd></button></div><nav class="flex-1 px-space-md py-space-sm overflow-y-auto flex flex-col gap-1" data-active-classes="bg-surface-container text-on-surface font-semibold rounded-lg"><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="dashboard" href="#dashboard"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-md text-label-md">Dashboard</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="transactions" href="#transactions"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">receipt_long</span><span class="font-label-md text-label-md">Transactions</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="categories-and-budgets" href="#categories"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">pie_chart</span><span class="font-label-md text-label-md">Categories &amp; Budgets</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="financial-progress" href="#progress"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">trending_up</span><span class="font-label-md text-label-md">Financial Progress</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="savings-goals" href="#goals"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">savings</span><span class="font-label-md text-label-md">Savings Goals</span></div></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="ai-financial-insights" href="#insights"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px] text-secondary">auto_awesome</span><span class="font-label-md text-label-md">AI Insights</span></div><span class="px-1.5 py-0.5 text-[10px] font-semibold bg-secondary-fixed text-on-secondary-fixed rounded-full">AI</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="notifications" href="#notifications"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="font-label-md text-label-md">Notifications</span></div><span class="px-1.5 py-0.5 text-[11px] font-semibold bg-error-container text-on-error-container rounded-full leading-none">3</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="settings-and-household" href="#settings"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-md text-label-md">Settings &amp; Household</span></div></a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-surface-container-low/60 rounded-t-xl"><div class="flex flex-col gap-1 px-1"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Household Members</span><div class="flex items-center justify-between pt-1"><div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-body-sm text-body-sm text-on-surface font-medium">Alex</span></div><div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span><span class="font-body-sm text-body-sm text-on-surface font-medium">Maya</span></div><div class="flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm font-semibold"><span class="material-symbols-outlined text-[14px]">balance</span>50/50</div></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByx7W8U3oxfcRhew20t8Y2VjErt94t6GuBUomjkd7TSLBWOoRgHXVxiJGU1xWU9jP_2xcGsSgHGJ2gvuvwIRbKlX4p5Frl69OM3C0QMEQFJ3Ko7L3WZ_96zSBX4BoUD2wIgBcrpwqWN3DhZWPxKP3wgob-C6WaWo9ZZ0nBU0ZcGc0G7D-urve1fDBxGJJT1JXEPlWmR9ZNM0KrBJcgf5wSXhkQ6w3MPgIgoH3JtZaq"/><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface truncate font-medium">Alex &amp; Maya</span><span class="font-label-sm text-label-sm text-on-surface-variant">Personal Vault</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></aside><div class="pl-72 min-h-screen flex flex-col"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-2"><button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button><div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors cursor-pointer shadow-sm"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">calendar_today</span><span class="font-label-md text-label-md text-on-surface font-semibold">October 2024</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span></div><button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button></div><div class="flex items-center p-0.5 bg-surface-container rounded-lg"><button class="px-space-md py-1 rounded-md bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold shadow-sm" type="button">All Shared</button><button class="flex items-center gap-1.5 px-space-md py-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Alex</button><button class="flex items-center gap-1.5 px-space-md py-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button"><span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>Maya</button></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer shadow-sm"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-body-sm text-body-sm hidden sm:inline">Search transactions, categories...</span><kbd class="hidden sm:inline px-1 py-0.5 text-[10px] bg-surface-container rounded font-medium text-on-surface-variant">⌘F</kbd></div><button class="relative w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary"></span></button><button class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button></div></header><main class="relative pt-16 bg-surface min-h-screen w-full px-8 pb-12"><div class="flex flex-col w-full">
+<!-- Top Control & Identity Header Bar -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg mb-space-xl">
+<div class="flex flex-col gap-1.5 max-w-2xl">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm uppercase tracking-wider font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+          Tandem Intelligence • Couples Wealth Copilot
+        </span>
+<span class="text-on-surface-variant text-label-sm font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-on-tertiary-container">sync</span>
+          Synced 4m ago
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">AI Financial Insights</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        Autonomous spending diagnostics, tailored savings opportunities, and natural language scenario modeling for Alex &amp; Maya.
+      </p>
+</div>
+<!-- Header Actions -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center bg-surface-container-lowest p-1 rounded-lg shadow-sm">
+<button class="px-3 py-1.5 rounded text-label-md font-label-md font-medium text-on-surface bg-surface-container-high transition-colors" type="button">
+          October 2024
+        </button>
+<button class="px-3 py-1.5 rounded text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+          Last 30 Days
+        </button>
+<button class="px-3 py-1.5 rounded text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+          Q3 Retrospective
+        </button>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-lg text-label-md font-label-md font-medium shadow-sm hover:bg-primary-container transition-all" id="open-ask-copilot" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed">auto_awesome</span>
+<span>Ask Copilot</span>
+<kbd class="px-1.5 py-0.5 text-[10px] font-semibold bg-surface-container/20 rounded uppercase text-on-primary">⌘J</kbd>
+</button>
+</div>
+</div>
+<!-- Key Insight Metrics & Pulse Strip (Top Row) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-xl">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-tertiary-fixed/30 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Identified Surplus</span>
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container">arrow_outward</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-stat-lg text-stat-lg text-on-surface font-semibold tracking-tight">+$420.00</span>
+<span class="text-label-sm font-label-sm px-1.5 py-0.5 bg-surface-container text-on-tertiary-container rounded font-medium">Safe buffer</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Reallocatable monthly without lowering joint lifestyle satisfaction.</p>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-error-container/40 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Discretionary Creep</span>
+<span class="material-symbols-outlined text-[18px] text-error">warning</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-stat-lg text-stat-lg text-on-surface font-semibold tracking-tight">+14.2%</span>
+<span class="text-label-sm font-label-sm px-1.5 py-0.5 bg-error-container text-on-error-container rounded font-medium">Attention</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Concentrated in Dining &amp; Streaming vs 90-day baseline pace.</p>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-secondary-fixed/40 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Optimized Savings Rate</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">trending_up</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-stat-lg text-stat-lg text-on-surface font-semibold tracking-tight">34.5%</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">from 29.6%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Unlocks +$450.00/mo directed into the Down Payment vault.</p>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-surface-container/60 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Household Friction Index</span>
+<span class="material-symbols-outlined text-[18px] text-on-tertiary-container">verified</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-stat-lg text-stat-lg text-on-surface font-semibold tracking-tight">9.8<span class="text-headline-sm font-headline-sm text-on-surface-variant font-normal">/10</span></span>
+<span class="text-label-sm font-label-sm px-1.5 py-0.5 bg-surface-container text-on-surface rounded font-medium">Harmonized</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">0 unapproved splits; equal split parity preserved across 38 tags.</p>
+</div>
+</div>
+<!-- Primary Workspace: Two-Column Bento Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Conversational Co-pilot (60% ~ 7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col overflow-hidden">
+<!-- Assistant Header -->
+<div class="px-space-lg py-4 bg-surface-container-low/70 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">auto_awesome</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Tandem Co-pilot</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-tertiary-fixed text-on-tertiary-fixed uppercase tracking-wider">Online</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Joint Checking
+                <span class="text-outline-variant">•</span> High-Yield Vault (4.85%)
+                <span class="text-outline-variant">•</span> 2 Cards
+              </span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Export conversation" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" title="Reset memory context" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- Chat Conversation Stream -->
+<div class="p-space-lg flex flex-col gap-5 overflow-y-auto max-h-[640px]" id="copilot-stream">
+<!-- Partner Prompt 1 -->
+<div class="flex items-start justify-end gap-3">
+<div class="flex flex-col items-end max-w-xl">
+<div class="flex items-center gap-2 mb-1">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Alex &amp; Maya
+                </div>
+<span class="text-on-surface-variant text-[11px]">Today 10:14 AM</span>
+</div>
+<div class="p-3.5 rounded-xl rounded-tr-none bg-surface-container-high text-on-surface font-body-md text-body-md">
+                How much could we realistically save next month if we trim non-essential dining and our casual coffee runs?
+              </div>
+</div>
+</div>
+<!-- AI Response 1 -->
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">auto_awesome</span>
+</div>
+<div class="flex flex-col max-w-2xl w-full">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Tandem Co-pilot</span>
+<span class="text-on-surface-variant text-[11px]">Analyzed 82 transactions</span>
+</div>
+<!-- Diagnostic Card Output -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-4 text-on-surface">
+<p class="font-body-md text-body-md leading-relaxed">
+                  In October, your combined discretionary dining reached <strong class="text-on-surface font-semibold">$360.00</strong> across 11 outings, plus <strong class="text-on-surface font-semibold">$85.00</strong> in artisanal coffee stops (<strong class="text-on-surface font-semibold">$445.00 total</strong>).
+                </p>
+<!-- Impact Snapshot Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+<div class="bg-surface-container-lowest p-3 rounded-lg flex flex-col shadow-sm">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Recommended Cap</span>
+<span class="font-stat-md text-stat-md text-on-surface font-semibold mt-0.5">$250.00</span>
+<span class="text-body-sm text-body-sm text-on-tertiary-container mt-1 font-medium">+$195.00/mo net saving</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg flex flex-col shadow-sm">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Japan 2025 Target</span>
+<span class="font-stat-md text-stat-md text-secondary font-semibold mt-0.5">18 Days Sooner</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant mt-1">Target: April 14, 2025</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-lg flex flex-col shadow-sm">
+<span class="text-label-sm font-label-sm text-on-surface-variant">12-Mo Compound</span>
+<span class="font-stat-md text-stat-md text-on-surface font-semibold mt-0.5">+$2,398</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant mt-1">At 4.85% APY in Vault</span>
+</div>
+</div>
+<!-- Suggested Actions Pills -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary text-label-md font-label-md font-medium hover:bg-primary-container transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+                    Apply $250 Dining Cap
+                  </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface text-label-md font-label-md font-medium hover:bg-surface-container transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">timeline</span>
+                    Simulate 3-Month Projection
+                  </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface text-label-md font-label-md font-medium hover:bg-surface-container transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">chat_bubble_outline</span>
+                    Draft Maya's Recap
+                  </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Proactive AI Observation Pill / Notification Card -->
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-secondary text-on-secondary flex items-center justify-center flex-shrink-0 mt-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">notifications_active</span>
+</div>
+<div class="flex flex-col max-w-2xl w-full">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Proactive Household Audit</span>
+<span class="px-2 py-0.5 rounded text-[10px] bg-secondary-fixed text-on-secondary-fixed font-semibold uppercase">Zero-Activity Alert</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="flex flex-col gap-0.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">3 Dormant Subscriptions Detected</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    $42.00/month recurring cost across <span class="font-medium text-on-surface">Equinox On-Demand, Audible, and Headspace</span>. No logins or partner usage recorded in over 60 days.
+                  </p>
+</div>
+<button class="px-3.5 py-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface text-label-md font-label-md font-medium shadow-sm transition-all whitespace-nowrap" type="button">
+                  Review &amp; Auto-Pause
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Copilot Suggested Starter Chips -->
+<div class="px-space-lg pt-2 pb-3 bg-surface-container-lowest flex items-center gap-2 overflow-x-auto">
+<span class="text-label-sm font-label-sm text-on-surface-variant flex-shrink-0">Suggestions:</span>
+<button class="suggestion-chip px-3 py-1 rounded-full bg-surface-container text-on-surface text-body-sm font-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors" data-prompt="Where are we overspending compared to our peer benchmark?" type="button">
+            Where are we overspending?
+          </button>
+<button class="suggestion-chip px-3 py-1 rounded-full bg-surface-container text-on-surface text-body-sm font-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors" data-prompt="Can we afford an Amalfi Coast hotel upgrade for $680 without derailing the 2025 savings goal?" type="button">
+            Can we afford the Amalfi upgrade?
+          </button>
+<button class="suggestion-chip px-3 py-1 rounded-full bg-surface-container text-on-surface text-body-sm font-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors" data-prompt="Compare our joint savings rate to similar dual-income households in our area." type="button">
+            Benchmark couples savings
+          </button>
+</div>
+<!-- Natural Language Input Deck -->
+<div class="p-space-md bg-surface-container-lowest">
+<form class="relative flex items-center bg-surface-container-low rounded-xl p-1.5 focus-within:ring-2 focus-within:ring-secondary transition-all" id="copilot-input-form">
+<button class="w-9 h-9 flex items-center justify-center text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container transition-colors" title="Attach transaction or receipt" type="button">
+<span class="material-symbols-outlined text-[20px]">attach_file</span>
+</button>
+<input autocomplete="off" class="w-full bg-transparent px-3 py-2 text-on-surface placeholder:text-on-surface-variant focus:outline-none font-body-md text-body-md" id="copilot-user-input" placeholder="Ask anything about joint spending, travel affordability, or tax scenarios..." type="text"/>
+<div class="flex items-center gap-1.5 mr-1">
+<button class="w-9 h-9 flex items-center justify-center text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container transition-colors" title="Voice memo prompt" type="button">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center bg-primary text-on-primary rounded-lg hover:bg-primary-container transition-colors shadow-sm" title="Send question" type="submit">
+<span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+</button>
+</div>
+</form>
+<div class="flex items-center justify-between px-2 pt-2 text-[11px] text-on-surface-variant">
+<span>Powered by Tandem Ledger LLM • Encrypted with 256-bit zero-retention vault security</span>
+<span>Esc to clear</span>
+</div>
+</div>
+</div>
+<!-- Household Behavioral Spending Comparison Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-space-md">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Couples Attribution Balance</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Category Split Diagnostics</h2>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="text-label-sm font-label-sm text-on-surface">Alex (51.4%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container"></span>
+<span class="text-label-sm font-label-sm text-on-surface">Maya (48.6%)</span>
+</div>
+</div>
+</div>
+<!-- Category Bars with Dynamic Attributions -->
+<div class="flex flex-col gap-4">
+<!-- Item 1: Groceries & Home -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">shopping_basket</span>
+                Groceries &amp; Pantry
+              </span>
+<span class="text-on-surface-variant">Alex $280 <span class="text-outline-variant">|</span> <strong class="text-on-tertiary-container">Maya $640</strong></span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container overflow-hidden flex">
+<div class="h-full bg-secondary transition-all" style="width: 30%;"></div>
+<div class="h-full bg-on-tertiary-container transition-all" style="width: 70%;"></div>
+</div>
+</div>
+<!-- Item 2: Tech, Gear & Utilities -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">bolt</span>
+                Tech, Internet &amp; Utilities
+              </span>
+<span class="text-on-surface-variant"><strong class="text-secondary">Alex $410</strong> <span class="text-outline-variant">|</span> Maya $95</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container overflow-hidden flex">
+<div class="h-full bg-secondary transition-all" style="width: 81%;"></div>
+<div class="h-full bg-on-tertiary-container transition-all" style="width: 19%;"></div>
+</div>
+</div>
+<!-- Item 3: Dining & Weekend Social -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">restaurant</span>
+                Dining &amp; Social
+              </span>
+<span class="text-on-surface-variant">Alex $225 <span class="text-outline-variant">|</span> Maya $220 <span class="text-on-tertiary-container text-label-sm">(Perfect 50/50)</span></span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container overflow-hidden flex">
+<div class="h-full bg-secondary transition-all" style="width: 50.5%;"></div>
+<div class="h-full bg-on-tertiary-container transition-all" style="width: 49.5%;"></div>
+</div>
+</div>
+<!-- Item 4: Travel & Getaways -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">flight</span>
+                Joint Escapes Fund
+              </span>
+<span class="text-on-surface-variant">Alex $450 <span class="text-outline-variant">|</span> Maya $450</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container overflow-hidden flex">
+<div class="h-full bg-secondary transition-all" style="width: 50%;"></div>
+<div class="h-full bg-on-tertiary-container transition-all" style="width: 50%;"></div>
+</div>
+</div>
+</div>
+<!-- Impulse Spending Visual Differential (Weekend vs Weekday) -->
+<div class="mt-space-lg pt-space-md bg-surface-container-low rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">calendar_view_week</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Weekend Impulse Variance</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">68% of unbudgeted purchases happen between Friday 6 PM and Sunday 10 PM.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md font-semibold text-on-surface bg-surface-container-lowest px-3 py-1.5 rounded-lg shadow-sm">+$140 / Weekend Avg</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Priority Diagnostics & What-If Sandbox (40% ~ 5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Section: Priority Actionable Opportunities -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Priority Actionable Opportunities</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-semibold">3 Detected</span>
+</div>
+<!-- Card 1: Subscription Redundancy -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">queue_music</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Duplicate Music Streaming</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Spotify Family vs Apple Music Individual</span>
+</div>
+</div>
+<span class="text-label-md font-label-md font-semibold text-on-tertiary-container bg-surface-container px-2 py-0.5 rounded">+$38.00/mo</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Alex pays for Apple Music ($10.99) while Maya maintains an active Spotify Family account ($19.99) plus an unused gym audio subscription. Migrating Alex to Spotify Family eliminates redundancy.
+          </p>
+<div class="flex items-center justify-between pt-1">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Annual saving: $456.00</span>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary text-label-md font-label-md font-medium hover:bg-primary-container transition-colors shadow-sm" type="button">
+              One-Click Review
+            </button>
+</div>
+</div>
+<!-- Card 2: Grocery Pacing Alert -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Pacing: Grocery Rebalance</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Groceries 18% above target pace</span>
+</div>
+</div>
+<span class="text-label-md font-label-md font-semibold text-secondary bg-surface-container px-2 py-0.5 rounded">Safe Transfer</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Your recreation and movie envelope is currently sitting at $120 unused with 8 days remaining in October. Rebalance $50 into groceries to prevent an end-of-month budget deficit.
+          </p>
+<div class="flex items-center justify-between pt-1">
+<span class="text-label-sm font-label-sm text-on-surface-variant">From: Leisure → Groceries</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface text-label-md font-label-md font-medium hover:bg-surface-container-highest transition-colors" type="button">
+              Auto-Rebalance ($50)
+            </button>
+</div>
+</div>
+<!-- Card 3: High-Yield Interest Boost -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">savings</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Idle Cash Optimization</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">$4,200 resting in 0.05% checking</span>
+</div>
+</div>
+<span class="text-label-md font-label-md font-semibold text-on-tertiary-container bg-surface-container px-2 py-0.5 rounded">+$203.70/yr</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Your joint buffer has maintained &gt;$6,000 for 45 straight days. Sweeping $4,200 to your 4.85% APY Tandem Vault guarantees zero friction overdraft protection while earning returns.
+          </p>
+<div class="flex items-center justify-between pt-1">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Instant liquid transfer</span>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary text-label-md font-label-md font-medium hover:bg-primary-container transition-colors shadow-sm" type="button">
+              Move to Vault
+            </button>
+</div>
+</div>
+</div>
+<!-- Predictive What-If Scenario Sandbox -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Interactive Forecasting</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">"What-If" Scenario Engine</h2>
+</div>
+<span class="material-symbols-outlined text-[20px] text-secondary">tune</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Simulate how accelerating joint monthly contributions reshapes Alex &amp; Maya's primary financial horizons.
+        </p>
+<!-- Slider / Quick Selector -->
+<div class="flex flex-col gap-3 bg-surface-container-low p-4 rounded-xl">
+<div class="flex items-center justify-between">
+<span class="text-body-sm font-body-sm text-on-surface font-medium">Extra Joint Contribution:</span>
+<span class="font-stat-md text-stat-md text-on-surface font-semibold" id="scenario-val-display">+$250 / mo</span>
+</div>
+<!-- Segmented Pill Selector -->
+<div class="grid grid-cols-3 gap-1.5 p-1 bg-surface-container-lowest rounded-lg">
+<button class="scenario-btn py-1.5 text-center text-label-md font-label-md font-medium rounded text-on-surface-variant hover:text-on-surface transition-colors" data-amount="100" type="button">
+              +$100/mo
+            </button>
+<button class="scenario-btn py-1.5 text-center text-label-md font-label-md font-semibold rounded bg-primary text-on-primary shadow-sm transition-colors" data-amount="250" type="button">
+              +$250/mo
+            </button>
+<button class="scenario-btn py-1.5 text-center text-label-md font-label-md font-medium rounded text-on-surface-variant hover:text-on-surface transition-colors" data-amount="500" type="button">
+              +$500/mo
+            </button>
+</div>
+<!-- Dynamic Results Outcome Card -->
+<div class="bg-surface-container-lowest p-3.5 rounded-lg flex flex-col gap-2.5 shadow-sm mt-1">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Home Down Payment Target ($80,000)</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-tertiary-fixed text-on-tertiary-fixed" id="scenario-target-badge">
+                2 Months Earlier
+              </span>
+</div>
+<!-- Progress visualization bar -->
+<div class="flex flex-col gap-1">
+<div class="w-full h-2.5 rounded-full bg-surface-container overflow-hidden relative">
+<div class="h-full bg-on-surface-variant/40" id="scenario-bar-base" style="width: 58%;"></div>
+<div class="absolute top-0 h-full bg-secondary" id="scenario-bar-boost" style="left: 58%; width: 14%;"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] text-on-surface-variant">
+<span>Current: $46,400</span>
+<span class="font-medium text-on-surface" id="scenario-date-result">Target Met: September 2026 (was Nov 2026)</span>
+</div>
+</div>
+<div class="pt-2 border-t border-surface-container flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Compounded Vault Yield</span>
+<span class="font-semibold text-on-tertiary-container" id="scenario-yield-result">+$1,142 accrued interest</span>
+</div>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-label-md font-label-md font-semibold transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+          Adopt &amp; Lock Into Monthly Rule
+        </button>
+</div>
+<!-- Quick AI Diagnostic Card -->
+<div class="bg-primary text-on-primary rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-secondary/30 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col gap-2 relative z-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">psychology</span>
+<span class="text-label-sm font-label-sm text-secondary-fixed uppercase tracking-wider font-semibold">Tandem Autopilot</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-primary font-semibold">Zero-Surprise Monthly Review</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim leading-relaxed">
+            Maya and Alex have scheduled their 15-minute monthly retrospective for Sunday, Oct 27 at 7:00 PM. Copilot has prepared your unified 1-page financial briefing.
+          </p>
+</div>
+<div class="pt-4 relative z-10">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface text-label-md font-label-md font-semibold hover:bg-surface-container-low transition-colors shadow-sm" type="button">
+            Preview Retrospective PDF
+          </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    // 1. Highlight Active Sidebar Nav item for AI Insights
+    try {
+      const navLinks = document.querySelectorAll('aside nav a');
+      navLinks.forEach(link => {
+        const path = link.getAttribute('data-path');
+        if (path === 'ai-financial-insights') {
+          link.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-low');
+          link.classList.add('bg-surface-container', 'text-on-surface', 'font-semibold');
+        } else {
+          link.classList.remove('bg-surface-container', 'font-semibold');
+          link.classList.add('text-on-surface-variant');
+        }
+      });
+    } catch(e) {}
+
+    // 2. Interactive "What-If" Scenario Simulator
+    const scenarioBtns = document.querySelectorAll('.scenario-btn');
+    const displayVal = document.getElementById('scenario-val-display');
+    const targetBadge = document.getElementById('scenario-target-badge');
+    const boostBar = document.getElementById('scenario-bar-boost');
+    const dateResult = document.getElementById('scenario-date-result');
+    const yieldResult = document.getElementById('scenario-yield-result');
+
+    const scenarioConfigs = {
+      '100': {
+        label: '+$100 / mo',
+        badge: '1 Month Earlier',
+        width: '6%',
+        date: 'Target Met: October 2026 (was Nov 2026)',
+        yield: '+$485 accrued interest'
+      },
+      '250': {
+        label: '+$250 / mo',
+        badge: '2 Months Earlier',
+        width: '14%',
+        date: 'Target Met: September 2026 (was Nov 2026)',
+        yield: '+$1,142 accrued interest'
+      },
+      '500': {
+        label: '+$500 / mo',
+        badge: '5 Months Earlier',
+        width: '26%',
+        date: 'Target Met: June 2026 (was Nov 2026)',
+        yield: '+$2,480 accrued interest'
+      }
+    };
+
+    scenarioBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        scenarioBtns.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary', 'font-semibold');
+          b.classList.add('text-on-surface-variant', 'font-medium');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary', 'font-semibold');
+        btn.classList.remove('text-on-surface-variant', 'font-medium');
+
+        const amount = btn.getAttribute('data-amount');
+        const config = scenarioConfigs[amount];
+        if (config) {
+          if (displayVal) displayVal.textContent = config.label;
+          if (targetBadge) targetBadge.textContent = config.badge;
+          if (boostBar) boostBar.style.width = config.width;
+          if (dateResult) dateResult.textContent = config.date;
+          if (yieldResult) yieldResult.textContent = config.yield;
+        }
+      });
+    });
+
+    // 3. Conversational Co-pilot Interactive Prompting
+    const form = document.getElementById('copilot-input-form');
+    const input = document.getElementById('copilot-user-input');
+    const stream = document.getElementById('copilot-stream');
+    const suggestionChips = document.querySelectorAll('.suggestion-chip');
+    const askCopilotHeaderBtn = document.getElementById('open-ask-copilot');
+
+    if (askCopilotHeaderBtn && input) {
+      askCopilotHeaderBtn.addEventListener('click', () => {
+        input.focus();
+        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
+
+    suggestionChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const prompt = chip.getAttribute('data-prompt');
+        if (prompt && input) {
+          input.value = prompt;
+          input.focus();
+        }
+      });
+    });
+
+    function appendMessage(text, isUser = true) {
+      if (!stream) return;
+      const wrap = document.createElement('div');
+      
+      if (isUser) {
+        wrap.className = 'flex items-start justify-end gap-3';
+        wrap.innerHTML = `
+          <div class="flex flex-col items-end max-w-xl">
+            <div class="flex items-center gap-2 mb-1">
+              <div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Alex &amp; Maya
+              </div>
+              <span class="text-on-surface-variant text-[11px]">Just now</span>
+            </div>
+            <div class="p-3.5 rounded-xl rounded-tr-none bg-surface-container-high text-on-surface font-body-md text-body-md">
+              ${text}
+            </div>
+          </div>
+        `;
+      } else {
+        wrap.className = 'flex items-start gap-3';
+        wrap.innerHTML = `
+          <div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center flex-shrink-0 mt-1">
+            <span class="material-symbols-outlined text-[16px] text-secondary-fixed">auto_awesome</span>
+          </div>
+          <div class="flex flex-col max-w-2xl w-full">
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="font-label-md text-label-md font-semibold text-on-surface">Tandem Co-pilot</span>
+              <span class="text-on-surface-variant text-[11px]">Just now</span>
+            </div>
+            <div class="bg-surface-container-low rounded-xl p-4 text-on-surface font-body-md text-body-md leading-relaxed">
+              ${text}
+            </div>
+          </div>
+        `;
+      }
+
+      stream.appendChild(wrap);
+      stream.scrollTop = stream.scrollHeight;
+    }
+
+    if (form && input) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const query = input.value.trim();
+        if (!query) return;
+
+        appendMessage(query, true);
+        input.value = '';
+
+        // Simulate intelligent response after short delay
+        setTimeout(() => {
+          let aiText = "Analyzing joint transactions for October... Your current spending velocity remains healthy. Based on your $1,420 buffer and regular high-yield cash sweep, this adjustment fits comfortably within Maya and Alex's agreed risk parameters.";
+          if (query.toLowerCase().includes('overspend')) {
+            aiText = "Looking closely at your joint envelopes: Dining Out is trending 14.2% above your 90-day baseline. However, your Grocery and Utility bills are tracking 4% lower than projected, keeping net monthly variance within +$82 total.";
+          } else if (query.toLowerCase().includes('amalfi') || query.toLowerCase().includes('afford')) {
+            aiText = "Yes, you can comfortably absorb the $680 Amalfi upgrade without derailing your Japan 2025 timeline. Your 'Surplus Buffer' holds $420 this month, and shifting $260 from October's surplus travel allocation fully covers the difference with zero credit drag.";
+          }
+          appendMessage(aiText, false);
+        }, 650);
+      });
+    }
+
+    // Keyboard shortcut CMD+J / CTRL+J
+    window.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'j') {
+        e.preventDefault();
+        if (input) {
+          input.focus();
+          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    });
+  })();
+</script></main></div></body></html>

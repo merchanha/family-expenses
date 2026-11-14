@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: Build, test, e2e
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: tandem
+          POSTGRES_PASSWORD: tandem
+          POSTGRES_DB: tandem_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U tandem -d tandem_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    # CI-only dummy values. Real secrets live only in the API's runtime environment.
+    # apps/api/.env is gitignored, so test/load-env.js falls back to these.
+    env:
+      NODE_ENV: test
+      DATABASE_URL: postgresql://tandem:tandem@localhost:5432/tandem_ci?schema=public
+      CORS_ORIGIN: http://localhost:5173
+      JWT_ACCESS_SECRET: ci-only-access-secret-not-for-production-0123456789
+      JWT_REFRESH_SECRET: ci-only-refresh-secret-not-for-production-0123456789
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Version comes from "packageManager" in the root package.json.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build @tandem/shared
+        run: pnpm --filter @tandem/shared build
+
+      - name: Test @tandem/shared
+        run: pnpm --filter @tandem/shared test
+
+      - name: API build
+        run: pnpm --filter @tandem/api build
+
+      - name: API unit tests
+        run: pnpm --filter @tandem/api test
+
+      - name: API migrate (prisma migrate deploy)
+        run: pnpm --filter @tandem/api prisma:deploy
+
+      - name: API e2e tests
+        run: pnpm --filter @tandem/api test:e2e
+
+      - name: Web typecheck
+        run: pnpm --filter @tandem/web typecheck
+
+      - name: Web tests
+        run: pnpm --filter @tandem/web test
+
+      - name: Web build
+        run: pnpm --filter @tandem/web build

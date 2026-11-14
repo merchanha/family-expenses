@@ -1,0 +1,322 @@
+/*
+ * Tandem Finance design tokens — ported from design/tandem_finance/DESIGN.md (P0-006).
+ * Light theme only (per design). Design token names are exposed 1:1 as Tailwind
+ * colors (bg-surface, text-on-surface, bg-surface-container-high, ...), and the
+ * shadcn/ui semantic variables (background, foreground, card, muted, ...) are
+ * mapped onto them below so shadcn components render in the Tandem palette.
+ */
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* ---- Design tokens: colors (DESIGN.md frontmatter) ---- */
+  --surface: #f8f9ff;
+  --surface-dim: #cbdbf5;
+  --surface-bright: #f8f9ff;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #eff4ff;
+  --surface-container: #e5eeff;
+  --surface-container-high: #dce9ff;
+  --surface-container-highest: #d3e4fe;
+  --on-surface: #0b1c30;
+  --on-surface-variant: #45464d;
+  --inverse-surface: #213145;
+  --inverse-on-surface: #eaf1ff;
+  --outline: #76777d;
+  --outline-variant: #c6c6cd;
+  --surface-tint: #565e74;
+  --primary: #000000;
+  --on-primary: #ffffff;
+  --primary-container: #131b2e;
+  --on-primary-container: #7c839b;
+  --inverse-primary: #bec6e0;
+  --secondary: #4b41e1;
+  --on-secondary: #ffffff;
+  --secondary-container: #645efb;
+  --on-secondary-container: #fffbff;
+  --tertiary: #000000;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #00201d;
+  --on-tertiary-container: #0c9488;
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+  --primary-fixed: #dae2fd;
+  --primary-fixed-dim: #bec6e0;
+  --on-primary-fixed: #131b2e;
+  --on-primary-fixed-variant: #3f465c;
+  --secondary-fixed: #e2dfff;
+  --secondary-fixed-dim: #c3c0ff;
+  --on-secondary-fixed: #0f0069;
+  --on-secondary-fixed-variant: #3323cc;
+  --tertiary-fixed: #89f5e7;
+  --tertiary-fixed-dim: #6bd8cb;
+  --on-tertiary-fixed: #00201d;
+  --on-tertiary-fixed-variant: #005049;
+  --background: #f8f9ff;
+  --on-background: #0b1c30;
+  --surface-variant: #d3e4fe;
+  /* ---- Design tokens from DESIGN.md prose: semantics & partner attribution ---- */
+  --positive: #10b981;
+  --positive-container: #ecfdf5;
+  --positive-border: #a7f3d0;
+  --negative: #f43f5e;
+  --negative-container: #fff1f2;
+  --negative-border: #fecdd3;
+  --warning: #f59e0b;
+  --warning-container: #fffbeb;
+  --warning-border: #fde68a;
+  --partner-1: #6366f1;
+  --partner-1-container: #eef2ff;
+  --partner-1-border: #c7d2fe;
+  --on-partner-1-container: #4338ca;
+  --partner-2: #0d9488;
+  --partner-2-container: #f0fdfa;
+  --partner-2-border: #99f6e4;
+  --on-partner-2-container: #0f766e;
+  --hairline: rgba(226, 232, 240, 0.8);
+  --hairline-subtle: rgba(241, 245, 249, 0.9);
+
+  /* ---- shadcn/ui semantic variables, mapped onto design tokens ---- */
+  /* --background / --primary / --secondary / --tertiary already come from the design. */
+  --foreground: var(--on-surface);
+  --card: var(--surface-container-lowest);
+  --card-foreground: var(--on-surface);
+  --popover: var(--surface-container-lowest);
+  --popover-foreground: var(--on-surface);
+  --primary-foreground: var(--on-primary);
+  --secondary-foreground: var(--on-secondary);
+  --muted: var(--surface-container-low);
+  --muted-foreground: var(--on-surface-variant);
+  --accent: var(--surface-container);
+  --accent-foreground: var(--on-surface);
+  --destructive: var(--error);
+  --destructive-foreground: var(--on-error);
+  --border: var(--hairline);
+  --input: #cbd5e1;
+  --ring: var(--secondary);
+  --radius: 0.5rem;
+
+  --sidebar: var(--surface-container-lowest);
+  --sidebar-foreground: var(--on-surface-variant);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--on-primary);
+  --sidebar-accent: var(--surface-container);
+  --sidebar-accent-foreground: var(--on-surface);
+  --sidebar-border: var(--hairline);
+  --sidebar-ring: var(--secondary);
+
+  /* Elevation (DESIGN.md "Depth Hierarchy") */
+  --elevation-1: 0 1px 2px 0 rgba(15, 23, 42, 0.03), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --elevation-2: 0 4px 12px -2px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+  --elevation-3: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+}
+
+@theme inline {
+  /* Design colors */
+  --color-surface: var(--surface);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-inverse-surface: var(--inverse-surface);
+  --color-inverse-on-surface: var(--inverse-on-surface);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-surface-tint: var(--surface-tint);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-inverse-primary: var(--inverse-primary);
+  --color-secondary: var(--secondary);
+  --color-on-secondary: var(--on-secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-tertiary: var(--tertiary);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+  --color-error: var(--error);
+  --color-on-error: var(--on-error);
+  --color-error-container: var(--error-container);
+  --color-on-error-container: var(--on-error-container);
+  --color-primary-fixed: var(--primary-fixed);
+  --color-primary-fixed-dim: var(--primary-fixed-dim);
+  --color-on-primary-fixed: var(--on-primary-fixed);
+  --color-on-primary-fixed-variant: var(--on-primary-fixed-variant);
+  --color-secondary-fixed: var(--secondary-fixed);
+  --color-secondary-fixed-dim: var(--secondary-fixed-dim);
+  --color-on-secondary-fixed: var(--on-secondary-fixed);
+  --color-on-secondary-fixed-variant: var(--on-secondary-fixed-variant);
+  --color-tertiary-fixed: var(--tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--tertiary-fixed-dim);
+  --color-on-tertiary-fixed: var(--on-tertiary-fixed);
+  --color-on-tertiary-fixed-variant: var(--on-tertiary-fixed-variant);
+  --color-background: var(--background);
+  --color-on-background: var(--on-background);
+  --color-surface-variant: var(--surface-variant);
+  --color-positive: var(--positive);
+  --color-positive-container: var(--positive-container);
+  --color-positive-border: var(--positive-border);
+  --color-negative: var(--negative);
+  --color-negative-container: var(--negative-container);
+  --color-negative-border: var(--negative-border);
+  --color-warning: var(--warning);
+  --color-warning-container: var(--warning-container);
+  --color-warning-border: var(--warning-border);
+  --color-partner-1: var(--partner-1);
+  --color-partner-1-container: var(--partner-1-container);
+  --color-partner-1-border: var(--partner-1-border);
+  --color-on-partner-1-container: var(--on-partner-1-container);
+  --color-partner-2: var(--partner-2);
+  --color-partner-2-container: var(--partner-2-container);
+  --color-partner-2-border: var(--partner-2-border);
+  --color-on-partner-2-container: var(--on-partner-2-container);
+  --color-hairline: var(--hairline);
+  --color-hairline-subtle: var(--hairline-subtle);
+
+  /* shadcn semantic colors */
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Fonts: Hanken Grotesk (headings, stats) + Inter (body) */
+  --font-headline: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body);
+
+  /* Typography scale (DESIGN.md) — text-<name> sets size, line-height, tracking, weight */
+  --text-display-lg: 2.5rem;
+  --text-display-lg--line-height: 3rem;
+  --text-display-lg--letter-spacing: -0.03em;
+  --text-display-lg--font-weight: 600;
+  --text-display-lg-mobile: 2rem;
+  --text-display-lg-mobile--line-height: 2.375rem;
+  --text-display-lg-mobile--letter-spacing: -0.025em;
+  --text-display-lg-mobile--font-weight: 600;
+  --text-headline-lg: 1.75rem;
+  --text-headline-lg--line-height: 2.25rem;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 600;
+  --text-headline-lg-mobile: 1.5rem;
+  --text-headline-lg-mobile--line-height: 1.875rem;
+  --text-headline-lg-mobile--letter-spacing: -0.015em;
+  --text-headline-lg-mobile--font-weight: 600;
+  --text-headline-md: 1.25rem;
+  --text-headline-md--line-height: 1.625rem;
+  --text-headline-md--letter-spacing: -0.015em;
+  --text-headline-md--font-weight: 600;
+  --text-headline-sm: 1rem;
+  --text-headline-sm--line-height: 1.375rem;
+  --text-headline-sm--letter-spacing: -0.01em;
+  --text-headline-sm--font-weight: 600;
+  --text-stat-lg: 2.25rem;
+  --text-stat-lg--line-height: 2.5rem;
+  --text-stat-lg--letter-spacing: -0.03em;
+  --text-stat-lg--font-weight: 600;
+  --text-stat-lg-mobile: 1.75rem;
+  --text-stat-lg-mobile--line-height: 2rem;
+  --text-stat-lg-mobile--letter-spacing: -0.02em;
+  --text-stat-lg-mobile--font-weight: 600;
+  --text-stat-md: 1.375rem;
+  --text-stat-md--line-height: 1.75rem;
+  --text-stat-md--letter-spacing: -0.02em;
+  --text-stat-md--font-weight: 600;
+  --text-body-lg: 1rem;
+  --text-body-lg--line-height: 1.5rem;
+  --text-body-lg--letter-spacing: -0.005em;
+  --text-body-lg--font-weight: 400;
+  --text-body-md: 0.875rem;
+  --text-body-md--line-height: 1.25rem;
+  --text-body-md--letter-spacing: 0em;
+  --text-body-md--font-weight: 400;
+  --text-body-sm: 0.75rem;
+  --text-body-sm--line-height: 1rem;
+  --text-body-sm--letter-spacing: 0.005em;
+  --text-body-sm--font-weight: 400;
+  --text-label-md: 0.8125rem;
+  --text-label-md--line-height: 1.125rem;
+  --text-label-md--letter-spacing: 0.01em;
+  --text-label-md--font-weight: 500;
+  --text-label-sm: 0.6875rem;
+  --text-label-sm--line-height: 0.875rem;
+  --text-label-sm--letter-spacing: 0.04em;
+  --text-label-sm--font-weight: 600;
+
+  /* Radii (DESIGN.md "rounded"): rounded-sm .25 / rounded-md .75 / rounded-lg 1 / rounded-xl 1.5.
+     Base components (buttons, inputs) use `rounded-base` (0.5rem). */
+  --radius-sm: 0.25rem;
+  --radius-base: var(--radius);
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Spacing (DESIGN.md "spacing") — e.g. p-space-lg, gap-gutter, px-margin-md */
+  --spacing-gutter: 1rem;
+  --spacing-gutter-md: 1.5rem;
+  --spacing-gutter-lg: 2rem;
+  --spacing-margin: 1rem;
+  --spacing-margin-md: 2rem;
+  --spacing-margin-lg: 3rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2rem;
+
+  /* Elevation */
+  --shadow-level-1: var(--elevation-1);
+  --shadow-level-2: var(--elevation-2);
+  --shadow-level-3: var(--elevation-3);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-background font-body text-body-md text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+/* DESIGN.md numeric rule: tabular figures for every amount / ratio / date. */
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'cv05' 1, 'ss01' 1;
+}

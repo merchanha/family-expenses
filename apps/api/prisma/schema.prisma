@@ -1,0 +1,277 @@
+// Tandem Finance — MVP schema (docs/DEVELOPMENT_ROADMAP.md §4). Money = Decimal(14,2), never Float.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
+enum PartnerSlot {
+  PARTNER_1
+  PARTNER_2
+}
+
+enum HouseholdMemberRole {
+  OWNER
+  MEMBER
+}
+
+enum InviteStatus {
+  PENDING
+  ACCEPTED
+  EXPIRED
+  REVOKED
+}
+
+enum SavingsGoalStatus {
+  ACTIVE
+  COMPLETED
+  ARCHIVED
+}
+
+enum NotificationType {
+  BUDGET_THRESHOLD
+  SPENDING_INCREASE
+  GOAL_MILESTONE
+  PARTNER_ACTIVITY
+  SYSTEM
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  memberships          HouseholdMember[]
+  createdTransactions  Transaction[]      @relation("CreatedBy")
+  paidTransactions     Transaction[]      @relation("PaidBy")
+  contributions        SavingsContribution[]
+  passwordResetTokens  PasswordResetToken[]
+  refreshTokens        RefreshToken[]
+  notifications        Notification[]
+}
+
+model Household {
+  id                 String   @id @default(cuid())
+  name               String
+  defaultCurrency    String   @default("ARS")
+  /// IANA timezone for date-based reporting (BUSINESS_RULES §10.6)
+  timezone           String   @default("America/Argentina/Buenos_Aires")
+  /// Partner 1 share as percent, e.g. 50 means 50/50
+  defaultSplitPartner1Percent Int @default(50)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  members        HouseholdMember[]
+  invites        HouseholdInvite[]
+  categories     Category[]
+  budgets        Budget[]
+  transactions   Transaction[]
+  savingsGoals   SavingsGoal[]
+  notifications  Notification[]
+}
+
+model HouseholdMember {
+  id          String              @id @default(cuid())
+  householdId String
+  userId      String
+  role        HouseholdMemberRole @default(MEMBER)
+  partnerSlot PartnerSlot
+  displayName String?
+  /// Hex or token for partner chip color
+  displayColor String?
+  joinedAt    DateTime            @default(now())
+
+  household Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([householdId, userId])
+  /// Max 2 members: one per partner slot.
+  @@unique([householdId, partnerSlot])
+  /// MVP: a user belongs to at most one household.
+  @@unique([userId])
+}
+
+model HouseholdInvite {
+  id          String       @id @default(cuid())
+  householdId String
+  email       String
+  /// sha256 of the opaque invite token (the raw token is only sent to the invitee)
+  tokenHash   String       @unique
+  status      InviteStatus @default(PENDING)
+  invitedById String
+  expiresAt   DateTime
+  createdAt   DateTime     @default(now())
+
+  household Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+
+  @@index([email, status])
+  @@index([householdId, status])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  /// sha256 of the opaque single-use reset token
+  tokenHash String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+/// Opaque refresh tokens (httpOnly cookie), rotated on every refresh. Decision #5 (P1).
+/// Reusing a rotated token revokes every token in its family.
+model RefreshToken {
+  id           String    @id @default(cuid())
+  userId       String
+  /// All tokens descended from one login share a familyId
+  familyId     String
+  /// sha256 of the opaque token
+  tokenHash    String    @unique
+  expiresAt    DateTime
+  revokedAt    DateTime?
+  replacedById String?
+  createdAt    DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([familyId])
+}
+
+model Category {
+  id          String          @id @default(cuid())
+  householdId String
+  name        String
+  description String?
+  icon        String?
+  color       String?
+  type        TransactionType
+  isDefault   Boolean         @default(false)
+  isActive    Boolean         @default(true)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  household    Household     @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+  budgets      Budget[]
+
+  @@index([householdId, type, isActive])
+}
+
+model Budget {
+  id              String   @id @default(cuid())
+  householdId     String
+  categoryId      String
+  amount          Decimal  @db.Decimal(14, 2)
+  currency        String   @default("ARS")
+  month           Int      // 1-12
+  year            Int
+  /// Optional Partner 1 percent for this envelope; null = use household default
+  splitPartner1Percent Int?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  household Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  category  Category  @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+
+  @@unique([householdId, categoryId, month, year])
+  @@index([householdId, year, month])
+}
+
+model Transaction {
+  id              String          @id @default(cuid())
+  householdId     String
+  categoryId      String
+  createdById     String
+  paidById        String?
+  description     String
+  amount          Decimal         @db.Decimal(14, 2)
+  currency        String          @default("ARS")
+  type            TransactionType
+  paymentMethod   String?
+  notes           String?
+  transactionDate DateTime        @db.Date
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  household Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  category  Category  @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  createdBy User      @relation("CreatedBy", fields: [createdById], references: [id])
+  paidBy    User?     @relation("PaidBy", fields: [paidById], references: [id])
+
+  @@index([householdId, transactionDate])
+  @@index([householdId, type, transactionDate])
+  @@index([householdId, categoryId, transactionDate])
+  @@index([householdId, paidById, transactionDate])
+}
+
+model SavingsGoal {
+  id                   String            @id @default(cuid())
+  householdId          String
+  name                 String
+  description          String?
+  targetAmount         Decimal           @db.Decimal(14, 2)
+  /// Derived from contributions in application logic; may also be cached
+  currentAmount        Decimal           @default(0) @db.Decimal(14, 2)
+  currency             String            @default("ARS")
+  targetDate           DateTime?         @db.Date
+  status               SavingsGoalStatus @default(ACTIVE)
+  splitPartner1Percent Int?
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+
+  household     Household             @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  contributions SavingsContribution[]
+
+  @@index([householdId, status])
+}
+
+model SavingsContribution {
+  id               String   @id @default(cuid())
+  savingsGoalId    String
+  userId           String
+  amount           Decimal  @db.Decimal(14, 2)
+  contributionDate DateTime @db.Date
+  notes            String?
+  createdAt        DateTime @default(now())
+
+  savingsGoal SavingsGoal @relation(fields: [savingsGoalId], references: [id], onDelete: Cascade)
+  user        User        @relation(fields: [userId], references: [id])
+
+  @@index([savingsGoalId, contributionDate])
+}
+
+model Notification {
+  id          String           @id @default(cuid())
+  householdId String
+  userId      String?          // null = visible to whole household
+  type        NotificationType
+  title       String
+  description String
+  /// Optional links: categoryId, budgetId, transactionId, goalId
+  metadata    Json?
+  isRead      Boolean          @default(false)
+  dedupeKey   String?          // prevent duplicate alerts for same event
+  createdAt   DateTime         @default(now())
+
+  household Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  user      User?     @relation(fields: [userId], references: [id])
+
+  @@unique([householdId, dedupeKey])
+  @@index([householdId, isRead, createdAt])
+}

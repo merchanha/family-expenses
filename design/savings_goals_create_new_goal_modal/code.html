@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-background":"#0b1c30","outline":"#76777d","surface-container":"#e5eeff","on-secondary":"#ffffff","surface-container-lowest":"#ffffff","tertiary-container":"#00201d","primary-fixed-dim":"#bec6e0","on-primary-container":"#7c839b","on-tertiary-container":"#0c9488","secondary-fixed-dim":"#c3c0ff","tertiary":"#000000","error":"#ba1a1a","surface-container-highest":"#d3e4fe","on-surface":"#0b1c30","surface-tint":"#565e74","error-container":"#ffdad6","surface-container-high":"#dce9ff","tertiary-fixed":"#89f5e7","on-secondary-fixed-variant":"#3323cc","surface-container-low":"#eff4ff","background":"#f8f9ff","on-primary":"#ffffff","inverse-on-surface":"#eaf1ff","on-tertiary-fixed-variant":"#005049","primary-fixed":"#dae2fd","on-primary-fixed-variant":"#3f465c","on-secondary-container":"#fffbff","surface-bright":"#f8f9ff","secondary-container":"#645efb","secondary-fixed":"#e2dfff","primary":"#000000","primary-container":"#131b2e","surface-variant":"#d3e4fe","surface":"#f8f9ff","on-tertiary-fixed":"#00201d","on-error-container":"#93000a","outline-variant":"#c6c6cd","inverse-surface":"#213145","surface-dim":"#cbdbf5","on-secondary-fixed":"#0f0069","on-primary-fixed":"#131b2e","on-error":"#ffffff","on-surface-variant":"#45464d","tertiary-fixed-dim":"#6bd8cb","secondary":"#4b41e1","on-tertiary":"#ffffff","inverse-primary":"#bec6e0"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","space-lg":"1.5rem","gutter":"1rem","space-md":"1rem","margin-md":"2rem","gutter-lg":"2rem","margin-lg":"3rem","gutter-md":"1.5rem","margin":"1rem","space-sm":"0.5rem","space-xl":"2rem"},"fontFamily":{"stat-lg":["Hanken Grotesk"],"headline-lg-mobile":["Hanken Grotesk"],"headline-lg":["Hanken Grotesk"],"label-md":["Inter"],"stat-md":["Hanken Grotesk"],"stat-lg-mobile":["Hanken Grotesk"],"body-lg":["Inter"],"body-md":["Inter"],"headline-md":["Hanken Grotesk"],"label-sm":["Inter"],"display-lg":["Hanken Grotesk"],"headline-sm":["Hanken Grotesk"],"display-lg-mobile":["Hanken Grotesk"],"body-sm":["Inter"]},"fontSize":{"stat-lg":["36px",{"lineHeight":"40px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"stat-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"stat-lg-mobile":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"26px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg-mobile":["32px",{"lineHeight":"38px","letterSpacing":"-0.025em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.005em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="px-space-lg pt-space-lg pb-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><img alt="Tandem Finance Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrABER5GM6UqsahkWIZnobdwupafxDhK4u5fk-aBYkQhXrewYGPtU7URAWg7tTzXTIFSoMPooBRjmeJprLfkVe2bBwjTsy4_UL0mcNgECbIgtnzQzYggbjBF6cZrscXBCknlG8AZJ5tMDFGtO51Yvc3xG9VLBIOmofRXm4YISwmtBd97Je2ESjuuWTLC1x48o37aC9qM-FxXzUQ0KwjnSHqYiVCA-fgZw_8tPj9-cCuy"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface leading-tight tracking-tight font-semibold">Tandem</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Shared Space (Alex &amp; Maya)</span></div></div><div class="flex items-center justify-center w-6 h-6 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span></div></div><div class="px-space-md py-space-xs"><button class="w-full flex items-center justify-between px-space-md py-space-sm bg-primary text-on-primary rounded-lg shadow-sm hover:bg-primary-container transition-all text-left" type="button"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="font-label-md text-label-md font-medium">New Expense</span></div><kbd class="px-1.5 py-0.5 text-[10px] font-semibold bg-surface-container/20 rounded text-on-primary/90 uppercase tracking-wider">⌘K</kbd></button></div><nav class="flex-1 px-space-md py-space-sm overflow-y-auto flex flex-col gap-1" data-active-classes="bg-surface-container text-on-surface font-semibold rounded-lg"><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="dashboard" href="#dashboard"><span class="font-label-md text-label-md">Dashboard</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="transactions" href="#transactions"><span class="font-label-md text-label-md">Transactions</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="categories-and-budgets" href="#categories"><span class="font-label-md text-label-md">Categories &amp; Budgets</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="financial-progress" href="#progress"><span class="font-label-md text-label-md">Financial Progress</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="savings-goals" href="#savings-goals"><span class="font-label-md text-label-md">Savings Goals</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="ai-financial-insights" href="#insights"><span class="font-label-md text-label-md">AI Insights</span><span class="px-1.5 py-0.5 text-[10px] font-semibold bg-secondary-fixed text-on-secondary-fixed rounded-full">AI</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="notifications" href="#notifications"><span class="font-label-md text-label-md">Notifications</span><span class="px-1.5 py-0.5 text-[11px] font-semibold bg-error-container text-on-error-container rounded-full leading-none">3</span></a><a class="flex items-center justify-between px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all" data-path="settings-and-household" href="#settings"><span class="font-label-md text-label-md">Settings &amp; Household</span></a></nav></div><div class="p-space-md flex flex-col gap-space-sm bg-surface-container-low/60 rounded-t-xl"><div class="flex flex-col gap-1 px-1"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Household Members</span><div class="flex items-center justify-between pt-1"><div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-body-sm text-body-sm text-on-surface font-medium">Alex</span></div><div class="flex items-center gap-1.5 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm"><span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span><span class="font-body-sm text-body-sm text-on-surface font-medium">Maya</span></div><div class="flex items-center gap-1 text-on-tertiary-container font-label-sm text-label-sm font-semibold"><span class="material-symbols-outlined text-[14px]">balance</span>50/50</div></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-colors cursor-pointer"><div class="flex items-center gap-space-sm min-w-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByx7W8U3oxfcRhew20t8Y2VjErt94t6GuBUomjkd7TSLBWOoRgHXVxiJGU1xWU9jP_2xcGsSgHGJ2gvuvwIRbKlX4p5Frl69OM3C0QMEQFJ3Ko7L3WZ_96zSBX4BoUD2wIgBcrpwqWN3DhZWPxKP3wgob-C6WaWo9ZZ0nBU0ZcGc0G7D-urve1fDBxGJJT1JXEPlWmR9ZNM0KrBJcgf5wSXhkQ6w3MPgIgoH3JtZaq"/><div class="flex flex-col min-w-0"><span class="font-label-md text-label-md text-on-surface truncate font-medium">Alex &amp; Maya</span><span class="font-label-sm text-label-sm text-on-surface-variant">Personal Vault</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></aside><div class="pl-72 min-h-screen flex flex-col"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-2"><button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button><div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors cursor-pointer shadow-sm"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">calendar_today</span><span class="font-label-md text-label-md text-on-surface font-semibold">October 2024</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span></div><button class="w-7 h-7 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button></div><div class="flex items-center p-0.5 bg-surface-container rounded-lg"><button class="px-space-md py-1 rounded-md bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold shadow-sm" type="button">All Shared</button><button class="flex items-center gap-1.5 px-space-md py-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Alex</button><button class="flex items-center gap-1.5 px-space-md py-1 rounded-md text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button"><span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>Maya</button></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-2 px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer shadow-sm"><span class="material-symbols-outlined text-[18px]">search</span><span class="font-body-sm text-body-sm hidden sm:inline">Search transactions, categories...</span><kbd class="hidden sm:inline px-1 py-0.5 text-[10px] bg-surface-container rounded font-medium text-on-surface-variant">⌘F</kbd></div><button class="relative w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary"></span></button><button class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shadow-sm text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button></div></header><main class="relative pt-16 bg-surface min-h-screen w-full px-8 pb-12"><div class="flex flex-col w-full relative">
+<!-- Underneath Content: Simulated Savings Goals Dashboard (will be blurred by modal overlay) -->
+<div class="w-full flex flex-col gap-space-lg select-none filter blur-[3px] pointer-events-none opacity-60">
+<!-- Top Row Statistics -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Shared Vaults</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-stat-lg text-stat-lg text-on-surface">$48,250.00</span>
+<span class="font-body-sm text-body-sm text-on-tertiary-container font-medium">+8.4% this mo</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-space-xs">
+<div class="bg-secondary h-full rounded-full" style="width: 68%;"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Monthly Pacing</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-stat-lg text-stat-lg text-on-surface">$2,400.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ $2,500 target</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-space-xs">
+<div class="bg-on-tertiary-container h-full rounded-full" style="width: 96%;"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Estimated Milestones Met</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-stat-lg text-stat-lg text-on-surface">3 of 5 Goals</span>
+<span class="font-body-sm text-body-sm text-secondary font-medium">On Track</span>
+</div>
+<div class="flex -space-x-1 mt-space-xs">
+<span class="w-4 h-4 rounded-full bg-secondary"></span>
+<span class="w-4 h-4 rounded-full bg-on-tertiary-container"></span>
+</div>
+</div>
+</div>
+<!-- Goals Grid Underneath -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-lg">🏡</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Home Downpayment</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">High Priority</span>
+</div>
+<div class="flex justify-between items-baseline mt-space-xs">
+<span class="font-stat-md text-stat-md text-on-surface">$32,000</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Target: $60,000</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 32%;"></div>
+<div class="bg-on-tertiary-container h-full" style="width: 21%;"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-lg">🛡️</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Rainy Day Emergency</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">Fully Funded</span>
+</div>
+<div class="flex justify-between items-baseline mt-space-xs">
+<span class="font-stat-md text-stat-md text-on-surface">$15,000</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Target: $15,000</span>
+</div>
+<div class="w-full bg-on-tertiary-container h-2 rounded-full"></div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-lg">🚗</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Hybrid EV Upgrade</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">2026 Goal</span>
+</div>
+<div class="flex justify-between items-baseline mt-space-xs">
+<span class="font-stat-md text-stat-md text-on-surface">$1,250</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Target: $18,000</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 4%;"></div>
+<div class="bg-on-tertiary-container h-full" style="width: 3%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Focused Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/40 backdrop-blur-md overflow-y-auto" id="savingsGoalModal">
+<div class="relative w-full max-w-2xl bg-surface-container-lowest rounded-2xl shadow-2xl overflow-hidden my-auto flex flex-col animate-in fade-in zoom-in-95 duration-200">
+<!-- Top Subtle Atmospheric Gradient Glow -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-secondary via-on-tertiary-container to-secondary-container"></div>
+<!-- Modal Header -->
+<div class="p-space-lg pb-space-md flex items-start justify-between">
+<div class="flex items-start gap-space-md">
+<div class="w-11 h-11 rounded-xl bg-surface-container-low flex items-center justify-center text-on-surface flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[26px]">savings</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Create New Savings Goal</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant font-semibold">Shared Vault</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Collaboratively define target amount, timeline, and automated partner contributions.</p>
+</div>
+</div>
+<button aria-label="Close modal" class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-center text-on-surface-variant hover:text-on-surface" id="closeModalBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Scrollable Modal Body -->
+<div class="px-space-lg py-space-sm overflow-y-auto max-h-[calc(85vh-160px)] flex flex-col gap-space-lg">
+<!-- Quick Preset Archetypes -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Goal Blueprint &amp; Preset</label>
+<span class="font-label-sm text-label-sm text-secondary font-medium cursor-pointer hover:underline">Browse suggestions</span>
+</div>
+<div class="grid grid-cols-3 sm:grid-cols-6 gap-2 pt-1" id="templatePresetContainer">
+<button class="preset-btn px-2.5 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col items-center justify-center gap-1 group text-center" data-amount="12000" data-icon="🛡️" data-name="Emergency Cushion" type="button">
+<span class="text-base group-hover:scale-110 transition-transform">🛡️</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface truncate w-full">Safety Net</span>
+</button>
+<button class="preset-btn active-preset px-2.5 py-2 rounded-xl bg-primary text-on-primary transition-all flex flex-col items-center justify-center gap-1 shadow-sm text-center" data-amount="6500" data-icon="✈️" data-name="Summer in Amalfi &amp; Sicily" type="button">
+<span class="text-base">✈️</span>
+<span class="font-label-sm text-label-sm font-semibold truncate w-full">Vacation</span>
+</button>
+<button class="preset-btn px-2.5 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col items-center justify-center gap-1 group text-center" data-amount="45000" data-icon="🏡" data-name="Future Home Fund" type="button">
+<span class="text-base group-hover:scale-110 transition-transform">🏡</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface truncate w-full">Home Buy</span>
+</button>
+<button class="preset-btn px-2.5 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col items-center justify-center gap-1 group text-center" data-amount="18000" data-icon="🥂" data-name="Wedding &amp; Reception" type="button">
+<span class="text-base group-hover:scale-110 transition-transform">🥂</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface truncate w-full">Wedding</span>
+</button>
+<button class="preset-btn px-2.5 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col items-center justify-center gap-1 group text-center" data-amount="9000" data-icon="🚙" data-name="New Vehicle" type="button">
+<span class="text-base group-hover:scale-110 transition-transform">🚙</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface truncate w-full">Vehicle</span>
+</button>
+<button class="preset-btn px-2.5 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col items-center justify-center gap-1 group text-center" data-amount="5000" data-icon="🎯" data-name="Custom Milestones" type="button">
+<span class="text-base group-hover:scale-110 transition-transform">🎯</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface truncate w-full">Custom</span>
+</button>
+</div>
+</div>
+<!-- Goal Identity & Hero Numeric Amount -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-space-md">
+<!-- Title & Emoji -->
+<div class="sm:col-span-7 flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold" for="goalTitleInput">Goal Name</label>
+<div class="flex items-center gap-2">
+<div class="relative">
+<button class="w-11 h-11 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-center text-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary/30" id="emojiSelectorBtn" type="button">
+<span id="selectedEmojiDisplay">✈️</span>
+</button>
+</div>
+<input class="flex-1 h-11 px-space-md bg-surface-container-lowest rounded-xl font-body-md text-body-md text-on-surface font-medium focus:outline-none focus:ring-2 focus:ring-secondary/25 transition-all shadow-sm" id="goalTitleInput" placeholder="e.g. Dream Trip to Japan" type="text" value="Summer in Amalfi &amp; Sicily"/>
+</div>
+</div>
+<!-- Hero Target Amount -->
+<div class="sm:col-span-5 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold" for="targetAmountInput">Target Amount</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">USD ($)</span>
+</div>
+<div class="relative flex items-center">
+<span class="absolute left-3.5 font-stat-md text-stat-md text-on-surface-variant/80 select-none">$</span>
+<input class="w-full h-11 pl-8 pr-3 bg-surface-container-lowest rounded-xl font-stat-md text-stat-md text-on-surface font-semibold focus:outline-none focus:ring-2 focus:ring-secondary/25 transition-all shadow-sm text-right tabular-nums" id="targetAmountInput" type="text" value="6,500.00"/>
+</div>
+</div>
+</div>
+<!-- Target Date & Quick Horizons -->
+<div class="bg-surface-container-low/70 p-space-md rounded-xl flex flex-col sm:flex-row items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<div class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary">event_upcoming</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Target Milestone</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">July 15, 2025 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">(9 months away)</span></span>
+</div>
+</div>
+<!-- Horizon Chips -->
+<div class="flex items-center gap-1.5 w-full sm:w-auto justify-end">
+<button class="horizon-pill px-2.5 py-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm transition-colors shadow-sm" type="button">6 Mos</button>
+<button class="horizon-pill active-horizon px-2.5 py-1 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold transition-colors shadow-sm" type="button">9 Mos</button>
+<button class="horizon-pill px-2.5 py-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm transition-colors shadow-sm" type="button">1 Year</button>
+<button class="horizon-pill px-2.5 py-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm transition-colors shadow-sm" type="button">Custom</button>
+</div>
+</div>
+<!-- Partner Split Architecture (Tandem Core Feature) -->
+<div class="flex flex-col gap-space-sm bg-surface-container-low/40 p-space-md rounded-xl shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Monthly Contribution Split</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold live-monthly-total">$722.22 / mo total</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-tertiary-container font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">verified</span> Balanced Formula
+            </span>
+</div>
+<!-- Split Mode Tabs -->
+<div class="grid grid-cols-3 p-1 bg-surface-container rounded-xl gap-1">
+<button class="split-tab-btn py-1.5 px-2 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface font-medium transition-all text-center flex items-center justify-center gap-1" data-split="50" type="button">
+<span>50 / 50 Equal</span>
+</button>
+<button class="split-tab-btn active-split py-1.5 px-2 rounded-lg bg-surface-container-lowest font-label-sm text-label-sm text-on-surface font-semibold shadow-sm transition-all text-center flex items-center justify-center gap-1" data-split="proportional" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Income Ratio (55 / 45)</span>
+</button>
+<button class="split-tab-btn py-1.5 px-2 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface font-medium transition-all text-center flex items-center justify-center gap-1" data-split="custom" type="button">
+<span>Solo / Custom</span>
+</button>
+</div>
+<!-- Visual Segmented Allocation Bar -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden flex shadow-inner">
+<div class="bg-secondary h-full transition-all duration-300 relative group" id="alexBar" style="width: 55%;"></div>
+<div class="bg-on-tertiary-container h-full transition-all duration-300 relative group" id="mayaBar" style="width: 45%;"></div>
+</div>
+<!-- Partner breakdown chips with interactive micro-cards -->
+<div class="grid grid-cols-2 gap-space-sm pt-1">
+<!-- Alex (Partner 1) -->
+<div class="p-2.5 rounded-xl bg-surface-container-lowest flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2">
+<div class="relative">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                      AL
+                    </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Alex</span>
+<span class="text-[10px] font-label-sm px-1.5 py-0.2 bg-secondary-fixed/50 text-secondary rounded">55%</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Primary Contributor</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-secondary font-semibold tabular-nums" id="alexContributionVal">$397.22</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">per month</span>
+</div>
+</div>
+<!-- Maya (Partner 2) -->
+<div class="p-2.5 rounded-xl bg-surface-container-lowest flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2">
+<div class="relative">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                      MY
+                    </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-on-tertiary-container ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Maya</span>
+<span class="text-[10px] font-label-sm px-1.5 py-0.2 bg-tertiary-fixed/50 text-on-tertiary-container rounded">45%</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Co-Contributor</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-on-tertiary-container font-semibold tabular-nums" id="mayaContributionVal">$325.00</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">per month</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Destination High-Yield Vault Details -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Destination Vault &amp; Interest</label>
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[22px] text-on-tertiary-container">account_balance</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Joint High-Yield Stash (Vault #04)</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">4.85% APY</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Daily compound interest accrues directly into this travel target (~$162 est. yield)</span>
+</div>
+</div>
+<button class="w-7 h-7 rounded-lg hover:bg-surface-container-high transition-colors flex items-center justify-center text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+</button>
+</div>
+</div>
+<!-- Tandem Micro-Automation Switches -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Autopilot &amp; Smart Boosters</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<!-- Round-Up Sweeps Toggle -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between cursor-pointer hover:bg-surface-container-low/50 transition-colors" onclick="toggleSwitch('roundUpToggle')">
+<div class="flex items-center gap-space-xs pr-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">currency_exchange</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Round-Up Sweeps</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sweep joint card cents</span>
+</div>
+</div>
+<!-- Custom Toggle Switch -->
+<div class="w-11 h-6 bg-secondary rounded-full p-0.5 transition-colors relative flex items-center flex-shrink-0" data-active="true" id="roundUpToggle">
+<div class="w-5 h-5 bg-on-secondary rounded-full shadow-md transform translate-x-5 transition-transform duration-200"></div>
+</div>
+</div>
+<!-- Payday Auto-Deduct Toggle -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between cursor-pointer hover:bg-surface-container-low/50 transition-colors" onclick="toggleSwitch('paydayToggle')">
+<div class="flex items-center gap-space-xs pr-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[18px]">autorenew</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Payday Transfers</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Auto-fund on 1st &amp; 15th</span>
+</div>
+</div>
+<!-- Custom Toggle Switch -->
+<div class="w-11 h-6 bg-secondary rounded-full p-0.5 transition-colors relative flex items-center flex-shrink-0" data-active="true" id="paydayToggle">
+<div class="w-5 h-5 bg-on-secondary rounded-full shadow-md transform translate-x-5 transition-transform duration-200"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Action Footer -->
+<div class="p-space-lg pt-space-md bg-surface-container-lowest shadow-[0_-4px_16px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<!-- Partner Sync Notification Note -->
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-0 accent-secondary cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ping Maya via tandem notification &amp; sync budget</span>
+</label>
+<!-- CTA Buttons -->
+<div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md font-medium transition-colors" id="cancelModalBtn" type="button">
+            Cancel
+          </button>
+<button class="px-space-lg py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-all shadow-md flex items-center gap-2 group active:scale-[0.99]" id="createGoalBtn" type="button">
+<span>Activate Shared Vault</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive handlers for the modal demo
+  function toggleSwitch(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const isActive = el.getAttribute('data-active') === 'true';
+    const thumb = el.querySelector('div');
+    if (isActive) {
+      el.setAttribute('data-active', 'false');
+      el.classList.remove('bg-secondary');
+      el.classList.add('bg-outline-variant');
+      thumb.classList.remove('translate-x-5');
+      thumb.classList.add('translate-x-0');
+    } else {
+      el.setAttribute('data-active', 'true');
+      el.classList.add('bg-secondary');
+      el.classList.remove('bg-outline-variant');
+      thumb.classList.add('translate-x-5');
+      thumb.classList.remove('translate-x-0');
+    }
+  }
+
+  // Handle Preset Clicks
+  const presetBtns = document.querySelectorAll('.preset-btn');
+  const titleInput = document.getElementById('goalTitleInput');
+  const amountInput = document.getElementById('targetAmountInput');
+  const emojiDisplay = document.getElementById('selectedEmojiDisplay');
+
+  presetBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      presetBtns.forEach(b => {
+        b.className = 'preset-btn px-2.5 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col items-center justify-center gap-1 group text-center';
+        const label = b.querySelector('span:last-child');
+        if(label) label.className = 'font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface truncate w-full';
+      });
+
+      btn.className = 'preset-btn active-preset px-2.5 py-2 rounded-xl bg-primary text-on-primary transition-all flex flex-col items-center justify-center gap-1 shadow-sm text-center';
+      const activeLabel = btn.querySelector('span:last-child');
+      if(activeLabel) activeLabel.className = 'font-label-sm text-label-sm font-semibold truncate w-full text-on-primary';
+
+      const name = btn.getAttribute('data-name');
+      const amt = btn.getAttribute('data-amount');
+      const icon = btn.getAttribute('data-icon');
+
+      if (name) titleInput.value = name;
+      if (amt) amountInput.value = Number(amt).toLocaleString('en-US', { minimumFractionDigits: 2 });
+      if (icon) emojiDisplay.textContent = icon;
+    });
+  });
+
+  // Split tabs interaction
+  const splitTabs = document.querySelectorAll('.split-tab-btn');
+  const alexBar = document.getElementById('alexBar');
+  const mayaBar = document.getElementById('mayaBar');
+  const alexVal = document.getElementById('alexContributionVal');
+  const mayaVal = document.getElementById('mayaContributionVal');
+
+  splitTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      splitTabs.forEach(t => {
+        t.className = 'split-tab-btn py-1.5 px-2 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface font-medium transition-all text-center flex items-center justify-center gap-1';
+      });
+      tab.className = 'split-tab-btn py-1.5 px-2 rounded-lg bg-surface-container-lowest font-label-sm text-label-sm text-on-surface font-semibold shadow-sm transition-all text-center flex items-center justify-center gap-1';
+
+      const splitType = tab.getAttribute('data-split');
+      if (splitType === '50') {
+        alexBar.style.width = '50%';
+        mayaBar.style.width = '50%';
+        alexVal.textContent = '$361.11';
+        mayaVal.textContent = '$361.11';
+      } else if (splitType === 'proportional') {
+        alexBar.style.width = '55%';
+        mayaBar.style.width = '45%';
+        alexVal.textContent = '$397.22';
+        mayaVal.textContent = '$325.00';
+      } else {
+        alexBar.style.width = '100%';
+        mayaBar.style.width = '0%';
+        alexVal.textContent = '$722.22';
+        mayaVal.textContent = '$0.00';
+      }
+    });
+  });
+
+  // Horizon pills
+  const horizonPills = document.querySelectorAll('.horizon-pill');
+  horizonPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      horizonPills.forEach(p => {
+        p.className = 'horizon-pill px-2.5 py-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm transition-colors shadow-sm';
+      });
+      pill.className = 'horizon-pill active-horizon px-2.5 py-1 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold transition-colors shadow-sm';
+    });
+  });
+
+  // Modal dismiss buttons
+  const modal = document.getElementById('savingsGoalModal');
+  const closeBtn = document.getElementById('closeModalBtn');
+  const cancelBtn = document.getElementById('cancelModalBtn');
+  const createBtn = document.getElementById('createGoalBtn');
+
+  [closeBtn, cancelBtn, createBtn].forEach(el => {
+    if (el) {
+      el.addEventListener('click', () => {
+        if (el === createBtn) {
+          createBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span> Setting up Vault...';
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 600);
+        } else {
+          modal.style.display = 'none';
+        }
+      });
+    }
+  });
+</script></main></div></body></html>
