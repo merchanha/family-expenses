@@ -136,14 +136,15 @@ export type RefreshResult =
 let refreshInFlight: Promise<RefreshResult> | null = null;
 
 /**
- * `Retry-After` in seconds, clamped to 1–60 s. The API's throttler names the header per bucket
- * (`Retry-After-refresh`) and CORS doesn't expose it cross-site, so in practice this is the fixed
- * default backoff; a plain `Retry-After` is honoured if one ever becomes readable.
+ * Retry delay in seconds, clamped to 1–60 s. The API's throttler names the header per bucket
+ * (`Retry-After-refresh`), with plain `Retry-After` as a fallback; both are CORS-exposed.
  */
 function retryAfterMs(res: Response): number {
-  const seconds = Number(res.headers.get('retry-after'));
-  if (!Number.isFinite(seconds) || seconds <= 0) return REFRESH_RETRY_DEFAULT_MS;
-  return Math.min(Math.max(seconds * 1000, 1000), REFRESH_RETRY_MAX_MS);
+  for (const name of ['retry-after-refresh', 'retry-after']) {
+    const seconds = Number(res.headers.get(name));
+    if (Number.isFinite(seconds) && seconds > 0) return Math.min(Math.max(seconds * 1000, 1000), REFRESH_RETRY_MAX_MS);
+  }
+  return REFRESH_RETRY_DEFAULT_MS;
 }
 
 /**

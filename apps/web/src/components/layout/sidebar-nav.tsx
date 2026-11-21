@@ -22,7 +22,7 @@ export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
           onClick={onNavigate}
           className={({ isActive }) =>
             cn(
-              'flex items-center justify-between rounded-base px-space-md py-2.5 text-label-md transition-colors',
+              'flex min-h-10 items-center justify-between rounded-base px-space-md py-2.5 text-label-md transition-colors',
               isActive
                 ? 'bg-surface-container font-semibold text-on-surface'
                 : 'text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface',

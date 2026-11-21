@@ -136,7 +136,7 @@ describe('Categories & Budgets page: envelopes', () => {
     renderRoute('/categories?month=2026-11');
 
     const groceriesCard = await screen.findByRole('article', { name: 'Groceries & Food' });
-    expect(within(groceriesCard).getByText('Within budget')).toHaveClass('text-positive');
+    expect(within(groceriesCard).getByText('Within budget')).toHaveClass('text-positive-text');
     expect(within(groceriesCard).getByText('77,50 % utilized')).toBeInTheDocument();
     expect(within(groceriesCard).getByText('Default (50/50)')).toBeInTheDocument();
     expect(within(groceriesCard).getByText('Alex Morgan:')).toBeInTheDocument();
@@ -147,7 +147,7 @@ describe('Categories & Budgets page: envelopes', () => {
     expect(within(rentCard).getByText(/over$/)).toHaveTextContent('50,00');
     expect(within(rentCard).getByText('60/40')).toBeInTheDocument();
 
-    expect(within(screen.getByRole('article', { name: 'Utilities' })).getByText('Approaching (80%+)')).toHaveClass('text-warning');
+    expect(within(screen.getByRole('article', { name: 'Utilities' })).getByText('Approaching (80%+)')).toHaveClass('text-warning-text');
 
     const petsCard = screen.getByRole('article', { name: 'Pets' });
     expect(within(petsCard).getByText('No budget')).toBeInTheDocument();

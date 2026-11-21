@@ -66,7 +66,7 @@ export function SpendingByCategory({ items, totalExpenses, currency }: SpendingB
         {items.map((item) => (
           <li key={item.category.id} className="flex items-center gap-space-sm py-space-sm">
             <span className="size-2.5 shrink-0 rounded-sm" style={{ backgroundColor: item.category.color ?? UNCOLORED_CATEGORY }} aria-hidden="true" />
-            <CategoryIcon icon={item.category.icon} color={item.category.color} className="size-8" />
+            <CategoryIcon icon={item.category.icon} color={item.category.color} className="size-8 max-sm:hidden" />
             <span className="min-w-0 flex-1 truncate text-body-md text-on-surface">
               {item.category.name}
               {!item.category.isActive && <span className="text-on-surface-variant"> (inactive)</span>}

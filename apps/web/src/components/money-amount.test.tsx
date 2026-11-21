@@ -16,14 +16,14 @@ describe('MoneyAmount', () => {
     render(<MoneyAmount amount="10" type="INCOME" />);
     const el = screen.getByText(/10,00/);
     expect(text(el)).toBe('+$ 10,00');
-    expect(el).toHaveClass('text-positive');
+    expect(el).toHaveClass('text-positive-text');
   });
 
   it('shows neutral totals without sign or tone', () => {
     render(<MoneyAmount amount="0" />);
     const el = screen.getByText(/0,00/);
     expect(text(el)).toBe('$ 0,00');
-    expect(el).not.toHaveClass('text-positive');
+    expect(el).not.toHaveClass('text-positive-text');
     expect(el).not.toHaveClass('text-negative');
   });
 });

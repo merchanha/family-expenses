@@ -35,9 +35,9 @@ describe('FinancialProgressPage', () => {
     // A spending decrease is good news: down arrow text + positive color.
     const spendingChange = within(spending).getByText('−7,41 %').parentElement!;
     expect(spendingChange).toHaveTextContent('Down');
-    expect(spendingChange).toHaveClass('text-positive');
+    expect(spendingChange).toHaveClass('text-positive-text');
 
-    expect(within(screen.getByRole('region', { name: 'Household income' })).getByText('+7,39 %').parentElement).toHaveClass('text-positive');
+    expect(within(screen.getByRole('region', { name: 'Household income' })).getByText('+7,39 %').parentElement).toHaveClass('text-positive-text');
     expect(flat(screen.getByRole('region', { name: 'Net Cash Flow Buffer' }))).toContain('+$ 1.060,00');
     expect(within(screen.getByRole('region', { name: 'Savings rate' })).getByText('+8,66 pp')).toBeInTheDocument();
   });

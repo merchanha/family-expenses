@@ -58,7 +58,7 @@ export function TransactionFilters({ state }: { state: TransactionFilterState })
               aria-pressed={state.type === o.value}
               onClick={() => state.setType(o.value)}
               className={cn(
-                'min-h-9 rounded-[6px] px-space-md text-label-md',
+                'min-h-9 rounded-[6px] px-space-md text-label-md pointer-coarse:min-h-10',
                 state.type === o.value ? 'bg-surface-container-lowest text-on-surface shadow-sm' : 'text-on-surface-variant hover:text-on-surface',
               )}
             >

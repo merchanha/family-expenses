@@ -11,7 +11,7 @@ const alertVariants = cva(
         destructive:
           "border-negative-border bg-negative-container text-negative *:data-[slot=alert-description]:text-negative [&>svg]:text-current",
         success:
-          "border-positive-border bg-positive-container text-positive *:data-[slot=alert-description]:text-positive [&>svg]:text-current",
+          "border-positive-border bg-positive-container text-positive-text *:data-[slot=alert-description]:text-positive-text [&>svg]:text-current",
       },
     },
     defaultVariants: {

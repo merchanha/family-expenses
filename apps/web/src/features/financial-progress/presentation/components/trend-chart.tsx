@@ -10,6 +10,9 @@ interface TrendChartProps {
 
 interface Row {
   key: string;
+  /** Axis tick: month only, so 6 ticks fit at 360px. */
+  tick: string;
+  /** Tooltip label, with "(to date)" for the partial month. */
   label: string;
   income: number;
   expenses: number;
@@ -44,6 +47,7 @@ function TrendTooltip({ active, payload, currency }: TooltipProps<number, string
 export function TrendChart({ trend, currency }: TrendChartProps) {
   const rows: Row[] = trend.map((m) => ({
     key: `${m.year}-${m.month}`,
+    tick: shortMonth(m),
     label: m.isPartial ? `${shortMonth(m)} (to date)` : shortMonth(m),
     income: plot(m.income),
     expenses: plot(m.expenses),
@@ -65,7 +69,7 @@ export function TrendChart({ trend, currency }: TrendChartProps) {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={rows} margin={{ top: 8, right: 8, bottom: 0, left: 0 }} barGap={2} barCategoryGap="28%">
             <CartesianGrid vertical={false} stroke="var(--hairline)" />
-            <XAxis dataKey="label" tick={{ fontSize: 12, fill: 'var(--on-surface-variant)' }} tickLine={false} axisLine={{ stroke: 'var(--outline-variant)' }} />
+            <XAxis dataKey="tick" interval={0} tick={{ fontSize: 12, fill: 'var(--on-surface-variant)' }} tickLine={false} axisLine={{ stroke: 'var(--outline-variant)' }} />
             <YAxis
               tickFormatter={(v: number) => formatMoneyCompact(String(v), { currency })}
               tick={{ fontSize: 12, fill: 'var(--on-surface-variant)' }}
@@ -85,7 +89,9 @@ export function TrendChart({ trend, currency }: TrendChartProps) {
         </ResponsiveContainer>
       </div>
       {/* Table view of the same series (screen readers; the chart itself is decorative). */}
-      <table className="sr-only">
+      {/* sr-only on a wrapper: a <table> ignores the 1px width and would widen the page. */}
+      <div className="sr-only">
+      <table>
         <caption>Income and expenses per month</caption>
         <thead>
           <tr>
@@ -109,6 +115,7 @@ export function TrendChart({ trend, currency }: TrendChartProps) {
           ))}
         </tbody>
       </table>
+      </div>
     </figure>
   );
 }

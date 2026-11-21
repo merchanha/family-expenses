@@ -165,6 +165,10 @@ describe('api client', () => {
         new Response(null, { status: 429, headers: { 'Retry-After': '3' } }),
       );
       await expect(tryRefreshSession()).resolves.toEqual({ kind: 'throttled', retryAfterMs: 3000 });
+      fetchMock.mockResolvedValueOnce(
+        new Response(null, { status: 429, headers: { 'Retry-After-refresh': '7', 'Retry-After': '3' } }),
+      );
+      await expect(tryRefreshSession()).resolves.toEqual({ kind: 'throttled', retryAfterMs: 7000 });
       fetchMock.mockResolvedValueOnce(new Response(null, { status: 429 }));
       await expect(tryRefreshSession()).resolves.toEqual({ kind: 'throttled', retryAfterMs: REFRESH_RETRY_DEFAULT_MS });
     });

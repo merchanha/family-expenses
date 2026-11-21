@@ -56,7 +56,7 @@ export function ProgressKpis({ data, previousLabel }: { data: FinancialProgressR
   const net = kpis.netCashFlowBuffer;
   const rate = kpis.savingsRate;
   return (
-    <div className="grid gap-gutter sm:grid-cols-2 xl:grid-cols-4">
+    <div className="grid gap-gutter sm:grid-cols-2">
       <MoneyKpi label="Total spending" icon={ArrowUpRight} kpi={kpis.totalSpending} currency={currency} higherIsBetter={false} previousLabel={previousLabel} />
       <MoneyKpi label="Household income" icon={ArrowDownLeft} kpi={kpis.householdIncome} currency={currency} higherIsBetter previousLabel={previousLabel} />
       <KpiCard
@@ -95,7 +95,7 @@ export function ProgressKpis({ data, previousLabel }: { data: FinancialProgressR
 
 export function ProgressKpisSkeleton() {
   return (
-    <div className="grid gap-gutter sm:grid-cols-2 xl:grid-cols-4">
+    <div className="grid gap-gutter sm:grid-cols-2">
       {Array.from({ length: 4 }, (_, i) => (
         <KpiCardSkeleton key={i} />
       ))}

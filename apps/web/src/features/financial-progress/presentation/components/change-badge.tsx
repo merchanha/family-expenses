@@ -6,7 +6,7 @@ import { changeTone, directionOf, unsigned, type Direction } from '@/features/fi
 const SIGN: Record<Direction, string> = { up: '+', down: '−', flat: '' };
 const ICON = { up: ArrowUpRight, down: ArrowDownRight, flat: Minus };
 const TONE = {
-  positive: 'bg-positive-container text-positive',
+  positive: 'bg-positive-container text-positive-text',
   negative: 'bg-negative-container text-negative',
   neutral: 'bg-surface-container text-on-surface-variant',
 };

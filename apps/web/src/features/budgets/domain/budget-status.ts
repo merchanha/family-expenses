@@ -23,15 +23,15 @@ const DISPLAY: Record<BudgetStatus | 'NONE', BudgetStatusDisplay> = {
   WITHIN: {
     label: 'Within budget',
     tone: 'positive',
-    text: 'text-positive',
-    badge: 'bg-positive-container text-positive',
+    text: 'text-positive-text',
+    badge: 'bg-positive-container text-positive-text',
     bar: 'bg-positive',
   },
   APPROACHING: {
     label: 'Approaching (80%+)',
     tone: 'warning',
-    text: 'text-warning',
-    badge: 'bg-warning-container text-warning',
+    text: 'text-warning-text',
+    badge: 'bg-warning-container text-warning-text',
     bar: 'bg-warning',
   },
   EXCEEDED: {

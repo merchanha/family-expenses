@@ -195,7 +195,7 @@ export function TransactionFormDialog({ open, onOpenChange, transaction, default
                   className={cn(
                     'flex min-h-10 items-center justify-center gap-1.5 rounded-base text-label-md transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none',
                     selected
-                      ? cn('bg-surface-container-lowest shadow-level-1', t === 'EXPENSE' ? 'text-negative' : 'text-positive')
+                      ? cn('bg-surface-container-lowest shadow-level-1', t === 'EXPENSE' ? 'text-negative' : 'text-positive-text')
                       : 'text-on-surface-variant hover:text-on-surface',
                   )}
                 >
