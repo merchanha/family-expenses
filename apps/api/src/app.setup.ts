@@ -14,5 +14,8 @@ export function configureApp(app: INestApplication): void {
   app.enableCors({
     origin: config.get('CORS_ORIGIN', { infer: true }).split(',').map((o) => o.trim()),
     credentials: true,
+    // Cross-site (Pages → Run): let the web read throttle backoff. Named throttlers suffix the
+    // header, so refresh sends `Retry-After-refresh` (FOR-105).
+    exposedHeaders: ['Retry-After', 'Retry-After-refresh'],
   });
 }

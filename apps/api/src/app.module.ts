@@ -28,6 +28,13 @@ import { SummariesModule } from './modules/summaries/summaries.module';
         },
       ],
     }),
+        // Session refresh runs on every page load (both partners, several tabs, one IP), so it gets
+        // its own, looser bucket. Refresh tokens rotate and reuse revokes the family (FOR-105).
+        {
+          name: 'refresh',
+          ttl: config.get('AUTH_THROTTLE_TTL_SECONDS', { infer: true }) * 1000,
+          limit: config.get('AUTH_REFRESH_THROTTLE_LIMIT', { infer: true }),
+        },
     PrismaModule,
     CommonModule,
     HealthModule,

@@ -1,5 +1,5 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Patch, Post, Req, Res, UseGuards } from '@nestjs/common';
-import { ThrottlerGuard } from '@nestjs/throttler';
+import { SkipThrottle, ThrottlerGuard } from '@nestjs/throttler';
 import type { Request, Response } from 'express';
 import {
   forgotPasswordSchema,
@@ -36,6 +36,8 @@ const RESET_REQUESTED: MessageResponse = {
   message: 'If an account exists for that email, we sent a link to reset the password.',
 };
 
+// Throttled routes use the strict 'auth' bucket; only refresh uses the looser 'refresh' bucket.
+@SkipThrottle({ refresh: true })
 @Controller('auth')
 export class AuthController {
   constructor(
@@ -73,6 +75,7 @@ export class AuthController {
 
   @Public()
   @UseGuards(CsrfHeaderGuard, ThrottlerGuard)
+  @SkipThrottle({ auth: true, refresh: false })
   @Post('refresh')
   @HttpCode(HttpStatus.OK)
   async refresh(@Req() req: Request, @Res({ passthrough: true }) res: Response): Promise<AuthSessionResponse> {
