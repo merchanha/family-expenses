@@ -11,7 +11,7 @@ const buttonVariants = cva(
         // Variants follow DESIGN.md "Buttons & Interactive Controls".
         default: "bg-primary text-primary-foreground hover:bg-primary-container active:scale-[0.99]",
         destructive:
-          "border border-negative-border bg-negative-container text-negative hover:bg-[#ffe4e6] focus-visible:ring-destructive/20",
+          "border border-negative-border bg-negative-container text-danger-text hover:bg-[#ffe4e6] focus-visible:ring-destructive/20",
         outline:
           "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
         secondary:

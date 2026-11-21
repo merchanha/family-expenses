@@ -73,6 +73,7 @@
      The base tokens stay for fills, bars and large figures. */
   --positive-text: #047857;
   --warning-text: #b45309;
+  --danger-text: #be123c; /* 6.29:1 on white, 5.72:1 on --negative-container */
   --partner-1: #6366f1;
   --partner-1-container: #eef2ff;
   --partner-1-border: #c7d2fe;
@@ -182,6 +183,7 @@
   --color-warning-border: var(--warning-border);
   --color-positive-text: var(--positive-text);
   --color-warning-text: var(--warning-text);
+  --color-danger-text: var(--danger-text);
   --color-partner-1: var(--partner-1);
   --color-partner-1-container: var(--partner-1-container);
   --color-partner-1-border: var(--partner-1-border);

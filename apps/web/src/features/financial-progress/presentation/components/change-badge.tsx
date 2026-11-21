@@ -7,7 +7,7 @@ const SIGN: Record<Direction, string> = { up: '+', down: '−', flat: '' };
 const ICON = { up: ArrowUpRight, down: ArrowDownRight, flat: Minus };
 const TONE = {
   positive: 'bg-positive-container text-positive-text',
-  negative: 'bg-negative-container text-negative',
+  negative: 'bg-negative-container text-danger-text',
   neutral: 'bg-surface-container text-on-surface-variant',
 };
 

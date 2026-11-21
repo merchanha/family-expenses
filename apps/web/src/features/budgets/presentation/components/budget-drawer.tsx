@@ -134,7 +134,7 @@ export function BudgetDrawer({ envelope, month, defaultSplitPartner1Percent, onO
                   </div>
                 </div>
               ) : (
-                <Button type="button" variant="ghost" className="text-negative" onClick={() => setConfirmRemove(true)}>
+                <Button type="button" variant="ghost" className="text-danger-text" onClick={() => setConfirmRemove(true)}>
                   Remove budget
                 </Button>
               ))}

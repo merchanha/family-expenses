@@ -5,14 +5,14 @@ import { cn } from '@/lib/utils';
 interface MoneyAmountProps {
   /** Decimal string from the API ("1234.50"). Never a number. */
   amount: string;
-  /** Income shows "+" in text-positive-text (AA small-text green), expense "−" in text-negative; omit for a neutral total. */
+  /** Income shows "+" in text-positive-text (AA small-text green), expense "−" in text-danger-text; omit for a neutral total. */
   type?: TransactionType;
   currency?: string;
   className?: string;
 }
 
 const SIGN: Record<TransactionType, string> = { INCOME: '+', EXPENSE: '−' };
-const TONE: Record<TransactionType, string> = { INCOME: 'text-positive-text', EXPENSE: 'text-negative' };
+const TONE: Record<TransactionType, string> = { INCOME: 'text-positive-text', EXPENSE: 'text-danger-text' };
 
 /**
  * One way to show money: ARS / es-AR, tabular figures, and for transactions a

@@ -62,7 +62,7 @@ export function EnvelopeCard({ envelope, currency, defaultSplitPartner1Percent, 
         </p>
         {budget && envelope.remaining !== null && (
           <p className="flex flex-col items-end text-body-sm">
-            <span className={cn('tabular', over ? 'text-negative' : display.text)}>
+            <span className={cn('tabular', over ? 'text-danger-text' : display.text)}>
               {over ? `${money(absAmount(envelope.remaining))} over` : `${money(envelope.remaining)} left`}
             </span>
             <span className="tabular text-on-surface-variant">cap {money(budget.amount)}</span>

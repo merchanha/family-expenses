@@ -57,7 +57,7 @@ export function EnvelopeSummary({ summary, currency }: EnvelopeSummaryProps) {
           />
         }
         valueTitle={formatMoney(summary.remaining, { currency })}
-        footer={over ? <span className="text-negative">Over the allocation</span> : 'Allocation − consumed'}
+        footer={over ? <span className="text-danger-text">Over the allocation</span> : 'Allocation − consumed'}
       />
     </div>
   );

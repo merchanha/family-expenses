@@ -37,8 +37,8 @@ const DISPLAY: Record<BudgetStatus | 'NONE', BudgetStatusDisplay> = {
   EXCEEDED: {
     label: 'Exceeded',
     tone: 'negative',
-    text: 'text-negative',
-    badge: 'bg-negative-container text-negative',
+    text: 'text-danger-text',
+    badge: 'bg-negative-container text-danger-text',
     bar: 'bg-negative',
   },
   NONE: {

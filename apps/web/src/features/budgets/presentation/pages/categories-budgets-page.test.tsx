@@ -143,7 +143,7 @@ describe('Categories & Budgets page: envelopes', () => {
     expect(within(groceriesCard).getByText('Maya Lopez:')).toBeInTheDocument();
 
     const rentCard = screen.getByRole('article', { name: 'Rent & Housing' });
-    expect(within(rentCard).getByText('Exceeded')).toHaveClass('text-negative');
+    expect(within(rentCard).getByText('Exceeded')).toHaveClass('text-danger-text');
     expect(within(rentCard).getByText(/over$/)).toHaveTextContent('50,00');
     expect(within(rentCard).getByText('60/40')).toBeInTheDocument();
 

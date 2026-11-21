@@ -9,7 +9,7 @@ describe('MoneyAmount', () => {
     render(<MoneyAmount amount="1234.50" type="EXPENSE" />);
     const el = screen.getByText(/1\.234,50/);
     expect(text(el)).toBe('−$ 1.234,50');
-    expect(el).toHaveClass('text-negative', 'tabular');
+    expect(el).toHaveClass('text-danger-text', 'tabular');
   });
 
   it('shows income with a plus sign and the positive tone', () => {
@@ -24,6 +24,6 @@ describe('MoneyAmount', () => {
     const el = screen.getByText(/0,00/);
     expect(text(el)).toBe('$ 0,00');
     expect(el).not.toHaveClass('text-positive-text');
-    expect(el).not.toHaveClass('text-negative');
+    expect(el).not.toHaveClass('text-danger-text');
   });
 });
