@@ -2,8 +2,10 @@ import { Navigate, type RouteObject } from 'react-router-dom';
 import { AppLayout } from '@/components/layout/app-layout';
 import { PublicLayout } from '@/components/layout/public-layout';
 import { CreateAccountPage, PublicOnly, RequireAuth, RequireNoHousehold, ResetPasswordPage, SignInPage } from '@/features/auth';
+import { CategoriesPage } from '@/features/categories';
+import { DashboardPage } from '@/features/dashboard';
 import { JoinHouseholdPage, OnboardingPage, SettingsPage } from '@/features/households';
-import { DashboardPage } from '@/pages/dashboard-page';
+import { TransactionsPage } from '@/features/transactions';
 import { NotFoundPage } from '@/pages/not-found-page';
 import { PlaceholderPage } from '@/pages/placeholder-page';
 
@@ -37,8 +39,8 @@ export const routes: RouteObject[] = [
         children: [
           { path: '/', element: <Navigate to="/dashboard" replace /> },
           { path: '/dashboard', element: <DashboardPage /> },
-          { path: '/transactions', element: <PlaceholderPage title="Transactions" milestone="P2 — Transactions & Categories" /> },
-          { path: '/categories', element: <PlaceholderPage title="Categories & Budgets" milestone="P2/P3" /> },
+          { path: '/transactions', element: <TransactionsPage /> },
+          { path: '/categories', element: <CategoriesPage /> },
           { path: '/progress', element: <PlaceholderPage title="Financial Progress" milestone="P3" /> },
           { path: '/goals', element: <PlaceholderPage title="Savings Goals" milestone="P5" /> },
           { path: '/insights', element: <PlaceholderPage title="AI Insights" milestone="P6" /> },

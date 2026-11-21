@@ -693,3 +693,19 @@ Local ports: API `http://localhost:3001` (prefix `/api`), web `http://localhost:
 Approved dependencies for P1: API `@nestjs/jwt`, `@nestjs/throttler`, `cookie-parser`, `argon2`; web `react-hook-form`, `@hookform/resolvers`. No Passport.
 
 P0 follow-ups are in P1 scope: the console `MailService` (#2 amendment), git + minimal CI (#7), and the category unique-active-name rule.
+
+### Decisions (resolved in P2 — 2026-11-21, PO)
+
+| # | Decision | Choice | Rationale |
+|---|---|---|---|
+| 9 | 4th dashboard KPI | **Savings rate** until P5; "Savings & Investing" returns with contributions | Contributions don't exist before P5. |
+| 10 | Who paid | Defaults to the **signed-in user**. The mockup's "Split 50/50" is stored as **Shared** (`paidById` null) | No settlements in MVP; the split is display/planning only. |
+| 11 | Partner filter and Shared rows | A partner filter **excludes Shared** rows; savings rate uses the same filtered set | BUSINESS_RULES §4. |
+| 12 | Category lifecycle | Category `type` is **immutable** after creation. A used category is **deactivated** (it stays on history but can't be newly assigned); an unused one is deleted. `DELETE /api/categories/:id` returns `{ result: DELETED \| DEACTIVATED }` | Keeps historical transactions consistent with their category. |
+| 13 | Category icons | Stored as **Material Symbols names** (matching the design); the web maps them to lucide icons with a tag fallback | Icon names stay stable across icon libraries. |
+| 14 | Locale | UI dates are **English** ("November 2026", "21 Nov 2026"); money and percentages are **es-AR** | English UI with ARS formatting. |
+| 15 | Data freshness | TanStack Query **refetches on window focus**; `staleTime` stays 30s | A partner's changes appear when you return to the app. |
+
+Dependency added in P2: API `decimal.js` (domain money math, as planned in `apps/api/CLAUDE.md`).
+
+Follow-ups: FOR-105 (refresh shares the auth throttle; fix in P3) and FOR-106 (route-level code splitting, P3).

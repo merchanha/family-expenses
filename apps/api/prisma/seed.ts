@@ -4,7 +4,7 @@
  * seedDefaultCategories() at creation time (P1). Idempotent.
  */
 import { PrismaClient } from '@prisma/client';
-import { seedDefaultCategories } from '../src/categories/default-categories';
+import { seedDefaultCategories } from '../src/modules/categories/infrastructure/default-categories';
 
 const prisma = new PrismaClient();
 const DEV_HOUSEHOLD_ID = 'dev-demo-household';

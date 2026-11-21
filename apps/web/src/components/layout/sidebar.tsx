@@ -1,4 +1,5 @@
 import { Brand } from '@/components/layout/brand';
+import { NewExpenseButton } from '@/components/layout/new-expense-button';
 import { SidebarNav } from '@/components/layout/sidebar-nav';
 import { HouseholdMembers } from '@/features/households';
 import { useAuthenticatedSession } from '@/lib/auth/session-context';
@@ -7,6 +8,9 @@ import { useAuthenticatedSession } from '@/lib/auth/session-context';
 export function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
   return (
     <>
+      <div className="px-space-md pb-space-sm">
+        <NewExpenseButton onOpen={onNavigate} />
+      </div>
       <div className="min-h-0 flex-1 overflow-y-auto">
         <SidebarNav onNavigate={onNavigate} />
       </div>

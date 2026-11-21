@@ -90,6 +90,26 @@ describe('CreateAccountPage', () => {
     expect(fetchMock.mock.calls.some(([url]) => url === '/api/households/me/invites')).toBe(false);
   });
 
+  it('lands with a non-blocking notice when the optional partner invite fails', async () => {
+    mockApi({
+      'POST /api/auth/refresh': anonymous,
+      'POST /api/auth/register': () => jsonResponse(sessionResponse({ household: null }), 201),
+      'POST /api/households': () => jsonResponse(soloHousehold, 201),
+      'POST /api/households/me/invites': () => jsonResponse({ statusCode: 500, message: 'mail down' }, 500),
+      'GET /api/households/me': () => jsonResponse(soloHousehold),
+    });
+    const { router } = renderRoute('/create-account');
+    await fillAccount();
+    await userEvent.type(screen.getByLabelText('Shared Space name'), 'Home');
+    await userEvent.type(screen.getByLabelText("Partner's Email"), 'maya@example.com');
+    await userEvent.click(screen.getByRole('button', { name: 'Create Account' }));
+    await waitFor(() => expect(router.state.location.pathname).toBe('/dashboard'));
+    const notice = await screen.findByText(/couldn't send the invite to maya@example.com/);
+    expect(notice).toHaveTextContent('Settings & Household');
+    await userEvent.click(screen.getByRole('button', { name: 'Dismiss notice' }));
+    expect(screen.queryByText(/couldn't send the invite/)).not.toBeInTheDocument();
+  });
+
   it('shows "email already exists" on the email field for 409', async () => {
     mockApi({
       'POST /api/auth/refresh': anonymous,

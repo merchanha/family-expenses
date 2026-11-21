@@ -1,14 +1,24 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 import { NAV_ITEMS } from '@/app/nav';
 import { cn } from '@/lib/utils';
 
+/** Chrome-level view state that follows the user between pages. */
+const KEPT_PARAMS = ['month', 'partner'] as const;
+
 export function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
+  const [params] = useSearchParams();
+  const kept = new URLSearchParams();
+  for (const key of KEPT_PARAMS) {
+    const value = params.get(key);
+    if (value) kept.set(key, value);
+  }
+  const search = kept.toString() ? `?${kept.toString()}` : '';
   return (
     <nav aria-label="Main" className="flex flex-col gap-1 px-space-md py-space-sm">
       {NAV_ITEMS.map(({ to, label, icon: Icon, badge }) => (
         <NavLink
           key={to}
-          to={to}
+          to={{ pathname: to, search }}
           onClick={onNavigate}
           className={({ isActive }) =>
             cn(

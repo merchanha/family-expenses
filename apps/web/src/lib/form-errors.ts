@@ -52,3 +52,14 @@ export function applyServerErrors<T extends FieldValues>(
   if (error.status >= 500) return 'Something went wrong on our side. Please try again.';
   return error.message;
 }
+
+/**
+ * Message for a failed action outside a form (delete, toggle): the API's own
+ * 4xx message (409/422 are written for people), generic text otherwise.
+ */
+export function actionErrorMessage(error: unknown): string {
+  if (!(error instanceof ApiError)) return 'Something went wrong. Please try again.';
+  if (error.status === 0) return NETWORK_ERROR_MESSAGE;
+  if (error.status >= 400 && error.status < 500 && error.code !== 'INVALID_RESPONSE') return error.message;
+  return 'Something went wrong on our side. Please try again.';
+}

@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { DEFAULT_CATEGORIES } from '@tandem/shared';
-import { seedDefaultCategories } from '../src/categories/default-categories';
+import { seedDefaultCategories } from '../src/modules/categories/infrastructure/default-categories';
 
 /** Integration test against the real DB (docker-compose postgres on :5433). */
 describe('seedDefaultCategories (e2e, real DB)', () => {

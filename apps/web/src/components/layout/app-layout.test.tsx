@@ -81,22 +81,6 @@ describe('App shell', () => {
     expect(screen.queryByText('Partner 2')).not.toBeInTheDocument();
   });
 
-  it('shows API status as online when /api/health reports db up', async () => {
-    signedIn();
-    renderRoute('/dashboard');
-    expect(await screen.findByText('Online')).toBeInTheDocument();
-  });
-
-  it('shows Degraded when the API returns 503 {status: error, db: down}', async () => {
-    mockApi({
-      'POST /api/auth/refresh': () => jsonResponse(sessionResponse()),
-      'GET /api/households/me': () => jsonResponse(currentHousehold()),
-      'GET /api/health': () => jsonResponse({ status: 'error', db: 'down', timestamp: new Date().toISOString() }, 503),
-    });
-    renderRoute('/dashboard');
-    expect(await screen.findByText('Degraded')).toBeInTheDocument();
-  });
-
   it('redirects / to /dashboard', async () => {
     signedIn();
     renderRoute('/');

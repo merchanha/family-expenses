@@ -18,12 +18,14 @@ export interface NavItem {
   icon: LucideIcon;
   /** Small pill rendered next to the label (design: "AI"). */
   badge?: string;
+  /** Page is scoped to a month: the header shows the month picker (`?month=`). */
+  monthScoped?: boolean;
 }
 
 /** Sidebar navigation — order & labels from design/main_dashboard; routes from roadmap §3. */
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Dashboard', title: 'Dashboard', to: '/dashboard', icon: LayoutDashboard },
-  { label: 'Transactions', title: 'Transactions', to: '/transactions', icon: ArrowLeftRight },
+  { label: 'Dashboard', title: 'Dashboard', to: '/dashboard', icon: LayoutDashboard, monthScoped: true },
+  { label: 'Transactions', title: 'Transactions', to: '/transactions', icon: ArrowLeftRight, monthScoped: true },
   { label: 'Categories & Budgets', title: 'Categories & Budgets', to: '/categories', icon: PieChart },
   { label: 'Financial Progress', title: 'Financial Progress', to: '/progress', icon: TrendingUp },
   { label: 'Savings Goals', title: 'Savings Goals', to: '/goals', icon: PiggyBank },
