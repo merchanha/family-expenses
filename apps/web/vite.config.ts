@@ -25,5 +25,8 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
     css: false,
+    // Above Testing Library's 5 s asyncUtilTimeout (src/test/setup.ts) so slow lazy-route loads under
+    // parallel `pnpm -r test` fail as a clear findBy error, not a test timeout.
+    testTimeout: 15_000,
   },
 });
