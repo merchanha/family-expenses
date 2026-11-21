@@ -4,4 +4,5 @@ import type { PeriodSummaryFilters } from '@/features/dashboard/infrastructure/s
 export const summaryKeys = {
   all: ['summaries'] as const,
   period: (filters: PeriodSummaryFilters) => [...summaryKeys.all, 'period', filters] as const,
+  charts: (filters: PeriodSummaryFilters) => [...summaryKeys.all, 'charts', filters] as const,
 };

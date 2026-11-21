@@ -26,8 +26,8 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Dashboard', title: 'Dashboard', to: '/dashboard', icon: LayoutDashboard, monthScoped: true },
   { label: 'Transactions', title: 'Transactions', to: '/transactions', icon: ArrowLeftRight, monthScoped: true },
-  { label: 'Categories & Budgets', title: 'Categories & Budgets', to: '/categories', icon: PieChart },
-  { label: 'Financial Progress', title: 'Financial Progress', to: '/progress', icon: TrendingUp },
+  { label: 'Categories & Budgets', title: 'Categories & Budgets', to: '/categories', icon: PieChart, monthScoped: true },
+  { label: 'Financial Progress', title: 'Financial Progress', to: '/progress', icon: TrendingUp, monthScoped: true },
   { label: 'Savings Goals', title: 'Savings Goals', to: '/goals', icon: PiggyBank },
   { label: 'AI Insights', title: 'AI Insights', to: '/insights', icon: Sparkles, badge: 'AI' },
   { label: 'Notifications', title: 'Notifications', to: '/notifications', icon: Bell },

@@ -63,3 +63,17 @@ export function formatPercent(value: string | null, { locale = 'es-AR' }: { loca
   const fmt = new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   return `${fmt.format(v as unknown as number)} %`;
 }
+
+/**
+ * Short money label for chart axes ("$ 1,2 M", "$ 350 mil"). Display only; tooltips and lists
+ * use the full `formatMoney`.
+ */
+export function formatMoneyCompact(
+  amount: string,
+  { currency = DEFAULT_CURRENCY, locale = 'es-AR' }: { currency?: string; locale?: string } = {},
+): string {
+  const value = amount.trim();
+  if (!SIGNED_DECIMAL.test(value)) throw new Error(`formatMoneyCompact expects a decimal string, got "${amount}"`);
+  const fmt = new Intl.NumberFormat(locale, { style: 'currency', currency, notation: 'compact', minimumFractionDigits: 0, maximumFractionDigits: 1 });
+  return fmt.format(value as unknown as number);
+}

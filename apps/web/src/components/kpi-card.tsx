@@ -15,7 +15,7 @@ interface KpiCardProps {
   className?: string;
 }
 
-/** Dashboard KPI card (design/main_dashboard). Shows server values only. */
+/** KPI card (design/main_dashboard; reused by budgets and Financial Progress). Shows server values only. */
 export function KpiCard({ label, icon: Icon, value, valueTitle, footer, badge, className }: KpiCardProps) {
   return (
     <section

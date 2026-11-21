@@ -3,7 +3,7 @@ import type { PeriodSummaryResponse } from '@tandem/shared';
 import { MoneyAmount } from '@/components/money-amount';
 import { formatMoney, formatPercent } from '@/lib/money';
 import { cn } from '@/lib/utils';
-import { KpiCard, KpiCardSkeleton } from '@/features/dashboard/presentation/components/kpi-card';
+import { KpiCard, KpiCardSkeleton } from '@/components/kpi-card';
 
 /** Very large totals may wrap inside the card rather than overflow or ellipsize. */
 const WRAP = 'whitespace-normal';

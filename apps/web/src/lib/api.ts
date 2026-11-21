@@ -44,7 +44,6 @@ export interface RequestOptions extends Omit<RequestInit, 'body'> {
 /** CSRF marker the API requires on cookie-authenticated calls (/auth/refresh, /auth/logout). */
 export const CSRF_HEADER = { [CSRF_HEADER_NAME]: CSRF_HEADER_VALUE } as const;
 
-let refreshInFlight: Promise<AuthSessionResponse | null> | null = null;
 let onSessionExpired: (() => void) | null = null;
 let onHouseholdRequired: (() => void) | null = null;
 
@@ -121,34 +120,67 @@ function errorCode(body: unknown): string | undefined {
   return undefined;
 }
 
+/** Default wait before retrying a throttled refresh when the API gives no readable `Retry-After`. */
+export const REFRESH_RETRY_DEFAULT_MS = 5_000;
+const REFRESH_RETRY_MAX_MS = 60_000;
+
+/**
+ * Outcome of a silent refresh. `throttled` (429) is not a sign-out: the refresh
+ * cookie is still valid, so callers keep the session and retry later (FOR-105).
+ */
+export type RefreshResult =
+  | { kind: 'ok'; session: AuthSessionResponse }
+  | { kind: 'throttled'; retryAfterMs: number }
+  | { kind: 'failed' };
+
+let refreshInFlight: Promise<RefreshResult> | null = null;
+
+/**
+ * `Retry-After` in seconds, clamped to 1–60 s. The API's throttler names the header per bucket
+ * (`Retry-After-refresh`) and CORS doesn't expose it cross-site, so in practice this is the fixed
+ * default backoff; a plain `Retry-After` is honoured if one ever becomes readable.
+ */
+function retryAfterMs(res: Response): number {
+  const seconds = Number(res.headers.get('retry-after'));
+  if (!Number.isFinite(seconds) || seconds <= 0) return REFRESH_RETRY_DEFAULT_MS;
+  return Math.min(Math.max(seconds * 1000, 1000), REFRESH_RETRY_MAX_MS);
+}
+
 /**
  * Exchange the httpOnly refresh cookie (`tandem_rt`) for a new session
  * (access token + user + household summary). Concurrent callers share one
  * request, so the rotated cookie is used only once. Stores the access token on
- * success; resolves `null` on any failure (never throws).
+ * success. Never throws.
  */
-export function refreshSession(): Promise<AuthSessionResponse | null> {
+export function tryRefreshSession(): Promise<RefreshResult> {
   if (!refreshInFlight) {
-    refreshInFlight = withRefreshLock(async () => {
+    refreshInFlight = withRefreshLock(async (): Promise<RefreshResult> => {
       try {
         const res = await fetch(buildUrl('/auth/refresh'), {
           method: 'POST',
           credentials: 'include',
           headers: { Accept: 'application/json', ...CSRF_HEADER },
         });
-        if (!res.ok) return null;
+        if (res.status === 429) return { kind: 'throttled', retryAfterMs: retryAfterMs(res) };
+        if (!res.ok) return { kind: 'failed' };
         const parsed = authSessionResponseSchema.safeParse(await parseBody(res));
-        if (!parsed.success) return null;
+        if (!parsed.success) return { kind: 'failed' };
         tokenStorage.setAccessToken(parsed.data.accessToken);
-        return parsed.data;
+        return { kind: 'ok', session: parsed.data };
       } catch {
-        return null;
+        return { kind: 'failed' };
       }
     }).finally(() => {
       refreshInFlight = null;
     });
   }
   return refreshInFlight;
+}
+
+/** `tryRefreshSession()` reduced to the session, or `null` when it did not succeed. */
+export async function refreshSession(): Promise<AuthSessionResponse | null> {
+  const result = await tryRefreshSession();
+  return result.kind === 'ok' ? result.session : null;
 }
 
 /**
@@ -180,7 +212,13 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
   let res = await send();
   if (res.status === 401 && !anonymous) {
     // Access token missing/expired: refresh once via the cookie, then retry once.
-    if (await refreshSession()) {
+    const refresh = await tryRefreshSession();
+    if (refresh.kind === 'throttled') {
+      // Refresh rate-limited: the session is still valid, so don't sign out. The caller sees a
+      // 429 (queries can retry); the next request refreshes again.
+      throw new ApiError(429, 'Too many requests. Try again in a moment.');
+    }
+    if (refresh.kind === 'ok') {
       res = await send();
     }
     if (res.status === 401) {

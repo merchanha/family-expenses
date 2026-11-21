@@ -18,3 +18,13 @@ if (!window.matchMedia) {
       dispatchEvent: () => false,
     }) as MediaQueryList;
 }
+
+// jsdom lacks ResizeObserver (Recharts' ResponsiveContainer). Charts render at 0×0 in tests;
+// assertions target their text (legends, captions, lists), not SVG geometry.
+if (typeof globalThis.ResizeObserver === 'undefined') {
+  globalThis.ResizeObserver = class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  } as unknown as typeof ResizeObserver;
+}

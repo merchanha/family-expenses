@@ -74,6 +74,9 @@
   --partner-1-border: #c7d2fe;
   --on-partner-1-container: #4338ca;
   --partner-2: #0d9488;
+  /* Chart series (validated: ΔE 33 normal/CVD, ≥ 3:1 vs surface). Income = ink, expenses = indigo, as in design/main_dashboard. */
+  --chart-income: #0b1c30;
+  --chart-expenses: #4b41e1;
   --partner-2-container: #f0fdfa;
   --partner-2-border: #99f6e4;
   --on-partner-2-container: #0f766e;

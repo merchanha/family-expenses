@@ -1,6 +1,14 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { healthResponseSchema } from '@tandem/shared';
-import { api, ApiError, refreshSession, setHouseholdRequiredHandler, setSessionExpiredHandler } from '@/lib/api';
+import {
+  api,
+  ApiError,
+  REFRESH_RETRY_DEFAULT_MS,
+  refreshSession,
+  setHouseholdRequiredHandler,
+  setSessionExpiredHandler,
+  tryRefreshSession,
+} from '@/lib/api';
 import { tokenStorage } from '@/lib/auth/token-storage';
 import { jsonResponse } from '@/test/render';
 import { sessionResponse } from '@/test/fixtures';
@@ -137,6 +145,28 @@ describe('api client', () => {
       await expect(api.post('/auth/login', {}, { anonymous: true })).rejects.toMatchObject({ status: 401 });
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(expired).not.toHaveBeenCalled();
+    });
+
+    it('does not end the session when the refresh is throttled (429)', async () => {
+      const expired = vi.fn();
+      setSessionExpiredHandler(expired);
+      tokenStorage.setAccessToken('expired');
+      fetchMock
+        .mockResolvedValueOnce(jsonResponse({ statusCode: 401, message: 'Unauthorized' }, 401))
+        .mockResolvedValueOnce(jsonResponse({ statusCode: 429, message: 'Too Many Requests' }, 429));
+
+      await expect(api.get('/households/me')).rejects.toMatchObject({ status: 429 });
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+      expect(expired).not.toHaveBeenCalled();
+    });
+
+    it('reports a throttled refresh with the Retry-After delay (default when unreadable)', async () => {
+      fetchMock.mockResolvedValueOnce(
+        new Response(null, { status: 429, headers: { 'Retry-After': '3' } }),
+      );
+      await expect(tryRefreshSession()).resolves.toEqual({ kind: 'throttled', retryAfterMs: 3000 });
+      fetchMock.mockResolvedValueOnce(new Response(null, { status: 429 }));
+      await expect(tryRefreshSession()).resolves.toEqual({ kind: 'throttled', retryAfterMs: REFRESH_RETRY_DEFAULT_MS });
     });
 
     it('shares one refresh request between concurrent callers', async () => {

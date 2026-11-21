@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
-import { api, CSRF_HEADER, refreshSession, setHouseholdRequiredHandler, setSessionExpiredHandler } from '@/lib/api';
+import { api, CSRF_HEADER, setHouseholdRequiredHandler, setSessionExpiredHandler, tryRefreshSession } from '@/lib/api';
 import { tokenStorage } from '@/lib/auth/token-storage';
 import { SessionContext, type SessionContextValue, type SessionState } from '@/lib/auth/session-context';
 
@@ -38,11 +38,23 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (bootstrapped.current) return; // StrictMode re-runs effects; bootstrap once.
     bootstrapped.current = true;
-    void refreshSession().then((session) => {
-      setState(
-        session ? { status: 'authenticated', user: session.user, household: session.household } : { status: 'anonymous' },
-      );
-    });
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const bootstrap = () => {
+      void tryRefreshSession().then((result) => {
+        if (result.kind === 'throttled') {
+          // 429 is not a sign-out (FOR-105): stay on the splash and try again later.
+          timer = setTimeout(bootstrap, result.retryAfterMs);
+          return;
+        }
+        setState(
+          result.kind === 'ok'
+            ? { status: 'authenticated', user: result.session.user, household: result.session.household }
+            : { status: 'anonymous' },
+        );
+      });
+    };
+    bootstrap();
+    return () => clearTimeout(timer);
   }, []);
 
   const value = useMemo<SessionContextValue>(

@@ -26,8 +26,11 @@ function CategoriesSkeleton() {
   );
 }
 
-/** Categories & Budgets — P2: the categories (envelopes) list. Budgets land in P3. */
-export function CategoriesPage() {
+/**
+ * Category management on /categories (create, edit name/icon/color, deactivate, reactivate) for both
+ * types. Budgets for the month are the envelopes above it (budgets feature).
+ */
+export function CategoryManager() {
   const [showInactive, setShowInactive] = useState(false);
   const query = useCategories({ includeInactive: showInactive });
   const reactivate = useUpdateCategory();
@@ -55,11 +58,11 @@ export function CategoriesPage() {
   };
 
   return (
-    <div className="flex flex-col gap-space-lg">
+    <section aria-labelledby="manage-categories" className="flex flex-col gap-space-lg">
       <div className="flex flex-wrap items-end justify-between gap-space-md">
         <div>
-          <h2 className="font-headline text-headline-lg-mobile text-on-surface md:text-headline-lg">Categories</h2>
-          <p className="text-body-md text-on-surface-variant">Your shared envelopes. Monthly budgets arrive in the next release.</p>
+          <h3 id="manage-categories" className="font-headline text-headline-md text-on-surface">Manage categories</h3>
+          <p className="text-body-md text-on-surface-variant">Names, icons and colors for expense and income categories.</p>
         </div>
         <div className="flex items-center gap-space-sm">
           <label className="flex min-h-10 cursor-pointer items-center gap-2 text-label-md text-on-surface-variant">
@@ -89,9 +92,9 @@ export function CategoriesPage() {
           const items = query.data.items.filter((c) => c.type === type);
           return (
             <section key={type} aria-labelledby={`categories-${type}`} className="flex flex-col gap-space-sm">
-              <h3 id={`categories-${type}`} className="text-label-sm text-on-surface-variant uppercase">
+              <h4 id={`categories-${type}`} className="text-label-sm text-on-surface-variant uppercase">
                 {TYPE_PLURAL[type]}
-              </h3>
+              </h4>
               {items.length ? (
                 <CategoryList
                   categories={items}
@@ -119,6 +122,6 @@ export function CategoriesPage() {
 
       <CategoryFormDialog open={formOpen} onOpenChange={setFormOpen} category={editing} defaultType={createType} />
       <RemoveCategoryDialog category={removing} onOpenChange={(open) => !open && setRemoving(null)} />
-    </div>
+    </section>
   );
 }
