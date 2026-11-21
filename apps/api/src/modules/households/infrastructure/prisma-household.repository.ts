@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
-import { seedDefaultCategories } from '../../../categories/default-categories';
+import { seedDefaultCategories } from '../../categories/infrastructure/default-categories';
 import type { HouseholdRecord, UserIdentity } from '../domain/household';
 import { HouseholdPatch, HouseholdRepository, MemberPatch, NewHousehold } from '../domain/household.repository';
 
