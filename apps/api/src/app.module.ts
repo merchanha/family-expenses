@@ -9,6 +9,9 @@ import { AllExceptionsFilter } from './common/all-exceptions.filter';
 import { HealthModule } from './health/health.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { HouseholdsModule } from './modules/households/households.module';
+import { CategoriesModule } from './modules/categories/categories.module';
+import { TransactionsModule } from './modules/transactions/transactions.module';
+import { SummariesModule } from './modules/summaries/summaries.module';
 
 @Module({
   imports: [
@@ -30,6 +33,9 @@ import { HouseholdsModule } from './modules/households/households.module';
     HealthModule,
     AuthModule,
     HouseholdsModule,
+    CategoriesModule,
+    TransactionsModule,
+    SummariesModule,
   ],
   providers: [{ provide: APP_FILTER, useClass: AllExceptionsFilter }],
 })

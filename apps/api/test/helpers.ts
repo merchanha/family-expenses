@@ -96,3 +96,28 @@ export async function invite(ctx: E2eContext, owner: TestUser, email: string): P
 export async function acceptInvite(ctx: E2eContext, user: TestUser, token: string): Promise<void> {
   await request(ctx.http).post('/api/invites/accept').set(bearer(user.accessToken)).send({ token }).expect(200);
 }
+
+/** An active category of the caller's household (defaults are seeded on household create). */
+export async function categoryId(ctx: E2eContext, user: TestUser, type: 'INCOME' | 'EXPENSE', name?: string): Promise<string> {
+  const res = await request(ctx.http).get(`/api/categories?type=${type}`).set(bearer(user.accessToken)).expect(200);
+  const items = res.body.items as { id: string; name: string }[];
+  const hit = name ? items.find((c) => c.name === name) : items[0];
+  if (!hit) throw new Error(`No ${type} category ${name ?? ''}`);
+  return hit.id;
+}
+
+export interface TxBody {
+  type: 'INCOME' | 'EXPENSE';
+  description: string;
+  amount: string;
+  categoryId: string;
+  transactionDate: string;
+  paidById?: string | null;
+  notes?: string | null;
+}
+
+/** POST /transactions (expects 201); returns the created id. */
+export async function createTx(ctx: E2eContext, user: TestUser, body: TxBody): Promise<string> {
+  const res = await request(ctx.http).post('/api/transactions').set(bearer(user.accessToken)).send(body).expect(201);
+  return res.body.id as string;
+}
