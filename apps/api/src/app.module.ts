@@ -12,6 +12,8 @@ import { HouseholdsModule } from './modules/households/households.module';
 import { CategoriesModule } from './modules/categories/categories.module';
 import { TransactionsModule } from './modules/transactions/transactions.module';
 import { SummariesModule } from './modules/summaries/summaries.module';
+import { BudgetsModule } from './modules/budgets/budgets.module';
+import { FinancialProgressModule } from './modules/financial-progress/financial-progress.module';
 
 @Module({
   imports: [
@@ -26,8 +28,6 @@ import { SummariesModule } from './modules/summaries/summaries.module';
           ttl: config.get('AUTH_THROTTLE_TTL_SECONDS', { infer: true }) * 1000,
           limit: config.get('AUTH_THROTTLE_LIMIT', { infer: true }),
         },
-      ],
-    }),
         // Session refresh runs on every page load (both partners, several tabs, one IP), so it gets
         // its own, looser bucket. Refresh tokens rotate and reuse revokes the family (FOR-105).
         {
@@ -35,6 +35,8 @@ import { SummariesModule } from './modules/summaries/summaries.module';
           ttl: config.get('AUTH_THROTTLE_TTL_SECONDS', { infer: true }) * 1000,
           limit: config.get('AUTH_REFRESH_THROTTLE_LIMIT', { infer: true }),
         },
+      ],
+    }),
     PrismaModule,
     CommonModule,
     HealthModule,
@@ -43,6 +45,8 @@ import { SummariesModule } from './modules/summaries/summaries.module';
     CategoriesModule,
     TransactionsModule,
     SummariesModule,
+    BudgetsModule,
+    FinancialProgressModule,
   ],
   providers: [{ provide: APP_FILTER, useClass: AllExceptionsFilter }],
 })

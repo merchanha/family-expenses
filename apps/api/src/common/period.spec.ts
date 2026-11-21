@@ -1,4 +1,4 @@
-import { dateOnlyToDate, dateToDateOnly, explicitPeriod, monthPeriod, periodOrCurrentMonth, todayInTimeZone } from './period';
+import { dateOnlyToDate, dateToDateOnly, datesBetween, explicitPeriod, monthPeriod, periodOrCurrentMonth, shiftMonth, todayInTimeZone } from './period';
 
 const BA = 'America/Argentina/Buenos_Aires'; // UTC−3
 
@@ -28,5 +28,19 @@ describe('period helpers', () => {
 
   it('date-only conversions round-trip', () => {
     expect(dateToDateOnly(dateOnlyToDate('2026-02-28'))).toBe('2026-02-28');
+  });
+
+  it('shiftMonth crosses year boundaries both ways', () => {
+    expect(shiftMonth(2026, 1, -1)).toEqual({ year: 2025, month: 12 });
+    expect(shiftMonth(2026, 12, 1)).toEqual({ year: 2027, month: 1 });
+    expect(shiftMonth(2026, 3, -5)).toEqual({ year: 2025, month: 10 });
+    expect(shiftMonth(2026, 11, 0)).toEqual({ year: 2026, month: 11 });
+  });
+
+  it('datesBetween lists inclusive days, across month ends, empty when reversed', () => {
+    expect(datesBetween('2028-02-28', '2028-03-01')).toEqual(['2028-02-28', '2028-02-29', '2028-03-01']);
+    expect(datesBetween('2026-11-01', '2026-11-01')).toEqual(['2026-11-01']);
+    expect(datesBetween('2026-11-02', '2026-11-01')).toEqual([]);
+    expect(datesBetween('2026-11-01', '2026-11-30')).toHaveLength(30);
   });
 });

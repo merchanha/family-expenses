@@ -6,11 +6,11 @@ import { Clock } from '../../../common/clock';
 import { paidByPartnerWhere } from '../../../common/partner-filter';
 import { dateOnlyToDate, periodOrCurrentMonth } from '../../../common/period';
 import { PrismaService } from '../../../prisma/prisma.service';
-import { calculatePeriodTotals } from '../domain/period-totals';
+import { calculatePeriodTotals } from '../../../common/period-totals';
 
 /**
  * GET /summaries/period — sums by type in SQL over transactionDate (never createdAt); the formulas
- * live in domain/period-totals. Default period = current month in the household timezone.
+ * live in common/period-totals. Default period = current month in the household timezone.
  * Savings contributions (P5) are not part of these figures.
  */
 @Injectable()
