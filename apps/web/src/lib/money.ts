@@ -28,3 +28,38 @@ export function formatMoney(
 
 /** True when `value` is a valid non-negative wire money string. */
 export const isMoneyString = (value: string) => MONEY_REGEX.test(value);
+
+/**
+ * Normalise what a person types into a money input into a wire decimal string,
+ * WITHOUT converting to a number (apps/web/CLAUDE.md §10). es-AR first:
+ *   "1.234,50" → "1234.50", "128,5" → "128.5", "$ 1.234" → "1234"
+ * A dot is still read as the decimal separator when it can't be a thousands
+ * separator ("128.50" → "128.50"). The result is validated by the shared schema;
+ * anything unparseable is returned trimmed so validation can reject it.
+ */
+export function normalizeMoneyInput(raw: string): string {
+  const value = raw.replace(/[\s $]/g, '');
+  if (!value) return '';
+  if (value.includes(',')) {
+    // Comma = decimal separator; dots are thousands separators.
+    const [int = '', ...rest] = value.split(',');
+    if (rest.length !== 1) return value;
+    return `${int.replace(/\./g, '')}.${rest[0]}`;
+  }
+  const dots = value.split('.').length - 1;
+  if (dots > 1) return value.replace(/\./g, ''); // "1.234.567"
+  if (dots === 1 && /^\d{1,3}\.\d{3}$/.test(value)) return value.replace('.', ''); // "1.234"
+  return value;
+}
+
+/**
+ * Format an API percentage string ("82.50", "-12.3") as "82,50 %". `null` means
+ * "not available" (zero denominator) — never shown as 0%, NaN or Infinity.
+ */
+export function formatPercent(value: string | null, { locale = 'es-AR' }: { locale?: string } = {}): string {
+  if (value === null) return 'Not available';
+  const v = value.trim();
+  if (!SIGNED_DECIMAL.test(v)) throw new Error(`formatPercent expects a decimal string, got "${value}"`);
+  const fmt = new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return `${fmt.format(v as unknown as number)} %`;
+}

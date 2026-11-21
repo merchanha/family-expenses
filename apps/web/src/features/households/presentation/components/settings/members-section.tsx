@@ -15,7 +15,7 @@ import { memberLabel, PARTNER_SLOT_LABEL } from '@/features/households/domain/me
 import { PartnerAvatar } from '@/features/households/presentation/components/partner-avatar';
 import { SettingsSection } from '@/features/households/presentation/components/settings/settings-section';
 
-const DATE = new Intl.DateTimeFormat('es-AR', { dateStyle: 'medium' });
+const DATE = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' });
 
 function InviteForm({ hasPending }: { hasPending: boolean }) {
   const invite = useCreateInvite();

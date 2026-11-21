@@ -56,3 +56,13 @@ export function requestBody(fetchMock: ReturnType<typeof mockApi>, key: string, 
   const body = calls[n]?.[1]?.body;
   return typeof body === 'string' ? JSON.parse(body) : undefined;
 }
+
+/** URLs (with query string) of every call to `key` ("METHOD /api/path"). */
+export function requestUrls(fetchMock: ReturnType<typeof mockApi>, key: string): URL[] {
+  return fetchMock.mock.calls
+    .filter(([input, init]) => {
+      const url = typeof input === 'string' ? input : String(input);
+      return `${(init?.method ?? 'GET').toUpperCase()} ${url.split('?')[0]}` === key;
+    })
+    .map(([input]) => new URL(typeof input === 'string' ? input : String(input), 'http://localhost'));
+}

@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import type { CurrentHouseholdResponse, RegisterInput } from '@tandem/shared';
 import { tokenStorage } from '@/lib/auth/token-storage';
+import { setFlashNotice } from '@/lib/flash-notice';
 import { useSession } from '@/lib/auth/session-context';
 import { acceptInvite, createHousehold, createInvite, householdKeys, toSessionHousehold } from '@/features/households';
 import { register } from '@/features/auth/infrastructure/auth-api';
@@ -41,7 +42,10 @@ export function useCreateAccount() {
         try {
           await createInvite({ email: partnerEmail });
         } catch {
-          // Non-blocking: Settings shows there's no pending invite and lets them retry.
+          // Non-blocking: tell them on landing; Settings lets them retry (FOR-97).
+          setFlashNotice(
+            `We couldn't send the invite to ${partnerEmail}. You can send it from Settings & Household.`,
+          );
         }
       }
       return { session, household };
