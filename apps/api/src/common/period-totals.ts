@@ -1,7 +1,7 @@
-import Decimal from 'decimal.js';
+import type Decimal from 'decimal.js';
+import { roundPercent } from './percent';
 
-/** Percentages: half-up to 2 decimals (decimal.js ROUND_HALF_UP rounds .5 away from zero). */
-export const roundPercent = (value: Decimal): Decimal => value.toDecimalPlaces(2, Decimal.ROUND_HALF_UP);
+export { roundPercent };
 
 export interface PeriodTotals {
   income: Decimal;
@@ -12,7 +12,7 @@ export interface PeriodTotals {
   savingsRate: Decimal | null;
 }
 
-/** All period formulas for P2, in one pure function. Inputs are already partner-filtered sums. */
+/** Period formulas shared by summaries and financial-progress, in one pure function. Inputs are already partner-filtered sums. */
 export function calculatePeriodTotals(income: Decimal, expenses: Decimal): PeriodTotals {
   const netCashFlowBuffer = income.minus(expenses);
   const savingsRate = income.isZero() ? null : roundPercent(netCashFlowBuffer.div(income).times(100));

@@ -3,7 +3,7 @@ import type { PeriodSummaryResponse } from '@tandem/shared';
 import { MoneyAmount } from '@/components/money-amount';
 import { formatMoney, formatPercent } from '@/lib/money';
 import { cn } from '@/lib/utils';
-import { KpiCard, KpiCardSkeleton } from '@/features/dashboard/presentation/components/kpi-card';
+import { KpiCard, KpiCardSkeleton } from '@/components/kpi-card';
 
 /** Very large totals may wrap inside the card rather than overflow or ellipsize. */
 const WRAP = 'whitespace-normal';
@@ -22,7 +22,7 @@ export function SummaryKpis({ summary }: { summary: PeriodSummaryResponse }) {
         icon={ArrowDownLeft}
         value={<MoneyAmount amount={summary.income} currency={summary.currency} className={WRAP} />}
         valueTitle={formatMoney(summary.income, { currency: summary.currency })}
-        footer={<span className="text-positive">Money in this month</span>}
+        footer={<span className="text-positive-text">Money in this month</span>}
       />
       <KpiCard
         label="Total expenses"
@@ -37,7 +37,7 @@ export function SummaryKpis({ summary }: { summary: PeriodSummaryResponse }) {
         value={<MoneyAmount amount={net} currency={summary.currency} className={cn(WRAP, negative && 'text-negative')} />}
         valueTitle={formatMoney(net, { currency: summary.currency })}
         badge={
-          <span className={negative ? 'rounded-full bg-negative-container px-2 py-0.5 text-label-sm text-negative' : 'rounded-full bg-positive-container px-2 py-0.5 text-label-sm text-positive'}>
+          <span className={negative ? 'rounded-full bg-negative-container px-2 py-0.5 text-label-sm text-danger-text' : 'rounded-full bg-positive-container px-2 py-0.5 text-label-sm text-positive-text'}>
             {negative ? 'Overspent' : 'Liquid'}
           </span>
         }

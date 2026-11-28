@@ -69,11 +69,19 @@
   --warning: #f59e0b;
   --warning-container: #fffbeb;
   --warning-border: #fde68a;
+  /* Text-only variants for small status text: WCAG AA (≥ 4.5:1) on white and on the -container fills.
+     The base tokens stay for fills, bars and large figures. */
+  --positive-text: #047857;
+  --warning-text: #b45309;
+  --danger-text: #be123c; /* 6.29:1 on white, 5.72:1 on --negative-container */
   --partner-1: #6366f1;
   --partner-1-container: #eef2ff;
   --partner-1-border: #c7d2fe;
   --on-partner-1-container: #4338ca;
   --partner-2: #0d9488;
+  /* Chart series (validated: ΔE 33 normal/CVD, ≥ 3:1 vs surface). Income = ink, expenses = indigo, as in design/main_dashboard. */
+  --chart-income: #0b1c30;
+  --chart-expenses: #4b41e1;
   --partner-2-container: #f0fdfa;
   --partner-2-border: #99f6e4;
   --on-partner-2-container: #0f766e;
@@ -173,6 +181,9 @@
   --color-warning: var(--warning);
   --color-warning-container: var(--warning-container);
   --color-warning-border: var(--warning-border);
+  --color-positive-text: var(--positive-text);
+  --color-warning-text: var(--warning-text);
+  --color-danger-text: var(--danger-text);
   --color-partner-1: var(--partner-1);
   --color-partner-1-container: var(--partner-1-container);
   --color-partner-1-border: var(--partner-1-border);

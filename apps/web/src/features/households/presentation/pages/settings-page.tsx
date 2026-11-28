@@ -24,7 +24,7 @@ export function SettingsPage() {
         </div>
       )}
       {isError && (
-        <div role="alert" className="flex items-center justify-between gap-space-md rounded-base border border-negative-border bg-negative-container p-space-md text-body-sm text-negative">
+        <div role="alert" className="flex items-center justify-between gap-space-md rounded-base border border-negative-border bg-negative-container p-space-md text-body-sm text-danger-text">
           {error instanceof ApiError && error.status === 0 ? NETWORK_ERROR_MESSAGE : "Couldn't load your Shared Space."}
           <Button variant="secondary" size="sm" onClick={() => void refetch()}>
             Retry

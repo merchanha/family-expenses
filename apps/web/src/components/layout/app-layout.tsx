@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { NAV_ITEMS } from '@/app/nav';
 import { AppHeader } from '@/components/layout/app-header';
 import { FlashNotice } from '@/components/layout/flash-notice';
+import { PageFallback } from '@/components/layout/page-fallback';
 import { Sidebar } from '@/components/layout/sidebar';
 import { TransactionDialogProvider } from '@/features/transactions';
 
@@ -20,7 +22,9 @@ export function AppLayout() {
           <AppHeader title={current?.title ?? 'Tandem Finance'} monthScoped={current?.monthScoped ?? false} />
           <main className="mx-auto w-full max-w-[1200px] flex-1 px-margin py-space-lg md:px-margin-md lg:px-margin-lg">
             <FlashNotice />
-            <Outlet />
+            <Suspense fallback={<PageFallback />}>
+              <Outlet />
+            </Suspense>
           </main>
         </div>
       </div>

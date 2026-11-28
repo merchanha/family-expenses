@@ -57,3 +57,28 @@ export const resolvedPeriodSchema = z.object({
   month: z.number().int().nullable(),
 });
 export type ResolvedPeriod = z.infer<typeof resolvedPeriodSchema>;
+
+/**
+ * Month-only selection on query strings: `year` + `month` together, or neither
+ * (each endpoint documents its default, usually the current month in the household timezone).
+ */
+export const monthQueryFields = {
+  year: queryInt(2000, 2100).optional(),
+  month: queryInt(1, 12).optional(),
+};
+
+export const refineMonth = (v: { year?: number; month?: number }, ctx: z.RefinementCtx): void => {
+  if ((v.year === undefined) !== (v.month === undefined)) {
+    ctx.addIssue({ code: z.ZodIssueCode.custom, path: [v.year === undefined ? 'year' : 'month'], message: 'year and month go together' });
+  }
+};
+
+/** A calendar month in a request body (not a query string). */
+export const yearMonthBodyFields = {
+  year: z.number().int().min(2000).max(2100),
+  month: z.number().int().min(1).max(12),
+};
+
+/** An inclusive date range the API resolved. */
+export const dateRangeSchema = z.object({ from: isoDateSchema, to: isoDateSchema });
+export type DateRange = z.infer<typeof dateRangeSchema>;

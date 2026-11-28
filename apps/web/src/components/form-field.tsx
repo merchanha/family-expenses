@@ -31,7 +31,7 @@ export function FormField({ label, aside, hint, error, className, children }: Fo
       </div>
       {cloneElement(children, { id, 'aria-invalid': error ? true : undefined, 'aria-describedby': describedBy })}
       {error && (
-        <p id={errorId} className="text-body-sm text-negative">
+        <p id={errorId} className="text-body-sm text-danger-text">
           {error}
         </p>
       )}

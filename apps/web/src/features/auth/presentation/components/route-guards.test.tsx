@@ -23,6 +23,29 @@ describe('route guards + session bootstrap', () => {
     expect(screen.queryByRole('navigation', { name: 'Main' })).not.toBeInTheDocument();
   });
 
+  it('keeps the splash on a throttled refresh (429) and retries instead of signing out', async () => {
+    let refreshes = 0;
+    const fetchMock = mockApi({
+      'POST /api/auth/refresh': () =>
+        refreshes++ === 0
+          ? new Response(JSON.stringify({ statusCode: 429, message: 'Too Many Requests' }), {
+              status: 429,
+              headers: { 'Content-Type': 'application/json', 'Retry-After': '1' },
+            })
+          : jsonResponse(sessionResponse({ accessToken: 'after-throttle' })),
+      'GET /api/households/me': () => jsonResponse(currentHousehold()),
+      'GET /api/health': health,
+    });
+    const { router } = renderRoute('/dashboard');
+    await waitFor(() => expect(refreshes).toBe(1));
+    // Not bounced to sign-in while throttled.
+    expect(screen.getByText('Opening your Shared Space…')).toBeInTheDocument();
+    expect(router.state.location.pathname).toBe('/dashboard');
+    expect(await screen.findByRole('heading', { level: 1, name: 'Dashboard' }, { timeout: 3000 })).toBeInTheDocument();
+    expect(fetchMock.mock.calls.filter(([url]) => url === '/api/auth/refresh')).toHaveLength(2);
+    expect(tokenStorage.getAccessToken()).toBe('after-throttle');
+  });
+
   it('restores the session on reload from the refresh cookie (no stored token)', async () => {
     const fetchMock = mockApi({
       'POST /api/auth/refresh': () => jsonResponse(sessionResponse({ accessToken: 'restored' })),

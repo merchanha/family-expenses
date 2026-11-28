@@ -19,7 +19,7 @@ export function MonthPicker({ className }: { className?: string }) {
         disabled={isCurrent}
         title={isCurrent ? undefined : 'Back to this month'}
         aria-label={isCurrent ? `${label} (this month)` : `${label}. Back to this month`}
-        className="flex min-h-8 items-center gap-1.5 rounded-base px-space-sm text-label-md text-on-surface tabular hover:bg-surface-container-low disabled:cursor-default disabled:hover:bg-transparent"
+        className="flex min-h-8 items-center gap-1.5 rounded-base pointer-coarse:min-h-10 px-space-sm text-label-md text-on-surface tabular hover:bg-surface-container-low disabled:cursor-default disabled:hover:bg-transparent"
       >
         <CalendarDays className="size-4 text-on-surface-variant" aria-hidden="true" />
         <span aria-live="polite" className="whitespace-nowrap">{label}</span>

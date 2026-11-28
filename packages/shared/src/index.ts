@@ -8,4 +8,6 @@ export * from './households';
 export * from './periods';
 export * from './transactions';
 export * from './summaries';
+export * from './budgets';
+export * from './financial-progress';
 export { z } from 'zod';

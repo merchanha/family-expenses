@@ -9,9 +9,9 @@ const alertVariants = cva(
       variant: {
         default: "bg-card text-card-foreground",
         destructive:
-          "border-negative-border bg-negative-container text-negative *:data-[slot=alert-description]:text-negative [&>svg]:text-current",
+          "border-negative-border bg-negative-container text-danger-text *:data-[slot=alert-description]:text-danger-text [&>svg]:text-current",
         success:
-          "border-positive-border bg-positive-container text-positive *:data-[slot=alert-description]:text-positive [&>svg]:text-current",
+          "border-positive-border bg-positive-container text-positive-text *:data-[slot=alert-description]:text-positive-text [&>svg]:text-current",
       },
     },
     defaultVariants: {

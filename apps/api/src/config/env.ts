@@ -23,6 +23,8 @@ export const envSchema = z
     INVITE_TTL_DAYS: z.coerce.number().int().positive().default(7),
     /** Per-IP limit on credential endpoints (in-memory, per instance — acceptable for MVP). */
     AUTH_THROTTLE_LIMIT: z.coerce.number().int().positive().default(10),
+    /** Per-IP limit on POST /auth/refresh, same window as AUTH_THROTTLE_TTL_SECONDS. */
+    AUTH_REFRESH_THROTTLE_LIMIT: z.coerce.number().int().positive().default(120),
     AUTH_THROTTLE_TTL_SECONDS: z.coerce.number().int().positive().default(60),
   })
   .refine((e) => e.REFRESH_COOKIE_SAMESITE !== 'none' || e.REFRESH_COOKIE_SECURE, {

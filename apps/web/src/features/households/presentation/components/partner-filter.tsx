@@ -33,7 +33,7 @@ export function PartnerFilter() {
           title={o.slot ? `${o.label} (${PARTNER_SLOT_LABEL[o.slot]})` : undefined}
           onClick={() => setActive(o.slot)}
           className={cn(
-            'flex min-h-8 items-center gap-1.5 rounded-[6px] px-space-sm py-1 text-label-sm sm:px-space-md',
+            'flex min-h-8 items-center gap-1.5 rounded-[6px] pointer-coarse:min-h-10 px-space-sm py-1 text-label-sm sm:px-space-md',
             o.slot === active
               ? 'bg-surface-container-lowest text-on-surface shadow-sm'
               : 'text-on-surface-variant hover:text-on-surface',

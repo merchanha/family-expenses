@@ -11,7 +11,7 @@ const buttonVariants = cva(
         // Variants follow DESIGN.md "Buttons & Interactive Controls".
         default: "bg-primary text-primary-foreground hover:bg-primary-container active:scale-[0.99]",
         destructive:
-          "border border-negative-border bg-negative-container text-negative hover:bg-[#ffe4e6] focus-visible:ring-destructive/20",
+          "border border-negative-border bg-negative-container text-danger-text hover:bg-[#ffe4e6] focus-visible:ring-destructive/20",
         outline:
           "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
         secondary:
@@ -23,13 +23,14 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
+        default: "h-9 px-4 py-2 has-[>svg]:px-3 pointer-coarse:h-10",
         xs: "h-6 gap-1 rounded-base px-2 text-xs has-[>svg]:px-1.5 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-8 gap-1.5 rounded-base px-3 has-[>svg]:px-2.5",
+        sm: "h-8 gap-1.5 rounded-base px-3 has-[>svg]:px-2.5 pointer-coarse:h-10",
         lg: "h-10 rounded-base px-6 has-[>svg]:px-4",
-        icon: "size-9",
+        // Touch targets ≥ 40px on touch screens (apps/web/CLAUDE.md §17); desktop density unchanged.
+        icon: "size-9 pointer-coarse:size-10",
         "icon-xs": "size-6 rounded-base [&_svg:not([class*='size-'])]:size-3",
-        "icon-sm": "size-8",
+        "icon-sm": "size-8 pointer-coarse:size-10",
         "icon-lg": "size-10",
       },
     },

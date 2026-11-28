@@ -1,5 +1,5 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, UseGuards } from '@nestjs/common';
-import { ThrottlerGuard } from '@nestjs/throttler';
+import { SkipThrottle, ThrottlerGuard } from '@nestjs/throttler';
 import {
   acceptInviteSchema,
   z,
@@ -16,6 +16,7 @@ import { PreviewInviteQuery } from '../application/preview-invite.query';
 
 const tokenParamSchema = z.string().min(1).max(256);
 
+@SkipThrottle({ refresh: true })
 @Controller('invites')
 export class InvitesController {
   constructor(

@@ -41,3 +41,19 @@ export const dateOnlyToDate = (value: string): Date => new Date(`${value}T00:00:
 
 /** `@db.Date` value from Prisma → `YYYY-MM-DD`. */
 export const dateToDateOnly = (value: Date): string => value.toISOString().slice(0, 10);
+
+/** The calendar month `delta` months away (negative = earlier). */
+export function shiftMonth(year: number, month: number, delta: number): { year: number; month: number } {
+  const index = year * 12 + (month - 1) + delta;
+  return { year: Math.floor(index / 12), month: (index % 12) + 1 };
+}
+
+/** Every `YYYY-MM-DD` from `from` to `to` inclusive (empty when from > to). */
+export function datesBetween(from: string, to: string): string[] {
+  const out: string[] = [];
+  for (let d = dateOnlyToDate(from); dateToDateOnly(d) <= to; d = new Date(d.getTime() + 86_400_000)) {
+    out.push(dateToDateOnly(d));
+  }
+  return out;
+}
+

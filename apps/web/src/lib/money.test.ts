@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatMoney, formatPercent, normalizeMoneyInput } from '@/lib/money';
+import { formatMoney, formatMoneyCompact, formatPercent, normalizeMoneyInput } from '@/lib/money';
 
 const norm = (s: string) => s.replace(/\s/g, ' ');
 
@@ -45,5 +45,16 @@ describe('formatPercent', () => {
   });
   it('shows "Not available" for null (zero denominator)', () => {
     expect(formatPercent(null)).toBe('Not available');
+  });
+});
+
+describe('formatMoneyCompact', () => {
+  it('shortens large ARS amounts for chart axes', () => {
+    expect(formatMoneyCompact('1250000.00').replace(/\s/g, ' ')).toMatch(/1,3\s?M/);
+    expect(formatMoneyCompact('0.00')).toContain('0');
+  });
+
+  it('rejects non-decimal input', () => {
+    expect(() => formatMoneyCompact('abc')).toThrow();
   });
 });

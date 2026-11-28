@@ -195,7 +195,7 @@ export function TransactionFormDialog({ open, onOpenChange, transaction, default
                   className={cn(
                     'flex min-h-10 items-center justify-center gap-1.5 rounded-base text-label-md transition-colors focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-none',
                     selected
-                      ? cn('bg-surface-container-lowest shadow-level-1', t === 'EXPENSE' ? 'text-negative' : 'text-positive')
+                      ? cn('bg-surface-container-lowest shadow-level-1', t === 'EXPENSE' ? 'text-danger-text' : 'text-positive-text')
                       : 'text-on-surface-variant hover:text-on-surface',
                   )}
                 >
@@ -226,7 +226,7 @@ export function TransactionFormDialog({ open, onOpenChange, transaction, default
               />
             </div>
             {errors.amount ? (
-              <p id={`${ids.amount}-error`} className="text-body-sm text-negative">
+              <p id={`${ids.amount}-error`} className="text-body-sm text-danger-text">
                 {errors.amount.message}
               </p>
             ) : (
@@ -271,7 +271,7 @@ export function TransactionFormDialog({ open, onOpenChange, transaction, default
                 );
               })}
             </div>
-            {errors.paidById && <p className="text-body-sm text-negative">{errors.paidById.message}</p>}
+            {errors.paidById && <p className="text-body-sm text-danger-text">{errors.paidById.message}</p>}
           </fieldset>
 
           <FormField label="Description" error={errors.description?.message}>
@@ -302,11 +302,11 @@ export function TransactionFormDialog({ open, onOpenChange, transaction, default
                 ))}
               </select>
               {errors.categoryId && (
-                <p id={`${ids.category}-error`} className="text-body-sm text-negative">
+                <p id={`${ids.category}-error`} className="text-body-sm text-danger-text">
                   {errors.categoryId.message}
                 </p>
               )}
-              {categories.isError && <p className="text-body-sm text-negative">Couldn't load categories.</p>}
+              {categories.isError && <p className="text-body-sm text-danger-text">Couldn't load categories.</p>}
             </div>
 
             <div className="flex flex-col gap-1.5">
@@ -341,7 +341,7 @@ export function TransactionFormDialog({ open, onOpenChange, transaction, default
                 aria-invalid={errors.transactionDate ? true : undefined}
                 {...form.register('transactionDate')}
               />
-              {errors.transactionDate && <p className="text-body-sm text-negative">{errors.transactionDate.message}</p>}
+              {errors.transactionDate && <p className="text-body-sm text-danger-text">{errors.transactionDate.message}</p>}
             </div>
           </div>
 
